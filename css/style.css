@@ -1,0 +1,222 @@
+/*--/banner --*/
+
+.badan {
+    background-image: url(../images/banner1.png);
+    background-size: cover;
+    height: 667px;
+    text-align: center;
+}
+
+.badan .display-4 {
+    margin-top: 50px;
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Viga', sans-serif;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+
+}
+
+.badan .display-4 hr {
+    width: 20%;
+}
+
+/*--//banner --*/
+/*--/content --*/
+.badan img.admin {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #dff0f738;
+    margin-top: 140px;
+    padding: 0.3em;
+}
+
+
+/*--/responsive--*/
+@media(max-width:1024px) {
+    .badan {
+        background-image: url(../images/banner1.png);
+        background-size: cover;
+        height: 667px;
+        text-align: center;
+    }
+    
+    .badan .display-4 {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 25px;
+        font-family: 'Viga', sans-serif;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        font-weight: 500;
+    }
+    
+    /*--//banner --*/
+    /*--/content --*/
+    .badan img.admin {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background: #dff0f738;
+        margin-top: 140px;
+        padding: 0.3em;
+    }
+}
+
+@media(max-width:991px) {
+    .badan {
+        background-image: url(../images/banner1.png);
+        background-size: cover;
+        height: 667px;
+        text-align: center;
+    }
+    
+    .badan .display-4 {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 25px;
+        font-family: 'Viga', sans-serif;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        font-weight: 500;
+    }
+
+    
+    /*--//banner --*/
+    /*--/content --*/
+    .badan img.admin {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background: #dff0f738;
+        margin-top: 140px;
+        padding: 0.3em;
+    }
+}
+
+@media(max-width:800px) {
+    .badan {
+        background-image: url(../images/banner1.png);
+        background-size: cover;
+        height: 667px;
+        text-align: center;
+    }
+    
+    .badan .display-4 {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 25px;
+        font-family: 'Viga', sans-serif;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        font-weight: 500;
+    }
+    
+    /*--//banner --*/
+    /*--/content --*/
+    .badan img.admin {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background: #dff0f738;
+        margin-top: 140px;
+        padding: 0.3em;
+    }
+}
+
+@media(max-width:768px) {
+    .badan {
+        background-image: url(../images/banner1.png);
+        background-size: cover;
+        height: 667px;
+        text-align: center;
+    }
+    
+    .badan .display-4 {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 25px;
+        font-family: 'Viga', sans-serif;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        font-weight: 500;
+    }
+    
+    /*--//banner --*/
+    /*--/content --*/
+    .badan img.admin {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background: #dff0f738;
+        margin-top: 140px;
+        padding: 0.3em;
+    }
+}
+
+@media(max-width:640px) {
+.badan {
+    background-image: url(../images/banner1.png);
+    background-size: cover;
+    height: 667px;
+    text-align: center;
+}
+
+.badan .display-4 {
+    margin-top: 50px;
+    color: #fff;
+    font-size: 25px;
+    font-family: 'Viga', sans-serif;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+/*--//banner --*/
+/*--/content --*/
+.badan img.admin {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background: #dff0f738;
+    margin-top: 140px;
+    padding: 0.3em;
+}
+}
+
+@media(max-width:480px) {
+
+
+}
+
+@media(max-width:414px) {
+
+    img.admin {
+        padding: 0.3em;
+        margin-bottom: 1em;
+        width: 30%;
+    }
+    .badan h1 {
+        margin-top: 50px;
+        padding: 0.3em;
+        width: 30%;
+    }
+    .tombol h1{
+        padding: 0.3em;
+        margin-bottom: 1em;
+        width: 30%;
+    }
+}
+
+@media(max-width:384px) {}
+
+@media(max-width:375px) {}
+
+/*--//responsive--*/
