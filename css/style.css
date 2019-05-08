@@ -13,7 +13,6 @@
     font-size: 25px;
     font-family: 'Viga', sans-serif;
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
-
 }
 
 .badan .display-4 hr {
@@ -192,7 +191,14 @@
 }
 
 @media(max-width:480px) {
-
+    .badan .display-4 {
+        margin-top: 50px;
+        color: #fff;
+        font-size: 18px;
+        font-family: 'Viga', sans-serif;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+        text-align: center;
+    }
 
 }
 
@@ -206,7 +212,7 @@
     .badan h1 {
         margin-top: 50px;
         padding: 0.3em;
-        width: 30%;
+        
     }
     .tombol h1{
         padding: 0.3em;
