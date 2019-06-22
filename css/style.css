@@ -69,6 +69,10 @@ a {
   position: relative;
   z-index: 99;
   text-align: center; }
-  .site-block-profile-pic img {
-    border-radius: 50%;
-    max-width: 200px; }
+
+.site-block-profile-pic img {
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  max-width: 200px; }
+
+ 
