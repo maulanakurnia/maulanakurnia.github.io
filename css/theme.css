@@ -8300,12 +8300,18 @@ input[type="image"] {
   border-radius: 100px;
   background: #fafafa;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background-image: initial;
+  background-color: rgb(23, 24, 25);
+  border-top-color: rgba(92, 92, 92, 0.1);
+  border-right-color: rgba(92, 92, 92, 0.1);
+  border-bottom-color: rgba(92, 92, 92, 0.1);
+  border-left-color: rgba(92, 92, 92, 0.1);
 }
 .progress-horizontal__bar:not(:last-child) {
   margin-bottom: 0.46428571em;
 }
 .progress-horizontal__progress {
-  background: #4a90e2;
+  background: #14447c;
   border-radius: 100px;
 }
 .imagebg .progress-horizontal__bar {
