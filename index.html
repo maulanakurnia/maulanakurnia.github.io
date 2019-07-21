@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700%7CMerriweather:300,300i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="fonts/fontawesome-5.9.0/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         
     </head>
     <body class=" " data-smooth-scroll-offset='180'>
@@ -24,17 +25,17 @@
 
        <div class="main-container">
            <div class="text-center">
-                <div class="cover inner-page-cover parallax" style="background-image:url('img/bg.jpg'); border-bottom: 1px solid #839296;"></div>
-                <div class="profile-avatar">
+                <div class="cover inner-page-cover parallax" data-aos="fade-up" data-aos-delay="200" style="background-image:url('img/bg.jpg'); border-bottom: 1px solid #839296;"></div>
+                <div class="profile-avatar" data-aos="fade-up" data-aos-delay="200">
                     <img src="img/maulana.jpg" alt="Maulana Kurnia" class="avatar-img">
                 </div>
-                <div class="container mt-4">
+                <div class="container mt-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="row justify-content-center">
                         <div class="col-sm-7">
                             <div class="profile-box">
                                 <h2 class="h2 type--bold text-white">Maulana Kurnia</h2>
                                 <div class="lead"><i>IT Student At UPN "Veteran" Yogyakarta</i></div>
-                                <div class="col-sm">
+                                <div class="col-sm" >
                                     <a class="btn bg--instagram btn--icon" href="#">
                                         <span class="btn__text"><i class="socicon socicon-instagram"></i>Instagram</span>
                                     </a>
@@ -48,45 +49,11 @@
                 </div>
             </div>
 
-            <section class="text-center ">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-10">
-                            <div class="slider" data-paging="true">
-                                <ul class="slides">
-                                    <li>
-                                        <div class="testimonial">
-                                            <blockquote>
-                                                &ldquo;The only way to do GREAT WORK is to love what you do&rdquo;
-                                            </blockquote>
-                                            <span>Steve Jobs</span>
-                                          
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="testimonial">
-                                            <blockquote>
-                                                &ldquo;If geek means you’re willing to study things, and if you think science and engineering matter, I plead guilty. If your culture doesn’t like geeks, you are in real trouble&rdquo;
-                                            </blockquote>
-                                            <span>Bill Gates</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end of row-->
-                </div>
-                <!--end of container-->
-            </section>
-            
-
-
-                <section class="">
-                    <div class="container">
+                <section class="" data-aos="fade-up" data-aos-delay="200">
+                    <div id="skills" class="container" >
                         <div class="row justify-content-center">
                             <div class="col-sm-7">
-                                <div class="card card-2 card-primary">
+                                <div class="card card-2 card-primary" >
                                     <div class="card-header">
                                         <i class="fas fa-gamepad text-white mr-1"></i>
                                         <h4 class="type--bold text-white">My Game</h4>
@@ -122,6 +89,38 @@
                         </div>
                     </div>
                 </section>
+        
+                <section class="text-center bg--dark" data-aos="fade-right" data-aos-delay="200">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-10">
+                                <div class="slider" data-paging="true">
+                                    <ul class="slides">
+                                        <li>
+                                            <div class="testimonial">
+                                                <blockquote>
+                                                    &ldquo;The only way to do GREAT WORK is to love what you do&rdquo;
+                                                </blockquote>
+                                                <span>Steve Jobs</span>
+                                              
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="testimonial">
+                                                <blockquote>
+                                                    &ldquo;If geek means you’re willing to study things, and if you think science and engineering matter, I plead guilty. If your culture doesn’t like geeks, you are in real trouble&rdquo;
+                                                </blockquote>
+                                                <span>Bill Gates</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end of row-->
+                    </div>
+                    <!--end of container-->
+                </section>
        </div>
         
         <!--<div class="loader"></div>-->
@@ -144,6 +143,10 @@
         <script src="js/spectragram.min.js"></script>
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
         <script src="js/custom.js"></script>
     </body>
 </html>
