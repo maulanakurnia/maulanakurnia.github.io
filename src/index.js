@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Home from './components/Home';
 import * as serviceWorker from './serviceWorker';
 const warningTitleCSS = 'color:red; font-size:60px; font-weight: bold; -webkit-text-stroke: 1px black;';
 const warningDescCSS = 'font-size: 18px;';
@@ -18,7 +18,7 @@ const publicIp = require('public-ip');
 })();
 
 ReactDOM.render(
-  <App />,
+  <Home />,
   document.getElementById('root'),
 
 );
