@@ -30,12 +30,7 @@ class App extends Component {
         }}>
           <Ripple color="#1f89cf7a"/>
           <Flex mt={-70}>
-            <Box>
-              <Heading color={'white'} fontSize={4} paddingRight="1">We'r working hard to bring</Heading>
-            </Box>
-            <Box>
-              <Heading fontSize={4} color={'green'}>New Version</Heading>
-            </Box>
+              <Heading color={'white'} fontSize={3} paddingRight="1">We'r working hard to bring <Text color={'green'}>New Version</Text></Heading>
           </Flex>
           <Text color={'#158feb'} fontSize={24} mb={2}>Come back later. <span role="img" aria-label="smile">😊</span></Text>
           <Flex justifyContent="center">
@@ -60,13 +55,13 @@ class App extends Component {
 
           <Button mx={2} as={Link} href="https://github.com/maulanakurnia" target="_blank" sx={{
             color: '#ffffff',
-            backgroundColor: '#24292E',
+            backgroundColor: '#383d42',
             border: '1px solid #24292E',
             borderRadius: '7px',
             boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
             ':hover' : {
               textDecoration: 'none',
-              backgroundColor: '#383d42',
+              backgroundColor: '#24292E',
               boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
               transform: 'translate3d(0, -2px, 0)',
               webkitTransform: 'translate3d(0, -2px, 0)'
