@@ -12,7 +12,7 @@ const ButtonComp = () => {
                 backgroundColor: '#158feb',
                 border: '1px solid #158feb',
                 borderRadius: '7px',
-                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
+                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 0px 0px rgba(255,255,255,0.03)',
                 width: '80px',
                 ':hover' : {
                 textDecoration: 'none',
@@ -30,12 +30,12 @@ const ButtonComp = () => {
                 backgroundColor: '#383d42',
                 border: '1px solid #24292E',
                 borderRadius: '7px',
-                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
+                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 0px 0px rgba(255,255,255,0.03)',
                 width: '80px',
                 ':hover' : {
                 textDecoration: 'none',
                 backgroundColor: '#24292E',
-                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
+                boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 0px 0px rgba(255,255,255,0.03)',
                 transform: 'translate3d(0, -2px, 0)',
                 webkitTransform: 'translate3d(0, -2px, 0)'
                 }
