@@ -89,15 +89,34 @@ class CardComp extends Component {
     render() { 
         return (  
         <Box sx={{
-
-          '@media screen and (min-width: 823px)': {
+          '@media screen and (min-width: 360px) and (max-width: 640px)': {
+            position:"absolute",
+            left: '20%',
+            transform: 'translate(-15%, -0%)',
+          },
+          '@media screen and (min-width: 411px) and (max-width: 731px)': {
+            position:"absolute",
+            left: '20%',
+            transform: 'translate(-10%, -0%)',
+          },
+          '@media screen and (min-width: 732px)': {
             position:"absolute",
             left: '50%',
             transform: 'translate(-50%, -50%)',
           },
-          '@media screen and (max-width: 823px)': {
-            marginLeft: '25px'
-          }
+          '@media screen and (min-width: 768px) and (max-width: 1024px)': {
+            position:"absolute",
+            left: '10%',
+            transform: 'translate(5%, -0%)',
+          },
+          '@media screen and (min-width: 1024px) and (max-width: 1366px)': {
+            position:"absolute",
+            left: '5%',
+            transform: 'translate(-0%, -30%)',
+          },
+          // '@media screen and (max-width: 823px)': {
+          //   marginLeft: '25px'
+          // }
         }}>
         {/* <div>  */}
             <Card bgColorLight={"#020202"} bgColor={"#020202"} boxShadowColor={""}>
