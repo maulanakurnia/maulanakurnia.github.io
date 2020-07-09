@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import DevIcon from "devicon-react-svg";
 import { Box } from "@primer/components";
-import { DiJsBadge, DiPhp, DiJava, DiMysql,DiSass, DiLinux, DiGit} from "react-icons/di";
+import { DiJavascript1, DiPhp, DiJava, DiMysql,DiSass, DiLinux, DiGit} from "react-icons/di";
 const Circle = styled.div`
   /* width: 50px;
   height: 50px;
@@ -54,11 +54,14 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  margin-bottom: 15px;
+  /* box-shadow: 0 14px 26px rgba(0,0,0,0.04); */
   transition: all 0.3s ease-out;
   text-decoration: none;
   margin-left: 20px;
   &:hover {
+    text-decoration: none!important;
+    border: 1px solid  ${props => props.bgColorLight};
     transform: translateY(-5px) scale(1.005) translateZ(0);
     box-shadow: 0 24px 36px rgba(0,0,0,0.11),
     0 24px 46px ${props => props.boxShadowColor};
@@ -66,18 +69,13 @@ const Card = styled.div`
   &:hover ${Overlay}{
     transform: scale(4) translateZ(0);
   }
-  &:hover ${Circle} {
-    border-color: ${props => props.bgColorLight};
-
-    color: white;
-  }
   &:hover ${Circle}:after{
-    background: ${props => props.bgColorLight};;
+    background: ${props => props.bgColorLight};
   }
   &:active{
     transform: scale(1) translateZ(0);
     box-shadow: 0 15px 24px rgba(0,0,0,0.11),
-    0 15px 24px ${props => props.boxShadowColor};;
+    0 15px 24px ${props => props.boxShadowColor};
   }
   &:hover ${Circle}>svg{
       color: white!important;
@@ -102,31 +100,31 @@ class CardComp extends Component {
           }
         }}>
         {/* <div>  */}
-            <Card bgColorLight={"#020202"} bgColor={"#020202"} boxShadowColor={"#0202026b"}>
+            <Card bgColorLight={"#020202"} bgColor={"#020202"} boxShadowColor={""}>
                 <Overlay bgColor={"#020202"}/>
                 <Circle bgColor={"#020202"}>
                     <DiLinux as={"svg"} size={80} color={"#020202"}/>
                 </Circle>
             </Card> 
-            <Card bgColorLight={"#e94e32"} bgColor={"#e94e32"} boxShadowColor={"#e94e3280"}>
+            <Card bgColorLight={"#e94e32"} bgColor={"#e94e32"} boxShadowColor={""}>
                 <Overlay bgColor={"#e94e32"}/>
                 <Circle bgColor={"#e94e32"}>
                     <DiGit as={"svg"} size={80} color="e94e32"/>
                 </Circle>
             </Card> 
-            <Card bgColorLight={"#ffeeba"} bgColor={"#ffd861"} boxShadowColor={"rgba(255, 215, 97, 0.48)"}>
+            <Card bgColorLight={"#ffeeba"} bgColor={"#ffd861"} boxShadowColor={""}>
                 <Overlay bgColor={"#ffd861"}/>
                 <Circle bgColor={"#ffd861"}>
-                    <DiJsBadge as={'svg'} size={80} color="#ffd861"/>
+                    <DiJavascript1 as={'svg'} size={80} color="#ffd861"/>
                 </Circle>
             </Card> 
-            <Card bgColorLight={"#ffeeba"} bgColor={"#4d598f"} boxShadowColor={"#4d598f8f"}>
+            <Card bgColorLight={"#4d598f"} bgColor={"#4d598f"} boxShadowColor={""}>
                 <Overlay bgColor={"#4d598f"}/>
                 <Circle bgColor={""}>
-                    <DiPhp as={"svg"} icon={"php"} size={80} color="#4d598f"/>
+                    <DiPhp as={"svg"} size={80} color="#4d598f"/>
                 </Circle>
             </Card> 
-            <Card bgColorLight={"#e61f24"} bgColor={"#e61f24"} boxShadowColor={"#e61f267e"}>
+            <Card bgColorLight={"#e61f24"} bgColor={"#e61f24"} boxShadowColor={""}>
                 <Overlay bgColor={"#e61f24"}/>
                 <Circle bgColor={"#ffd861"}>
                     <DiJava as={"svg"} size={80} color={"#e61f24"}/>
@@ -138,7 +136,7 @@ class CardComp extends Component {
                     <DiMysql as={"svg"} size={80} color={"#005e87"}/>
                 </Circle>
             </Card>  */}
-            <Card bgColorLight={"#c76495"} bgColor={"#c76495"} boxShadowColor={"#c7649579"}>
+            <Card bgColorLight={"#c76495"} bgColor={"#c76495"} boxShadowColor={""}>
                 <Overlay bgColor={"#c76495"}/>
                 <Circle bgColor={"#c76495"}>
                     <DiSass as={"svg"} size={80} color={"#c76495"}/>
