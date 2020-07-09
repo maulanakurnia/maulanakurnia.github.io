@@ -20,6 +20,9 @@ const ButtonComp = () => {
                 boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03)',
                 transform: 'translate3d(0, -2px, 0)',
                 webkitTransform: 'translate3d(0, -2px, 0)'
+                },
+                '@media only screen and (min-device-width : 320px) and (max-device-width : 320px)': {
+                    width: '70px',
                 }
             }}>
                 <FontAwesomeIcon icon={faTwitter} /> Twitter
@@ -38,6 +41,9 @@ const ButtonComp = () => {
                 boxShadow: '0px 1px 0px rgba(20,70,32,0.1), inset 0px 0px 0px rgba(255,255,255,0.03)',
                 transform: 'translate3d(0, -2px, 0)',
                 webkitTransform: 'translate3d(0, -2px, 0)'
+                },
+                '@media only screen and (min-device-width : 320px) and (max-device-width : 320px)': {
+                    width: '70px',
                 }
             }}><FontAwesomeIcon icon={faGithub}/> Github</Button>
 
@@ -49,7 +55,12 @@ const ButtonComp = () => {
                 transform: 'translate3d(0, -2px, 0)',
                 webkitTransform: 'translate3d(0, -2px, 0)',
                 },
-                borderRadius: '7px'
+                borderRadius: '7px',
+                '@media only screen and (min-device-width : 320px) and (max-device-width : 320px)': {
+                    width: '70px',
+                    paddingRight: '20px',
+                    paddingLeft: '10px'
+                }
             }}>
                 <FontAwesomeIcon icon={faInstagram} /> Instagram
             </Button>
