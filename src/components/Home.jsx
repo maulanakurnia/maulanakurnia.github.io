@@ -26,11 +26,11 @@ class Home extends Component {
                                                         borderRight: "1px solid #839296"}}>
                 </Avatar>
             </Flex>
-            <Heading as={Flex} color="white" justifyContent="center" mt={1} fontSize={30} fontWeight="bold" >Maulana Kurnia</Heading>
+            <Heading as={Flex} color="white" justifyContent="center" mt={1} fontSize={30} fontWeight="700" >Maulana Kurnia</Heading>
             <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
             <ButtonComp/>
             
-            <Heading as={Flex} color="white" justifyContent="center" mt={50} fontSize={30} fontWeight="bold" sx={{
+            <Heading as={Flex} color="white" justifyContent="center" mt={50} fontSize={30} fontWeight="700" sx={{
             '@media screen and (min-width: 823px)': {
               marginBottom: "100px"
             },
