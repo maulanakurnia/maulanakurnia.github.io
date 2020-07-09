@@ -4,14 +4,14 @@ import {
   Text,
   Flex,
   Heading,
-  Avatar
+  Avatar,
+//   CircleBadgeProps
 } from "@primer/components";
 import uImage from "../assets/img/bg.jpg";
 import uAvatar from "../assets/img/profile.jpeg"
 import ButtonComp from "./HomeComp/ButtonComp"
 import Cover from './HomeComp/CoverComp';
-
-
+import CardComp from "./HomeComp/CardComp";
 
 class Home extends Component {
   render() {
@@ -29,7 +29,18 @@ class Home extends Component {
             <Heading as={Flex} color="white" justifyContent="center" mt={1} fontSize={30} fontWeight="bold" >Maulana Kurnia</Heading>
             <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
             <ButtonComp/>
+            
+            <Heading as={Flex} color="white" justifyContent="center" mt={50} fontSize={30} fontWeight="bold" sx={{
+            '@media screen and (min-width: 823px)': {
+              marginBottom: "100px"
+            },
+            '@media screen and (max-width: 823px)': {
+              marginBottom: '20px'
+            }
+            }}>My Game</Heading>
+            <CardComp/>
         </Box>
+
       </div>
     );
   }
