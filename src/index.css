@@ -9,9 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-    /* background-color: rgb(56, 61, 66); */
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 ::-webkit-scrollbar {
   width: 10px;
