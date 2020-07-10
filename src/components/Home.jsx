@@ -7,8 +7,8 @@ import {
   Avatar,
 //   CircleBadgeProps
 } from "@primer/components";
-import uImage from "../assets/img/bg.jpg";
-import uAvatar from "../assets/img/profile.jpeg"
+import uImage from "../assets/img/compress/bg-min.jpg";
+import uAvatar from "../assets/img/compress/profile-min.jpeg"
 import ButtonComp from "./HomeComp/ButtonComp"
 import Cover from './HomeComp/CoverComp';
 import CardComp from "./HomeComp/CardComp";
