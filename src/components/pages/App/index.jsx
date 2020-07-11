@@ -17,6 +17,7 @@ import Card from './AppComp/Card';
 
 class Home extends Component {
   componentDidMount(){
+    document.title = "Maulana Kurnia";
     AOS.init({
       duration : 2000
     })
