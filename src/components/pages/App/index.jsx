@@ -49,7 +49,7 @@ function App() {
             <div >
               <Heading as={Flex} justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
 
-              }}>Mufrad Mabni</Heading>
+              }}>Maulana Kurnia</Heading>
               <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
               <ButtonSocial/>
               <Card/>
