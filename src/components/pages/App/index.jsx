@@ -37,7 +37,7 @@ class Home extends Component {
             <div data-aos='fade-up' data-smooth-scroll-offset="180" data-aos-easing="ease" data-aos-duration="4000" data-aos-delay="0">
               <Heading as={Flex} color="white" justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
 
-              }}>Maulana Kurnia</Heading>
+              }}>Mufrad Mabni</Heading>
               <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
               <ButtonSocial/>
               <Card/>
