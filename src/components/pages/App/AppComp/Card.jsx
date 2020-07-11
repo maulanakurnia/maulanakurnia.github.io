@@ -5,7 +5,7 @@ import { DiJavascript1, DiPhp, DiJava, DiSass, DiLinux, DiGit } from "react-icon
 const Card = () => {
     return (
         <Fragment>
-            <Heading color="white" textAlign="center" mt={50} fontSize={30} fontWeight="700" sx={{
+            <Heading textAlign="center" mt={50} fontSize={30} fontWeight="700" sx={{
                 '@media screen and (min-width: 823px)': {
                 marginBottom: "100px"
                 },
