@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Text,
@@ -11,22 +11,33 @@ import uAvatar from "../../../assets/img/compress/profile-min.jpeg"
 import ButtonSocial from "../../../containers/ButtonSocial"
 import Cover from '../../../containers/Cover/';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
 import Card from './AppComp/Card';
+import { darkTheme , lightTheme} from "../../../containers/utils/Theme";
+import Toggle from '../../../containers/Toggle';
+import GlobalStyles from "../../../containers/utils/Global";
+import { ThemeProvider } from "styled-components";
+import {SunIcon, MoonIcon} from '@primer/octicons-react'
 
-class Home extends Component {
-  componentDidMount(){
-    document.title = "Maulana Kurnia";
-    AOS.init({
-      duration : 2000
-    })
+
+
+function App() {
+  const [theme, setTheme] = useState(0);
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
   }
-
-  render() {
     return (
-      <Fragment>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <Cover imageUrl={uImage}/>
+        <GlobalStyles/>
+        <Toggle onClick={toggleTheme}>
+            {theme === 'light' ? <SunIcon/> : <MoonIcon/>}
+        </Toggle>
         <Box>
             <Flex flexWrap="nowrap" justifyContent="center" sx={{ marginTop: '-100px' }}>
                 <Avatar size={200} src={uAvatar} sx={{  borderRadius: '50%',
@@ -34,8 +45,8 @@ class Home extends Component {
                                                         borderLeft: "1px solid #839296",
                                                         borderRight: "1px solid #839296"}}/>
             </Flex>
-            <div data-aos='fade-up' data-smooth-scroll-offset="180" data-aos-easing="ease" data-aos-duration="4000" data-aos-delay="0">
-              <Heading as={Flex} color="white" justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
+            <div >
+              <Heading as={Flex} justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
 
               }}>Mufrad Mabni</Heading>
               <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
@@ -43,9 +54,8 @@ class Home extends Component {
               <Card/>
             </div>
         </Box>
-      </Fragment>
+      </ThemeProvider>
     );
-  }
 }
 
-export default Home;
+export default App;
