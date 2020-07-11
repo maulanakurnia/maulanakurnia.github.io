@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './components/pages/App/';
+import App from './components/pages/App';
 import * as serviceWorker from './serviceWorker';
 
 // Styling Console
@@ -11,7 +11,7 @@ console.log("%cThis is a browser feature intended for developers!!!", warningDes
 
 
 ReactDOM.render(
-  <Home />,
+  <App />,
   document.getElementById('root'),
 
 );
