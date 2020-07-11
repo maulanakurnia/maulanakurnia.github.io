@@ -7,11 +7,11 @@ import {
   Avatar,
 //   CircleBadgeProps
 } from "@primer/components";
-import uImage from "../assets/img/compress/bg-min.jpg";
-import uAvatar from "../assets/img/compress/profile-min.jpeg"
-import ButtonComp from "./HomeComp/ButtonComp"
-import Cover from './HomeComp/CoverComp';
-import CardComp from "./HomeComp/CardComp";
+import uImage from "../../../assets/img/compress/bg-min.jpg";
+import uAvatar from "../../../assets/img/compress/profile-min.jpeg"
+import ButtonComp from "../../../containers/ButtonSocial"
+import Cover from '../../../containers/Cover/CoverComp';
+import CardComp from "../../../containers/Card";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

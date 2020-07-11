@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './components/Home';
+import Home from './components/pages/App/';
 import * as serviceWorker from './serviceWorker';
 const publicIp = require('public-ip');
 
