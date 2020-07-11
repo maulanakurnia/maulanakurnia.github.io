@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const ButtonComp = () => {
     return(
-        <div>
         <Flex flexWrap="nowrap" justifyContent="center" mt={3}>
             <Button as={Link} href="https://www.twitter.com/maulanaakurniaa" target="_blank" sx={{
                 color: '#ffffff',
@@ -65,7 +64,6 @@ const ButtonComp = () => {
                 <FontAwesomeIcon icon={faInstagram} /> Instagram
             </Button>
         </Flex>
-        </div>
     )
 }
 
