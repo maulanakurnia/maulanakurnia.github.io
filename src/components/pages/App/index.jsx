@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import {
   Box,
   Text,
@@ -24,7 +24,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Cover imageUrl={uImage}/>
         <Box>
             <Flex flexWrap="nowrap" justifyContent="center" sx={{ marginTop: '-100px' }}>
@@ -54,8 +54,7 @@ class Home extends Component {
               <CardComp/>
             </div>
         </Box>
-
-      </div>
+      </Fragment>
     );
   }
 }
