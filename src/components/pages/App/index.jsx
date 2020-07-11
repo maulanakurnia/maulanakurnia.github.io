@@ -23,6 +23,7 @@ import {SunIcon, MoonIcon} from '@primer/octicons-react'
 
 
 function App() {
+  document.title = "Maulana Kurnia";
   const [theme, setTheme] = useState(0);
   const toggleTheme = () => {
     if (theme === 'light') {
