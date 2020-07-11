@@ -8,24 +8,28 @@ const GlobalStyles = createGlobalStyle`
   } */
 
 body {
-    /* align-items: center; */
-    background: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* height: 100vh; */
-    /* margin: 0;
-    padding: 0; */
-    /* font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; */
-    /* transition: all 0.25s linear; */
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  margin: 0;
+  font-family: 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    margin: 0;
-    font-family: 'Open Sans', sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+.select{
+  -webkit-user-select: text;
+   -khtml-user-select: text;
+     -moz-user-select: text;
+       -o-user-select: text;
+          user-select: text;
 }
 ::-webkit-scrollbar {
   width: 10px;
