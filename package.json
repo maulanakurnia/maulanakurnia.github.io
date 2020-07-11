@@ -2,7 +2,6 @@
   "name": "maulanakurnia.github.io",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://maulanakurnia.github.io/maulanakurnia/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-brands-svg-icons": "^5.13.1",
