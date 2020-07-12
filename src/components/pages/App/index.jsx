@@ -11,10 +11,10 @@ import Home from '../Home/'
 
 
 function App() {
-  const [theme, setTheme] = useState(0);
+  const [theme, setTheme] = useState('dark');
   const toggleTheme = () => {
     if (theme === 'light') {
-      setTheme('dark');
+      setTheme('dark'); 
     } else {
       setTheme('light');
     }
