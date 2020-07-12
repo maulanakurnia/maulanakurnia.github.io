@@ -16,6 +16,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.5s,
+              color 0.6s;
 
   -webkit-touch-callout: none;
     -webkit-user-select: none;
