@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Box, Heading } from "@primer/components";
 import CardComp from "../../../../containers/CardGame";
-import { DiJavascript1, DiPhp, DiJava, DiSass, DiLinux, DiGit } from "react-icons/di";
+import { DiJavascript1, DiPhp, DiReact, DiSass, DiLinux, DiGit } from "react-icons/di";
 const Card = () => {
     return (
         <Fragment>
@@ -50,7 +50,7 @@ const Card = () => {
                 <CardComp color="#e94e32" svg={<DiGit as={"svg"} size={80} color={"#e94e32"}/> }/>
                 <CardComp color="#ffd861" svg={<DiJavascript1 as={"svg"} size={80} color={"#ffd861"}/> }/>
                 <CardComp color="#4d598f" svg={<DiPhp as={"svg"} size={80} color={"#4d598f"}/> }/>
-                <CardComp color="#e61f24" svg={<DiJava as={"svg"} size={80} color={"#e61f24"}/> }/>
+                <CardComp color="#61dafb" svg={<DiReact as={"svg"} size={80} color={"#61dafb"}/> }/>
                 <CardComp color="#c76495" svg={<DiSass as={"svg"} size={80} color={"#c76495"}/> }/>
             </Box>
         </Fragment>
