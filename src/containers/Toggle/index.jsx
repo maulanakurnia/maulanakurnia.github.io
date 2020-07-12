@@ -15,7 +15,7 @@ const Toggle = styled.button`
     transition: all 0.3s ease-out;
     right: 0%;
     top: 40%;
-    box-shadow: 0 15px 24px rgba(0,0,0,0.11);
+    box-shadow: 0 15px 24px rgba(255,255,255,0.11);
     outline: none;
     &:hover{
         cursor: pointer;
