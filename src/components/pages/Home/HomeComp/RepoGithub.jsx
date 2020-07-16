@@ -161,7 +161,7 @@ class RepoGithub extends Component {
                         title={repos.name} 
                         description={repos.description}
                         language={repos.language} 
-                        onClick={() => window.location.href=repos.html_url}/>
+                        onClick={() => window.open(repos.html_url, '_blank')}/>
                   );
               })
             }
