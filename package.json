@@ -13,10 +13,13 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "aos": "^2.3.4",
+    "axios": "^0.19.2",
     "deepmerge": "^4.2.2",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
+    "react-moment": "^0.9.7",
     "react-scripts": "3.4.1",
     "react-spinners-css": "^1.2.2",
     "styled-components": "^5.1.1"
@@ -26,8 +29,7 @@
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn build"
   },
   "eslintConfig": {
     "extends": "react-app"
