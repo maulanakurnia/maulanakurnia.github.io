@@ -12,7 +12,6 @@ const Toggle = styled.button`
     align-items: center;
     position: fixed;
     z-index: 1;
-    transition: all 0.3s ease-out;
     right: 0%;
     top: 40%;
     box-shadow: 0 15px 24px rgba(255,255,255,0.11);
