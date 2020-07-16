@@ -16,6 +16,7 @@ import RepoGithub from './HomeComp/RepoGithub';
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Footer from '../../Footer';
 
 class Home extends Component {
     componentDidMount(){	
@@ -40,6 +41,7 @@ class Home extends Component {
                         <ButtonSocial/>
                         <Card/>
                         <RepoGithub/>
+                        <Footer/>
                     </div>
                 </Box>
             </Fragment>
