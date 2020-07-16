@@ -19,15 +19,15 @@ function App() {
       setTheme('light');
     }
   }
-    return (
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <GlobalStyles/>
-        <Toggle onClick={toggleTheme}>
-            {theme === 'light' ? <SunIcon/> : <MoonIcon/>}
-        </Toggle>
-        <Home/>
-      </ThemeProvider>
-    );
+  return (
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles/>
+      <Toggle onClick={toggleTheme}>
+          {theme === 'light' ? <SunIcon/> : <MoonIcon/>}
+      </Toggle>
+      <Home/>
+    </ThemeProvider>
+  );
 }
 
 export default App;
