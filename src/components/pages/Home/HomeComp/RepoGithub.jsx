@@ -12,13 +12,16 @@ const Container = styled.div`
   @media (min-width: 320px) and (max-width: 568px) {
     padding: 0px 300px 0px 80px;
   }
+  @media (min-width: 411px) and (max-width: 568px) {
+    padding: 0px 300px 0px 80px;
+  }
   @media (max-width: 727px) {
     padding: 0px 300px 0px 60px;
   }
   @media (max-width: 768px) {
     padding: 0px 0px 0px 50px;
   }
-  @media (max-width: 1024px) and (max-width: 1366px) {
+  @media (min-width: 1024px) and (max-width: 1366px) {
     padding: 0px 0px 0px 10px;
   }
 `;
@@ -37,8 +40,18 @@ const CardWrapper = styled.div`
   @media only screen and (min-width: 768px){
     width: 320px;
   }
-  &:hover{
+  transition-duration: 5s;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+
+  &:hover {
     cursor: pointer;
+    box-shadow: 0px 1px 0px rgba(20,70,32,0.1), inset 0px 2px 0px rgba(255,255,255,0.03);
+    transform: translate3d(0, -7px, 0);
+    --webkit-transform: translate3d(0, -2px, 0);
   }
 `;
 
@@ -151,7 +164,7 @@ class RepoGithub extends Component {
             marginTop: '450px'
             }
         }}>My Repository</Heading>
-        <Text as={Flex} justifyContent="center" fontSize={15} mb={30} color="grey">Total : {this.state.longeur}</Text>
+        <Text as={Flex} justifyContent="center" fontSize={15} mb={30} fontWeight="bold">Total : {this.state.longeur}</Text>
           <Container>
             {
               this.state.repos.map(repos => {
