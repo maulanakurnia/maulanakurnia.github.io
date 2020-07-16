@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import styled from "styled-components";
 import axios from 'axios';
-import { Box, Heading, Text,Flex, Link} from "@primer/components";
+import { Box, Heading, Text,Flex} from "@primer/components";
 import Moment from 'react-moment';
 
 const CardWrapper = styled.div`
