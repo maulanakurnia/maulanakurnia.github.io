@@ -120,7 +120,7 @@ const Card = ({
   ...props
 }) => (
   <CardWrapper borderRadius={borderRadius} {...props}>
-    <Title titleColor={titleColor}><RiBookletLine color={"#020202"}/> {title}</Title>
+    <Title titleColor={titleColor}><RiBookletLine color={"#020202"} style={{ marginBottom: '-3px'}}/> {title}</Title>
     <Description textColor={textColor}>{description}</Description>
     <ExtraContent>
       <Flex>
