@@ -1,53 +1,62 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import styled from "styled-components";
 import axios from 'axios';
 import { Box, Heading, Text,Flex} from "@primer/components";
-import Moment from 'react-moment';
+import {RiBookletLine} from 'react-icons/ri'
+
+const Container = styled.div`
+  justify-content: center;
+  align-items: center;
+  padding: 0px 300px 0px 450px;
+
+  @media (min-width: 320px) and (max-width: 568px) {
+    padding: 0px 300px 0px 80px;
+  }
+  @media (max-width: 727px) {
+    padding: 0px 300px 0px 60px;
+  }
+  @media (max-width: 768px) {
+    padding: 0px 0px 0px 50px;
+  }
+  @media (max-width: 1024px) and (max-width: 1366px) {
+    padding: 0px 0px 0px 10px;
+  }
+`;
 
 const CardWrapper = styled.div`
   background: ${props => props.bg};
   width: 350px;
-  /* margin: auto; */
+  border: 1px solid rgba(0, 0, 0, 0.125);
   padding-bottom: 20px;
   border-radius: ${props => props.borderRadius}px;
   margin: 0px 0px 10px 10px;
   display: inline-block;
-  /* position: relative; */
-  @media only screen and (min-width: 360px){
+  @media only screen and (min-width: 320px){
     width: 250px;
   }
-  @media only screen and (min-width: 992px){
-    width: 350px;
+  @media only screen and (min-width: 768px){
+    width: 320px;
   }
   &:hover{
     cursor: pointer;
   }
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: ${props =>
-    `${props.borderRadius}px ${props.borderRadius}px 0 0`};
-`;
-
 const Title = styled.h3`
   color: ${props => props.titleColor};
   margin: 0;
-  padding-left: 15px;
+  padding: 15px 15px 0px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
-const Language = styled.p`
-  color: #000000;
-  margin: 0;
-  padding: 0px 0px 15px 15px;
-  font-style: italic;
-  /* padding-top: -15px; */
-`;
 const Description = styled.p`
   color: ${props => props.textColor};
-  padding: 0px 15px;
+  padding: 15px 15px 15px 15px;
   margin: 0;
+  display: inline-block;
+  font-size: 12px;
 `;
 
 const ExtraContent = styled.div`
@@ -70,8 +79,24 @@ const ExtraContent = styled.div`
   -webkit-transition: color .1s ease;
   transition: color .1s ease;
 `;
+
+const LangColor = styled.span`
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #89e051;
+`;
+
+const Language = styled.p`
+  color: #000000;
+  margin: -3px 0px 0px 9px;
+`;
+
+
 const Card = ({
-  image,
   title,
   language,
   description,
@@ -82,17 +107,20 @@ const Card = ({
   ...props
 }) => (
   <CardWrapper borderRadius={borderRadius} {...props}>
-    <Image src={image} borderRadius={borderRadius} alt={title} />
-    <Title titleColor={titleColor}>{title}</Title>
-    <Language>{language}</Language>
+    <Title titleColor={titleColor}><RiBookletLine color={"#020202"}/> {title}</Title>
     <Description textColor={textColor}>{description}</Description>
-    <ExtraContent><Moment sx={{color: 'red'}}>{created}</Moment></ExtraContent>
+    <ExtraContent>
+      <Flex>
+        <LangColor/>
+        <Language>{language}</Language>
+      </Flex>
+    </ExtraContent>
   </CardWrapper>
 );
 
 Card.defaultProps = {
   bg: "white",
-  titleColor: "#1982c4",
+  titleColor: "#0366d6",
   textColor: "#999",
   borderRadius: 9
 };
@@ -103,80 +131,42 @@ class RepoGithub extends Component {
     longeur: '',
   }
   componentDidMount(){
-    // getPostAPI = () => {
         axios.get('https://api.github.com/users/maulanakurnia/repos')
-        .then((result) => { //parameter result penamaannya bebas...
-          // console.log(result);
+        .then((result) => { 
           this.setState({
             repos: result.data,
             longeur: result.data.length
           })
         })
-    // }
-
   }
 
   render(){
     return(
-      <Fragment>
+      <Box>
         <Heading textAlign="center" fontSize={30} fontWeight="700" sx={{
             '@media screen and (min-width: 823px)': {
-            // marginBottom: "100px",
             marginTop: '200px'
             },
             '@media screen and (max-width: 823px)': {
-            // marginBottom: '20px',
             marginTop: '450px'
             }
         }}>My Repository</Heading>
         <Text as={Flex} justifyContent="center" fontSize={15} mb={30} color="grey">Total : {this.state.longeur}</Text>
-        <Box sx={{  display: 'inline-block',
-                        justifyContent: 'center!important',
-
-                        '@media screen and (min-width: 320px) and (max-width: 568px)': {
-                        position:"absolute",
-                        left: '15%',
-                        transform: 'translate(-5%, -0%)',
-                        },
-                        '@media screen and (min-width: 360px) and (max-width: 640px)': {
-                        position:"absolute",
-                        left: '25%',
-                        transform: 'translate(-15%, -0%)',
-                        },
-                        '@media screen and (min-width: 411px) and (max-width: 731px)': {
-                        position:"absolute",
-                        left: '25%',
-                        transform: 'translate(-10%, -0%)',
-                        },
-                        '@media screen and (min-width: 732px)': {
-                        position:"absolute",
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        },
-                        '@media screen and (min-width: 768px) and (max-width: 1024px)': {
-                        position:"absolute",
-                        left: '5%',
-                        transform: 'translate(2%, -0%)',
-                        },
-                        '@media screen and (min-width: 1024px) and (max-width: 1366px)': {
-                        position:"absolute",
-                        left: '12%',
-                        transform: 'translate(-0%, -50%)',
-                        } }}>
-          {
-            this.state.repos.map(repos => {
-              return (
-                <Card key = {repos.id} 
-                      image="https://www1.bournemouth.ac.uk/sites/default/files/assets/images/student-project-bank-summary.jpg" 
-                      title={repos.name} 
-                      language={repos.language} 
-                      created={repos.created_at}
-                      onClick={() => window.location.href=repos.html_url}/>
-                );
-            })
-          }
-          </Box>
-      </Fragment>
+          <Container>
+            {
+              this.state.repos.map(repos => {
+                return (
+                  <Card key = {repos.id} 
+                        image="https://www1.bournemouth.ac.uk/sites/default/files/assets/images/student-project-bank-summary.jpg" 
+                        title={repos.name} 
+                        description={repos.description}
+                        language={repos.language} 
+                        onClick={() => window.location.href=repos.html_url}/>
+                  );
+              })
+            }
+          </Container>
+      </Box>
     );
   }
 }
