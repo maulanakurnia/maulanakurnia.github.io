@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from "@primer/components";
+import {Link,Text} from "@primer/components";
 
 const FooterWrapper = styled.footer`
   /* background: ${({ theme }) => theme.body}; */
@@ -28,7 +28,7 @@ class Footer extends React.Component {
   render() {
     return (
       <FooterWrapper>
-            Copyright © {new Date().getFullYear()} <Link onClick={()=> window.open('https://instagram.com/maulanaakurniaa', '_blank')} style={{color: '#ffffff', textDecoration:"none", cursor: 'pointer'}} fontWeight="900">Maulana Kurnia</Link> All Rights Reserved.
+            <Text color="#ffffff">Copyright © {new Date().getFullYear()} <Link onClick={()=> window.open('https://instagram.com/maulanaakurniaa', '_blank')} style={{color: '#ffffff', textDecoration:"none", cursor: 'pointer'}} fontWeight="900">Maulana Kurnia</Link> All Rights Reserved.</Text>
       </FooterWrapper>
     )
   }
