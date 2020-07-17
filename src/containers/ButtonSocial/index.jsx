@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const ButtonComp = () => {
     return(
         <Flex flexWrap="nowrap" justifyContent="center" mt={3}>
-            <Button as={Link} href="https://www.twitter.com/maulanaakurniaa" target="_blank" sx={{
+            <Button as={Link} onClick={()=> window.open("https://twitter.com/maulanaakurniaa", "_blank")} sx={{
                 color: '#ffffff',
                 backgroundColor: '#158feb',
                 border: '1px solid #158feb',
@@ -27,7 +27,7 @@ const ButtonComp = () => {
                 <FontAwesomeIcon icon={faTwitter} /> Twitter
             </Button>
 
-            <Button mx={2} as={Link} href="https://github.com/maulanakurnia" target="_blank" sx={{
+            <Button mx={2} as={Link} onClick={()=> window.open("https://github.com/maulanakurnia", "_blank")}  sx={{
                 color: '#ffffff',
                 backgroundColor: '#383d42',
                 border: '1px solid #24292E',
@@ -46,7 +46,7 @@ const ButtonComp = () => {
                 }
             }}><FontAwesomeIcon icon={faGithub}/> Github</Button>
 
-            <Button as={Link} href="https://instagram.com/maulanaakurniaa" target="_blank"sx={{
+            <Button as={Link} onClick={() => window.open("https://instagram.com/maulanaakurniaa", "_blank")} sx={{
                 color: 'black',
                 width: '80px',
                 ':hover' : {
