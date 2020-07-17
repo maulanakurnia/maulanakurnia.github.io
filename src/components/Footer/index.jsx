@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Text, Link} from "@primer/components";
+import {Link} from "@primer/components";
 
 const FooterWrapper = styled.footer`
   /* background: ${({ theme }) => theme.body}; */
