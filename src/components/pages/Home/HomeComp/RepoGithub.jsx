@@ -141,20 +141,26 @@ Card.defaultProps = {
   borderRadius: 9,
 };
 
-class RepoGithub extends Component {
+class RepoGithub extends Component { 
+  constructor(){
+    super();
+    this.getRepos();
+  }
   state = {
     repos: [],
     total: "",
   };
-  componentDidMount() {
-    axios
-      .get("https://api.github.com/users/maulanakurnia/repos")
-      .then((result) => {
-        this.setState({
-          repos: result.data,
-          total: result.data.length,
-        });
-      });
+
+  getRepos = async () => {
+    try{
+      let data = await axios ({
+        method: 'get',
+        url: 'https://api.github.com/users/maulanakurnia/repos'
+      }).then(({data}) => data);
+      this.setState({repos: data, total: data.length});
+    }catch(err){
+      console.log(err);
+    }
   }
 
   render() {
