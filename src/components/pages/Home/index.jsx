@@ -5,12 +5,12 @@ import {
     Flex,
     Heading,
   } from "@primer/components";
-import Card from './HomeComp/Card';
+import Card from './Card';
 import uImage from "../../../assets/img/compress/bg-min.jpg";
 import uAvatar from "../../../assets/img/compress/profile-min.jpeg"
-import ButtonSocial from "../../../containers/ButtonSocial"
+import ButtonSocial from "../../styled/ButtonSocial"
 import Cover from '../../../containers/Cover/';
-import RepoGithub from './HomeComp/RepoGithub';
+import RepoGithub from './RepoGithub';
 import styled from 'styled-components';
 
 // Aos
