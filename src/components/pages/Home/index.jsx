@@ -6,8 +6,8 @@ import {
     Heading,
   } from "@primer/components";
 import Card from './Card';
-import uImage from "../../../assets/img/compress/bg-min.jpg";
-import uAvatar from "../../../assets/img/compress/profile-min.jpeg"
+import uImage from "../../../assets/img/bg-min.jpg";
+import uAvatar from "../../../assets/img/profile-min.jpeg"
 import ButtonSocial from "../../styled/ButtonSocial"
 import Cover from '../../../containers/Cover/';
 import RepoGithub from './RepoGithub';
