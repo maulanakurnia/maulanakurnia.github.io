@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Box, Heading } from "@primer/components";
-import CardComp from "../../styled/Card/CardGame";
+import CardComp from "../styled/Card/CardGame";
 import { DiJavascript1, DiPhp, DiReact, DiSass, DiLinux, DiGit } from "react-icons/di";
 const Card = () => {
     return (

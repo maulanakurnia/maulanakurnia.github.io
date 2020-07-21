@@ -6,17 +6,17 @@ import {
     Heading,
   } from "@primer/components";
 import Card from './Card';
-import uImage from "../../../assets/img/bg-min.jpg";
-import uAvatar from "../../../assets/img/profile-min.jpeg"
-import ButtonSocial from "../../styled/ButtonSocial"
-import Cover from '../../styled/Cover/';
+import uImage from "../../assets/img/bg-min.jpg";
+import uAvatar from "../../assets/img/profile-min.jpeg"
+import ButtonSocial from "../styled/ButtonSocial"
+import Cover from '../styled/Cover';
 import RepoGithub from './RepoGithub';
 import styled from 'styled-components';
 
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Footer from '../../styled/Footer';
+import Footer from '../styled/Footer';
 
 const Profil = styled.div`
     border-radius: 50%;
