@@ -9,7 +9,7 @@ import Card from './Card';
 import uImage from "../../../assets/img/bg-min.jpg";
 import uAvatar from "../../../assets/img/profile-min.jpeg"
 import ButtonSocial from "../../styled/ButtonSocial"
-import Cover from '../../../containers/Cover/';
+import Cover from '../../styled/Cover/';
 import RepoGithub from './RepoGithub';
 import styled from 'styled-components';
 

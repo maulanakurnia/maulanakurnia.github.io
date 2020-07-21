@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 
-import { darkTheme , lightTheme} from "../../../containers/utils/Theme";
-import Toggle from '../../../containers/Toggle';
-import GlobalStyles from "../../../containers/utils/Global";
+import { darkTheme , lightTheme} from "../../styled/utils/Theme";
+import Toggle from '../../styled/Toggle';
+import GlobalStyles from "../../styled/utils/Global";
 import { ThemeProvider } from "styled-components";
 import {SunIcon, MoonIcon} from '@primer/octicons-react'
 
