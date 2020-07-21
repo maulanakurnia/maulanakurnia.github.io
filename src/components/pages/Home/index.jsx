@@ -16,7 +16,7 @@ import styled from 'styled-components';
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Footer from '../../Footer';
+import Footer from '../../styled/Footer';
 
 const Profil = styled.div`
     border-radius: 50%;
