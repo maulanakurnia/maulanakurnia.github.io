@@ -1,18 +1,14 @@
 import React, { Component, Fragment } from 'react';
-import {
-    Box,
-    Text,
-    Flex,
-    Heading,
-  } from "@primer/components";
+import { Box, Text, Flex, Heading } from "@primer/components";
 import Card from './Card';
-import uImage from "../../assets/img/bg-min.jpg";
-import uAvatar from "../../assets/img/profile-min.jpeg"
 import ButtonSocial from "../styled/ButtonSocial"
 import Cover from '../styled/Cover';
 import RepoGithub from './RepoGithub';
 import styled from 'styled-components';
 
+// Link Image
+import cover from "./img/bg-min.jpg";
+import avatar from "./img/profile-min.jpeg"
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -37,11 +33,10 @@ class Home extends Component {
     render() { 
         return (  
             <Fragment>
-                <Cover imageUrl={uImage}/>
+                <Cover imageUrl={cover}/>
                 <Box>
                     <Flex flexWrap="nowrap" justifyContent="center" sx={{ marginTop: '-100px' }}>
-                        <Profil imageUrl={uAvatar}/>
-                        {/* <Avatar size={200} src={uAvatar} sx={{  borderRadius: '50%', borderBottom: "2px solid #839296", borderLeft: "1px solid #839296", borderRight: "1px solid #839296"}}/> */}
+                        <Profil imageUrl={avatar}/>
                     </Flex>
                     <div data-aos='fade-up' data-smooth-scroll-offset="180" data-aos-easing="ease" data-aos-duration="4000" data-aos-delay="0">
                         <Heading as={Flex} justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
