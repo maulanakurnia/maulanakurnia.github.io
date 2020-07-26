@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Box, Text, Flex, Heading } from "@primer/components";
 import Card from '../components/Home/Card';
-import ButtonSocial from "../components/styled/ButtonSocial"
+import ButtonSocial from "../components/ButtonSocial"
 import Cover from '../components/styled/Cover';
 import RepoGithub from '../components/Home/RepoGithub';
 import styled from 'styled-components';
