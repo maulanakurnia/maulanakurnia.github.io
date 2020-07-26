@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import { darkTheme , lightTheme} from "../styled/utils/Theme";
-import Toggle from '../styled/Toggle';
-import GlobalStyles from "../styled/utils/Global";
+import { darkTheme , lightTheme} from "../components/styled/utils/Theme";
+import Toggle from '../components/styled/Toggle';
+import GlobalStyles from "../components/styled/utils/Global";
 import { ThemeProvider } from "styled-components";
 import {SunIcon, MoonIcon} from '@primer/octicons-react'
 
-import Home from '../Home/'
+import Home from './Home'
 
 function App() {
   const [theme, setTheme] = useState('dark');
