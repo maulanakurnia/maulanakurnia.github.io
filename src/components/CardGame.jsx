@@ -24,7 +24,7 @@ const Overlay = styled.div`
 const Card = styled.div`
   width: 120px;
   height: 121px;
-  background: #fff;
+  background: ${({ theme }) => theme.content};
   border-radius: 10px;
   overflow: hidden;
   display: inline-block;
