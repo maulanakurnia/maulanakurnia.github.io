@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <GlobalStyles/>
       <Toggle onClick={toggleTheme}>
-          {theme === 'light' ? <SunIcon/> : <MoonIcon/>}
+          {theme === 'dark' ? <SunIcon/> : <MoonIcon/>}
       </Toggle>
       <Home/>
     </ThemeProvider>
