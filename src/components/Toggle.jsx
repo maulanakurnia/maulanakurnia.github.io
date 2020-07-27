@@ -3,9 +3,9 @@ import styled from 'styled-components'
 const Toggle = styled.button`
     width: 50px;
     height: 50px;
-    border-top-left-radius: 20%;
-    border-bottom-left-radius: 20%;
-    background: #fff;
+    border-radius: 20%;
+    margin-right: 10px;
+    background: ${({ theme }) => theme.text};
     border: 2px solid var(--bg-color);
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ const Toggle = styled.button`
         cursor: pointer;
     }
     svg {
-        color: black;
+        color: ${({theme}) => theme.body};
     }
 `;
 
