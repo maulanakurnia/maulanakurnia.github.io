@@ -1,18 +1,18 @@
 import React, { Component, Fragment } from 'react';
 import { Box, Text, Flex, Heading } from "@primer/components";
-import Card from '../components/Home/Card';
-import ButtonSocial from "../components/ButtonSocial"
-import Cover from '../components/Cover';
-import RepoGithub from '../components/Home/RepoGithub';
+import Card from './Card';
+import ButtonSocial from "../../components/ButtonSocial"
+import Cover from '../../components/Cover';
+import RepoGithub from './RepoGithub';
 import styled from 'styled-components';
 
 // Link Image
-import cover from "../images/bg-min.jpg";
-import avatar from "../images/profile-min.jpeg"
+import cover from "../../images/bg-min.jpg";
+import avatar from "../../images/profile-min.jpeg"
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Footer from '../components/Footer';
+import Footer from '../../components/Footer';
 
 const Profil = styled.div`
     border-radius: 50%;
