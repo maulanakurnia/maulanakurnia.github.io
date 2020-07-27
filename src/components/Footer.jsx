@@ -4,7 +4,7 @@ import {Link,Text} from "@primer/components";
 
 const FooterWrapper = styled.footer`
   /* background: ${({ theme }) => theme.body}; */
-  background: #272727;
+  background: #1f2326;
   border-top: 1px solid rgba(0,0,0,.05)!important;
   margin-top: 50px;
   padding: 20px 10px 20px 0px;
