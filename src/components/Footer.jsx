@@ -11,19 +11,6 @@ const FooterWrapper = styled.footer`
   text-align: center;
 `
 
-
-// const FooterLink = styled.a`
-//   /* color: ${({ theme }) => theme.text}; */
-//   color: white;
-//   text-decoration: none;
-//   text-align: center;
-//   font-size: 16px;
-//   @media (max-width: 1024px){
-//       font-size: 12px;
-//   }
-// `
-
-
 class Footer extends React.Component {
   render() {
     return (
