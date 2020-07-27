@@ -46,7 +46,7 @@ const Card = () => {
                         left: '12%',
                         transform: 'translate(-0%, -50%)',
                         } }}>
-                <CardComp color="#020202" svg={<DiLinux as={"svg"} size={80} color={"#020202"}/> }/>
+                <CardComp color="#020202" svg={<DiLinux as={"svg"} size={80}/> }/>
                 <CardComp color="#e94e32" svg={<DiGit as={"svg"} size={80} color={"#e94e32"}/> }/>
                 <CardComp color="#ffd861" svg={<DiJavascript1 as={"svg"} size={80} color={"#ffd861"}/> }/>
                 <CardComp color="#4d598f" svg={<DiPhp as={"svg"} size={80} color={"#4d598f"}/> }/>
