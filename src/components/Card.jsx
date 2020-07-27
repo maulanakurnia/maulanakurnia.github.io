@@ -26,7 +26,7 @@ import { RiBookletLine } from "react-icons/ri";
 // `;
 
 const CardWrapper = styled.div`
-  background: ${(props) => props.bg};
+  background: ${({ theme }) => theme.content};
   width: 350px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding-bottom: 20px;
@@ -139,3 +139,5 @@ Card.defaultProps = {
   textColor: "#999",
   borderRadius: 9,
 };
+
+export default Card;
