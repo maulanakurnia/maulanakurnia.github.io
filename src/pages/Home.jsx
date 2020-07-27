@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Box, Text, Flex, Heading } from "@primer/components";
 import Card from '../components/Home/Card';
 import ButtonSocial from "../components/ButtonSocial"
-import Cover from '../components/styled/Cover';
+import Cover from '../components/Cover';
 import RepoGithub from '../components/Home/RepoGithub';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ import avatar from "../images/profile-min.jpeg"
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Footer from '../components/styled/Footer';
+import Footer from '../components/Footer';
 
 const Profil = styled.div`
     border-radius: 50%;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CoverComp = styled.div`
+const Cover = styled.div`
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -14,4 +14,4 @@ const CoverComp = styled.div`
     background-image: url(${props => props.imageUrl});
 `;
 
-export default CoverComp;
+export default Cover;
