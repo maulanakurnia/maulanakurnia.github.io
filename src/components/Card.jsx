@@ -62,6 +62,9 @@ const Title = styled.h3`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  svg{
+    color : ${({ theme }) => theme.text};
+  }
 `;
 
 const Description = styled.p`
@@ -121,7 +124,7 @@ const Card = ({
 }) => (
   <CardWrapper borderRadius={borderRadius} {...props}>
     <Title titleColor={titleColor}>
-      <RiBookletLine color={({theme}) => theme.text} style={{ marginBottom: "-3px" }} />{" "}
+      <RiBookletLine style={{ marginBottom: "-3px" }} />{" "}
       {title}
     </Title>
     <Description textColor={textColor}>{description}</Description>
