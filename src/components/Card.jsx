@@ -65,7 +65,7 @@ const Title = styled.h3`
 `;
 
 const Description = styled.p`
-  color: ${(props) => props.textColor};
+  color: ${({ theme }) => theme.text};
   padding: 15px 15px 15px 15px;
   margin: 0;
   display: inline-block;
@@ -104,8 +104,9 @@ const LangColor = styled.span`
 `;
 
 const Language = styled.p`
-  color: #000000;
+  color:${({ theme }) => theme.text};
   margin: -3px 0px 0px 9px;
+  font-weight: bold;
 `;
 
 const Card = ({
@@ -120,7 +121,7 @@ const Card = ({
 }) => (
   <CardWrapper borderRadius={borderRadius} {...props}>
     <Title titleColor={titleColor}>
-      <RiBookletLine color={"#020202"} style={{ marginBottom: "-3px" }} />{" "}
+      <RiBookletLine color={({theme}) => theme.text} style={{ marginBottom: "-3px" }} />{" "}
       {title}
     </Title>
     <Description textColor={textColor}>{description}</Description>
