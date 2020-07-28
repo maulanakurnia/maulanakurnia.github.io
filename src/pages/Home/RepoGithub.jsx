@@ -30,10 +30,12 @@ class RepoGithub extends Component {
   constructor(){
     super();
     this.getRepos();
+    this.getLangColor();
   }
   state = {
     repos: [],
     total: "",
+    langColors: []  
   };
 
   getRepos = async () => {
@@ -46,6 +48,21 @@ class RepoGithub extends Component {
     }catch(err){
       console.log(err);
     }
+  }
+  getLangColor = async () => {
+    try{
+      let data = await axios ({
+        method: 'get',
+        url: 'https://raw.githubusercontent.com/ozh/github-colors/master/colors.json'
+      }).then(({data}) => data);
+      this.setState({langColors: data})
+    }catch(e){
+      console.log(e);
+    }
+  }
+  
+  languageColor(lang) {
+    return this.state.langColors[lang]
   }
 
   render() {
@@ -74,13 +91,14 @@ class RepoGithub extends Component {
           Total : {this.state.total}
         </Text>
         <Container>
-          {this.state.repos.map((repos) => {
+          {this.state.repos.map((repos)  => {
             return (
               <Card
                 key={repos.id}
                 title={repos.name}
                 description={repos.description}
                 language={repos.language}
+                langColors={this.languageColor(repos.language)}
                 onClick={() => window.open(repos.html_url, "_blank")}
               />
             );

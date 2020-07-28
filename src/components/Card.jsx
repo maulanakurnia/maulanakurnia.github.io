@@ -103,7 +103,7 @@ const LangColor = styled.span`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #89e051;
+  background-${(props) => props.ColorLang};
 `;
 
 const Language = styled.p`
@@ -120,6 +120,7 @@ const Card = ({
   textColor,
   borderRadius,
   created,
+  langColors,
   ...props
 }) => (
   <CardWrapper borderRadius={borderRadius} {...props}>
@@ -130,7 +131,7 @@ const Card = ({
     <Description textColor={textColor}>{description}</Description>
     <ExtraContent>
       <Flex>
-        <LangColor />
+        <LangColor ColorLang={langColors}/>
         <Language>{language}</Language>
       </Flex>
     </ExtraContent>
