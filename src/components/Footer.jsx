@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {Link,Text} from "@primer/components";
 
 const FooterWrapper = styled.footer`
-  /* background: ${({ theme }) => theme.body}; */
   background: #1f2326;
   border-top: 1px solid rgba(0,0,0,.05)!important;
   margin-top: 50px;
