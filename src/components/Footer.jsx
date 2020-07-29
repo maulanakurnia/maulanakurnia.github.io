@@ -8,6 +8,9 @@ const FooterWrapper = styled.footer`
   margin-top: 50px;
   padding: 20px 10px 20px 0px;
   text-align: center;
+  @media only screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `
 
 class Footer extends React.Component {
