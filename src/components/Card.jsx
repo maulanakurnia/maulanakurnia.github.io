@@ -108,7 +108,7 @@ const LangColor = styled.span`
 
 const Language = styled.p`
   color:${({ theme }) => theme.text};
-  margin: -3px 0px 0px 9px;
+  margin: -2px 0px 0px 9px;
   font-weight: bold;
 `;
 
