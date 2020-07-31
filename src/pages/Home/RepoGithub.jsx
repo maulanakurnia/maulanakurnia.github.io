@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Box, Heading, Text, Flex } from "@primer/components";
+import { Box, Heading, Text } from "@primer/components";
 import Card from '../../components/Card'
 import Wrapper from '../../components/Wrapper';
 import Container from '../../components/Container';
