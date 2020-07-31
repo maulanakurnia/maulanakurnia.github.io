@@ -7,12 +7,7 @@ const Card = () => {
     return (
         <Fragment>
             <Heading textAlign="center" mt={50} fontSize={30} fontWeight="700" sx={{
-                '@media screen and (min-width: 823px)': {
-                marginBottom: "100px"
-                },
-                '@media screen and (max-width: 823px)': {
-                marginBottom: '20px'
-                }
+
             }}>My Game</Heading>
             <Wrapper size={131}>
             {/* <Box sx={{  display: 'inline-block',
