@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { Box, Heading } from "@primer/components";
+import { Heading } from "@primer/components";
 import CardComp from "../../components/CardGame";
 import { DiJavascript1, DiPhp, DiReact, DiSass, DiLinux, DiGit } from "react-icons/di";
+import Wrapper from '../../components/Wrapper';
 const Card = () => {
     return (
         <Fragment>
@@ -13,7 +14,8 @@ const Card = () => {
                 marginBottom: '20px'
                 }
             }}>My Game</Heading>
-            <Box sx={{  display: 'inline-block',
+            <Wrapper size={131}>
+            {/* <Box sx={{  display: 'inline-block',
                         justifyContent: 'center!important',
 
                         '@media screen and (min-width: 320px) and (max-width: 568px)': {
@@ -45,14 +47,15 @@ const Card = () => {
                         position:"absolute",
                         left: '12%',
                         transform: 'translate(-0%, -50%)',
-                        } }}>
+                        } }}> */}
                 <CardComp color="#020202" svg={<DiLinux as={"svg"} size={80}/> }/>
                 <CardComp color="#e94e32" svg={<DiGit as={"svg"} size={80} color={"#e94e32"}/> }/>
                 <CardComp color="#ffd861" svg={<DiJavascript1 as={"svg"} size={80} color={"#ffd861"}/> }/>
                 <CardComp color="#4d598f" svg={<DiPhp as={"svg"} size={80} color={"#4d598f"}/> }/>
                 <CardComp color="#61dafb" svg={<DiReact as={"svg"} size={80} color={"#61dafb"}/> }/>
                 <CardComp color="#c76495" svg={<DiSass as={"svg"} size={80} color={"#c76495"}/> }/>
-            </Box>
+            {/* </Box> */}
+            </Wrapper>
         </Fragment>
     )
 }
