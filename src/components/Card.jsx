@@ -27,18 +27,12 @@ import { RiBookletLine } from "react-icons/ri";
 
 const CardWrapper = styled.div`
   background: ${({ theme }) => theme.content};
-  width: 350px;
+  width: 305px;
   border: 1px solid rgba(0, 0, 0, 0.125);
   padding-bottom: 20px;
   border-radius: ${(props) => props.borderRadius}px;
   margin: 0px 0px 10px 10px;
   display: inline-block;
-  @media only screen and (min-width: 320px) {
-    width: 250px;
-  }
-  @media only screen and (min-width: 768px) {
-    width: 320px;
-  }
   transition-duration: 5s;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
