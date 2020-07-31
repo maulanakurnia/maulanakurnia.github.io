@@ -47,24 +47,10 @@ class RepoGithub extends Component {
   render() {
     return (
       <Box>
-        <Heading
-          as={Wrapper}
-          mt={20}
-          fontSize={30}
-          fontWeight="700"
-          >
-          My Repository
-        </Heading>
-        <Text
-          as={Flex}
-          justifyContent="center"
-          fontSize={15}
-          mb={30}
-          fontWeight="bold">
-          Total : {this.state.total}
-        </Text>
+        <Heading as={Wrapper} mt={20} fontSize={30} fontWeight="700">My Repository</Heading>
+        <Text as={Wrapper} justifyContent="center" fontSize={15} mb={30} fontWeight="bold"> Total : {this.state.total} </Text>
         <Container>
-          <Wrapper size={330}>
+          <Wrapper size={315}>
             {this.state.repos.map((repos)  => {
               return (
                 <Card
