@@ -5,6 +5,7 @@ import ButtonSocial from "../../components/ButtonSocial"
 import Cover from '../../components/Cover';
 import RepoGithub from './RepoGithub';
 import Avatar from '../../components/Avatar';
+import Wrapper from '../../components/Wrapper'
 
 // Link Image
 import cover from "../../images/bg-min.jpg";
@@ -30,10 +31,8 @@ class Home extends Component {
                         <Avatar imageUrl={avatar}/>
                     </Flex>
                     <div data-aos='fade-up' data-smooth-scroll-offset="180" data-aos-easing="ease" data-aos-duration="4000" data-aos-delay="0">
-                        <Heading as={Flex} justifyContent="center" mt={1} fontSize={30} fontWeight="700" sx={{
-
-                        }}>Maulana Kurnia</Heading>
-                        <Text as={Flex} justifyContent="center" fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
+                        <Heading as={Wrapper} mt={1} fontSize={30} fontWeight="700">Maulana Kurnia</Heading>
+                        <Text as={Wrapper} mb={2} fontSize={15} color="grey" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
                         <ButtonSocial/>
                         <Card/>
                         <RepoGithub/>
