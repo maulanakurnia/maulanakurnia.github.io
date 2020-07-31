@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Link, Flex} from "@primer/components";
+import { Button, Link} from "@primer/components";
 import { faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Wrapper from './Wrapper'
 
 const ButtonComp = () => {
     return(
-        <Flex flexWrap="nowrap" justifyContent="center" mt={3}>
+        <Wrapper size={114}>
             <Button as={Link} onClick={()=> window.open("https://twitter.com/maulanaakurniaa", "_blank")} sx={{
                 color: '#ffffff',
                 backgroundColor: '#158feb',
@@ -27,7 +28,7 @@ const ButtonComp = () => {
                 <FontAwesomeIcon icon={faTwitter} /> Twitter
             </Button>
 
-            <Button mx={2} as={Link} onClick={()=> window.open("https://github.com/maulanakurnia", "_blank")}  sx={{
+            <Button as={Link} onClick={()=> window.open("https://github.com/maulanakurnia", "_blank")}  sx={{
                 color: '#ffffff',
                 backgroundColor: '#383d42',
                 border: '1px solid #24292E',
@@ -63,7 +64,7 @@ const ButtonComp = () => {
             }}>
                 <FontAwesomeIcon icon={faInstagram} /> Instagram
             </Button>
-        </Flex>
+        </Wrapper>
     )
 }
 
