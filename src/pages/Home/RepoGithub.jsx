@@ -48,7 +48,8 @@ class RepoGithub extends Component {
     return (
       <Box>
         <Heading
-          textAlign="center"
+          as={Wrapper}
+          mt={20}
           fontSize={30}
           fontWeight="700"
           >
