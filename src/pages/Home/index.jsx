@@ -9,7 +9,7 @@ import Wrapper from '../../components/Wrapper'
 
 // Link Image
 import cover from "../../images/bg-min.jpg";
-import avatar from "../../images/profile-min.jpeg"
+import avatar from "../../images/profile-2.jpg"
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
