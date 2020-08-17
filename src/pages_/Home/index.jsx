@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { Box, Text, Flex, Heading } from "@primer/components";
 import Card from './Card';
-import ButtonSocial from "../../components/ButtonSocial"
-import Cover from '../../components/Cover';
+import ButtonSocial from "../../__components/ButtonSocial"
+import Cover from '../../__components/Cover';
 import RepoGithub from './RepoGithub';
-import Avatar from '../../components/Avatar';
-import Wrapper from '../../components/Wrapper'
+import Avatar from '../../__components/Avatar';
+import Wrapper from '../../__components/Wrapper'
 
 // Link Image
 import cover from "../../images/bg-min.jpg";
@@ -13,7 +13,7 @@ import avatar from "../../images/profile-2-min.jpg"
 // Aos
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Footer from '../../components/Footer';
+import Footer from '../../__components/Footer';
 
 class Home extends Component {
     componentDidMount(){	

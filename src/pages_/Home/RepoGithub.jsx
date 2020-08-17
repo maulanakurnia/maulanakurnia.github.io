@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Box, Heading, Text } from "@primer/components";
-import Card from '../../components/Card'
-import Wrapper from '../../components/Wrapper';
-import Container from '../../components/Container';
+import Card from '../../__components/Card'
+import Wrapper from '../../__components/Wrapper';
+import Container from '../../__components/Container';
 
 class RepoGithub extends Component { 
   constructor(){

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {Box, Text, Button, Flex, Heading, Link} from '@primer/components';
 import {ThemeProvider} from 'styled-components'
 import {MarkGithubIcon} from   '@primer/octicons-react'
@@ -6,20 +6,17 @@ import { Ripple } from 'react-spinners-css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { darkTheme , lightTheme} from "../__components/utils/Theme";
+import GlobalStyles from "../__components/utils/Global";
 
 library.add(fab)
 
 
-
-const theme = {
-  space : [0, 8, 16, 32, 64],
-  fontSize : [10, 12, 16, 24, 48]
-};
-
-class App extends Component {
-  render(){
+function App() {
+  const [theme] = useState('dark');
     return( 
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles/>
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -30,7 +27,7 @@ class App extends Component {
         }}>
           <Ripple color="#1f89cf7a"/>
           <Flex mt={-70}>
-              <Heading color={'white'} fontSize={3} paddingRight="1">We'r working hard to bring <Text color={'green'}>New Version</Text></Heading>
+              <Heading color="red" fontSize={3} paddingRight="1">We'r working hard to bring <Text color={'green'}>New Version</Text></Heading>
           </Flex>
           <Text color={'#158feb'} fontSize={24} mb={2}>Come back later. <span role="img" aria-label="smile">😊</span></Text>
           <Flex justifyContent="center">
@@ -82,7 +79,6 @@ class App extends Component {
         </Box>
     </ThemeProvider>
     );
-  }
 }
 
 export default App;

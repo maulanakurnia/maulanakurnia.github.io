@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Heading } from "@primer/components";
-import CardComp from "../../components/CardGame";
+import CardComp from "../../__components/CardGame";
 import { DiJavascript1, DiPhp, DiReact, DiSass, DiLinux, DiGit } from "react-icons/di";
-import Wrapper from '../../components/Wrapper';
+import Wrapper from '../../__components/Wrapper';
 const Card = () => {
     return (
         <Fragment>
