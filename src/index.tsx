@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './pages/App';
-import * as serviceWorker from './serviceWorker';
+import App from './pages_/__Maintaining';
 
 // Styling Console
 const warningTitleCSS = 'color:red; font-size:60px; font-weight: bold; -webkit-text-stroke: 1px black;';
@@ -11,8 +10,8 @@ console.log("%cThis is a browser feature intended for developers!!!", warningDes
 
 
 ReactDOM.render(
-  <App />,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root'),
-
 );
-serviceWorker.unregister();
