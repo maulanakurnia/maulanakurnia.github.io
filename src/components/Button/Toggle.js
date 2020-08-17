@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Toggle = styled.button`
+const Toggle = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 20%;
@@ -14,7 +14,7 @@ const Toggle = styled.button`
     z-index: 1;
     right: 0%;
     top: 40%;
-    box-shadow: 0 15px 24px rgba(255,255,255,0.11);
+    box-shadow: rgba(8, 11, 14, 0.06) 0px 0px 1px 0px, rgba(8, 11, 14, 0.1) 0px 3px 3px -1px;
     outline: none;
     &:hover{
         cursor: pointer;
