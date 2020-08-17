@@ -5,9 +5,9 @@ const lightTheme = {
 }
   
 const darkTheme  = {
-    body: '#1a202c',
+    body: '#121212',
     text: '#929497',
-    content: '#011627',
+    content: '#1e1e1e',
 }
 
 export {lightTheme, darkTheme}
