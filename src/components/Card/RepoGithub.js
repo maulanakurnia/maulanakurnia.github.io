@@ -17,12 +17,14 @@ const CardWrapper = styled.div`
   -o-transition: all 0.7s ease;
   -ms-transition: all 0.7s ease;
   transition: all 0.7s ease;
+  // box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
 
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 1px 0px rgba(20, 70, 32, 0.1);
-    transform: translate3d(0, -10px, 0);
-    --webkit-transform: translate3d(0, -2px, 0);
+    // box-shadow: 0px 1px 0px rgba(20, 70, 32, 0.1);
+    // transform: translate3d(0, -10px, 0);
+    // --webkit-transform: translate3d(0, -2px, 0);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .12);
   }
 `;
 
