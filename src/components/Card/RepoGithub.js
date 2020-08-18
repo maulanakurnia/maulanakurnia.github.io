@@ -17,8 +17,12 @@ const CardWrapper = styled.div`
   -o-transition: all 0.7s ease;
   -ms-transition: all 0.7s ease;
   transition: all 0.7s ease;
-  // box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
   border: 1px solid ${({theme}) => theme.border};
+
+  &>p {
+    margin-left: 25px;
+    margin-top: -10px;
+  }
 
   &:hover {
     cursor: pointer;
@@ -54,7 +58,6 @@ const ExtraContent = styled.div`
   -webkit-box-flex: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
-  border-top: 1px solid ${({theme}) =>theme.border} !important;
   position: static;
   background: 0 0;
   width: auto;
@@ -72,6 +75,7 @@ const ExtraContent = styled.div`
 const LangColor = styled.span`
   position: relative;
   top: 1px;
+  margin-left: 5px;
   display: inline-block;
   width: 12px;
   height: 12px;
