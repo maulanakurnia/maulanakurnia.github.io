@@ -18,13 +18,13 @@ const CardWrapper = styled.div`
   -ms-transition: all 0.7s ease;
   transition: all 0.7s ease;
   // box-shadow: 0 5px 10px rgba(0, 0, 0, .12);
+  border: 1px solid ${({theme}) => theme.border};
 
   &:hover {
     cursor: pointer;
-    // box-shadow: 0px 1px 0px rgba(20, 70, 32, 0.1);
-    // transform: translate3d(0, -10px, 0);
-    // --webkit-transform: translate3d(0, -2px, 0);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, .12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+    transform: scale(1.1, 1.1);
+    border: 1px solid ${({theme}) => theme.border};
   }
 `;
 
@@ -54,7 +54,7 @@ const ExtraContent = styled.div`
   -webkit-box-flex: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-top: 1px solid ${({theme}) =>theme.border} !important;
   position: static;
   background: 0 0;
   width: auto;
