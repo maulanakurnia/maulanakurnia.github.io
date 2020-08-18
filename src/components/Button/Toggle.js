@@ -4,7 +4,7 @@ const Toggle = styled.div`
     width: 50px;
     height: 50px;
     border-radius: 20%;
-    margin-right: 10px;
+    margin-right: 2px;
     background: ${({ theme }) => theme.content};
     border: 2px solid var(--bg-color);
     display: flex;
