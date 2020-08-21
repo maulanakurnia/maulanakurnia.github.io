@@ -64,6 +64,13 @@ const Toggle = ({children, ...rest}) => {
         }
 
         function closeDragElement() {
+            if((elmnt.offsetLeft - posElmntX) < 0 || (elmnt.offsetTop - posElmntY) < 0){
+                elmnt.style.left = 5 + "px"
+            } else if((elmnt.offsetLeft - posElmntY) > (window.screen.width - 50)){
+                elmnt.style.left = window.screen.width - 65 + "px"
+            } else if((elmnt.offsetTop - posElmntX) < 0) {
+                elmnt.style.top = 5 + "px"
+            }
             document.onmouseup = null;
             document.onmousemove = null;
         }
