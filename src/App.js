@@ -28,7 +28,7 @@ export default function App(){
     return(
         <ThemeProvider theme={theme ? lightTheme : darkTheme}>
             <BaseStyles/>
-            <Toggle onClick={toggleTheme}>
+            <Toggle onDoubleClick={toggleTheme}>
                 {theme ? <FiSun/> : <FiMoon/>}
             </Toggle>
             <Home/>
