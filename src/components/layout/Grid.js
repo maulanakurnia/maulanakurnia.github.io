@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {theme, GRID, FLEX} from '../config'
+import {theme, GRID, FLEX, COMMON} from '../config'
 import Box from './Box'
 
 const Grid = styled.div`
@@ -18,7 +18,8 @@ Grid.defaultProps = {
 Grid.propTypes = {
   ...Box.propTypes,
   ...GRID.propTypes,
-  ...FLEX.prototype
+  ...FLEX.prototype,
+  ...COMMON.propTypes
 }
 
 export default Grid

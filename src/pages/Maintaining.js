@@ -15,8 +15,7 @@ const Wrapper = styled(Container)`
     text-align: center;
 
     & > h1 {
-        color: #f9c513;
-        margin-bottom: -7px;
+        margin-bottom: -25px;
     }
     & span {
         font-size: 20px;
@@ -40,7 +39,7 @@ const Maintaining = () => {
     return(
     <Wrapper>
             <AiFillSetting/>
-            <Text as="h3" sx={{marginBottom: '-15px'}}>Sorry</Text>
+            <Text as="h1">I'am so sorry</Text>
             <span><br></br>We'r working hard to bring New Version</span>
             <Flex justifyContent="center" mt={12}>
                 <Button primary onClick={()=> window.open("https://twitter.com/maulanaakurniaa", "_blank")}><FaTwitter/>Twitter</Button>            
