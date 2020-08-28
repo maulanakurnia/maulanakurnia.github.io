@@ -1116,7 +1116,7 @@
     "@chakra-ui/hooks" "1.0.0-rc.2"
     "@chakra-ui/utils" "1.0.0-rc.2"
 
-"@chakra-ui/core@next":
+"@chakra-ui/core@^1.0.0-rc.2":
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/core/-/core-1.0.0-rc.2.tgz#396faaf2625cfc707d1cac71ff950cd78b0bbd80"
   integrity sha512-9KcbIHgg8F+YTrLGEcgF5EImZPzf4tySKFbJW0M/3P1Ui2qAIjlho4ZKw8uYhnUD0o1isLFtTJGRXRncybIhKQ==
@@ -1472,7 +1472,7 @@
     "@types/tinycolor2" "1.4.2"
     tinycolor2 "1.4.1"
 
-"@chakra-ui/theme@1.0.0-rc.2":
+"@chakra-ui/theme@1.0.0-rc.2", "@chakra-ui/theme@^1.0.0-rc.2":
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/@chakra-ui/theme/-/theme-1.0.0-rc.2.tgz#21c46d4165de2194392755a1a098933898c14317"
   integrity sha512-n6L2nXY7w4G0CcLPvXv0sMskOGVXUGtZYLHHVcnqlDTMtm/5Te3pDOxTxHZr0169El/r77OtIM0huYrcThsDSA==
@@ -4820,7 +4820,7 @@ react-dom@16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
-react-fast-compare@3.2.0:
+react-fast-compare@3.2.0, react-fast-compare@^3.1.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -4836,6 +4836,16 @@ react-focus-lock@2.4.1:
     react-clientside-effect "^1.2.2"
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
+
+react-helmet@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-6.1.0.tgz#a750d5165cb13cf213e44747502652e794468726"
+  integrity sha512-4uMzEY9nlDlgxr61NL3XbKRy1hEkXmKNXhjbAIOVw5vcFrsdYbH2FEwcNyWvWinl103nXgzYNlns9ca+8kFiWw==
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.7.2"
+    react-fast-compare "^3.1.1"
+    react-side-effect "^2.1.0"
 
 react-icons@^3.11.0:
   version "3.11.0"
@@ -4872,6 +4882,11 @@ react-remove-scroll@2.3.0:
     tslib "^1.0.0"
     use-callback-ref "^1.2.3"
     use-sidecar "^1.0.1"
+
+react-side-effect@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
+  integrity sha512-IgmcegOSi5SNX+2Snh1vqmF0Vg/CbkycU9XZbOHJlZ6kMzTmi3yc254oB1WCkgA7OQtIAoLmcSFuHTc/tlcqXg==
 
 react-style-singleton@^2.1.0:
   version "2.1.0"
