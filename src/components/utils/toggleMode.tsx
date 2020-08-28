@@ -10,12 +10,12 @@ export const ToggleMode = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <IconButton
-    display={["none", "block"]}
-    aria-label="toggle mode"
-    size="xs"
-    icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
-    onClick={toggleColorMode}
-    variant="ghost"
+        pr={10}
+        aria-label="toggle mode"
+        size="xs"
+        icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
+        onClick={toggleColorMode}
+        variant="ghost"
   />
   );
 };

@@ -1,13 +1,22 @@
-import type { AppProps } from 'next/app'
-import { ThemeProvider, CSSReset } from '@chakra-ui/core'
+import type { AppProps } from "next/app";
+import {useEffect, useState} from 'react'
+import { ChakraProvider, CSSReset } from "@chakra-ui/core";
+import theme from "@chakra-ui/theme";
 
-function MyApp({ Component, pageProps }: AppProps) {
+
+function App({Component, pageProps }:AppProps) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+    }, []);
+
   return (
-    <ThemeProvider>
-      <CSSReset />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  )
+    <ChakraProvider theme={theme}>
+        <CSSReset />
+        {mounted && <Component {...pageProps} />}
+    </ChakraProvider>
+  );
 }
 
-export default MyApp
+export default App;
