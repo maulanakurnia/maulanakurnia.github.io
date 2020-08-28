@@ -1,55 +1,73 @@
-import { Box, Link, Button } from '@chakra-ui/core'
-import { RiMenuLine, RiCloseLine } from "react-icons/ri"
-import { FiSun, FiMoon } from "react-icons/fi"
-import { useState, useEffect } from 'react';
+import { Box, Link, Button, useColorMode } from "@chakra-ui/core";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { useState } from "react";
+import NextLink from "next/link";
+import {ToggleMode} from './utils/toggleMode'
 
 export default function Header() {
-    const [open, setOpen] = useState(false);
-    const [theme, setTheme] = useState(false);
-    const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { colorMode } = useColorMode();
+  const bgColor = { light: "white", dark: "black" };
+  const color = { light: "#363537", dark: "#929497" };
 
-    // Dynamic Theme
-    useEffect(() => {
-        const darkModeValue = localStorage.getItem('DARK_MODE')
-        setTheme(darkModeValue === 'true')
-        setMounted(true)
-    }, []);
-
-    
-    useEffect(() => {
-        localStorage.setItem('DARK_MODE', String(theme))
-    }, [theme])
-
-    if (!mounted) return <div />
-
-    const toggleTheme = () => {
-        setTheme(!theme);
-    }
-    return(
-        <Box as="header" bg="#121212" w="100%" color="white" p={2} position="fixed" zIndex={999} mb={30}>
-            <Box display={{md: 'flex'}} w="100%">
-                <Box display="flex" justifyContent="space-between" px={1}>
-                    <Box>
-                        <Link href="/">mufradmabni</Link>
-                    </Box>
-                    <Box my="auto" display={{md:'none'}}>
-                        <Button size="xs" variant="ghost" onClick={() => setOpen(!open)} cursor="pointer">
-                            {open ? <RiMenuLine/> : <RiCloseLine/>}
-                        </Button>
-                    </Box>
-                </Box>
-                <Box display={open ? 'none' : 'flex'} justifyContent="space-between" w="100%">
-                    <Box display={{sm: 'block', md: 'flex'}} px={1}>
-                        <Link display="block" px={2} href="/">Beranda</Link>
-                        <Link display="block" px={2} href="/[person]/[vehicle]">Blog</Link>
-                    </Box>
-                    <Box display={{xs:'none', md: 'block'}}>
-                        <Button size="xs" variant="ghost" cursor="pointer" onClick={toggleTheme}>
-                            {open ? <FiSun/> : <FiMoon/>}
-                        </Button>
-                    </Box>
-                </Box>
-            </Box>
+  return (
+    <Box
+      as="header"
+      bg={bgColor[colorMode]}
+      color={color[colorMode]}
+      w="100%"
+      p={10}
+      position="fixed"
+      zIndex={999}
+      mb={30}
+      boxShadow="0px -20px 27px #000"
+      borderBottomWidth="1px"
+    >
+      <Box display="flex" w="100%" flexDirection={["column", "row"]}>
+        <Box
+          display="flex"
+          flexDirection={{ xs: "row" }}
+          justifyContent="space-between"
+          px={1}
+          w={{ sm: "100%", md: "" }}
+        >
+          <Box>
+            <Link href="/">mufradmabni</Link>
+          </Box>
+          <Box my="auto" display={["flex", "none"]}>
+            <ToggleMode/>
+            <Button
+              size="xs"
+              variant="ghost"
+              onClick={() => setOpen(!open)}
+              cursor="pointer"
+            >
+              {open ? <RiCloseLine /> : <RiMenuLine />}
+            </Button>
+          </Box>
         </Box>
-    );
+        <Box
+          display={[open ? "flex" : "none", "flex"]}
+          justifyContent="space-between"
+          w="100%"
+        >
+          <Box px={1} display={["block", "flex"]}>
+            <NextLink as="/" href="/">
+              <Link px={[0, 10]} display="block">
+                Beranda
+              </Link>
+            </NextLink>
+            <NextLink as="/blog/[slug]" href="/blog/saya">
+              <Link px={[0, 10]} display="block">
+                Blog
+              </Link>
+            </NextLink>
+          </Box>
+          <Box display={{ sx: "none", md: "block" }} my={4}>
+            <ToggleMode/>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
 }
