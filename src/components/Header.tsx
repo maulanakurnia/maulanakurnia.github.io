@@ -1,12 +1,12 @@
-import { Box, Link, Button, useColorMode } from "@chakra-ui/core";
+import { Box, Link, Button, useColorMode, IconButton } from "@chakra-ui/core";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import NextLink from "next/link";
-import {ToggleMode} from './utils/toggleMode'
+import { FiMoon, FiSun } from 'react-icons/fi'
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const { colorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
   const bgColor = { light: "white", dark: "black" };
   const color = { light: "#363537", dark: "#929497" };
 
@@ -17,25 +17,32 @@ export default function Header() {
       color={color[colorMode]}
       w="100%"
       p={10}
+      px={30}
       position="fixed"
       zIndex={999}
       mb={30}
       boxShadow="0px -20px 27px #000"
-      borderBottomWidth="1px"
-    >
+      borderBottomWidth="1px">
       <Box display="flex" w="100%" flexDirection={["column", "row"]}>
         <Box
           display="flex"
           flexDirection={{ xs: "row" }}
           justifyContent="space-between"
           px={1}
-          w={{ sm: "100%", md: "" }}
-        >
+          w={{ sm: "100%", md: "" }}>
           <Box>
             <Link href="/">mufradmabni</Link>
           </Box>
           <Box my="auto" display={["flex", "none"]}>
-            <ToggleMode/>
+          <IconButton
+                pr={10}
+                display={['flex', 'none']}
+                aria-label="toggle mode"
+                size="xs"
+                icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
+                onClick={toggleColorMode}
+                variant="ghost"
+            />
             <Button
               size="xs"
               variant="ghost"
@@ -64,7 +71,14 @@ export default function Header() {
             </NextLink>
           </Box>
           <Box display={{ sx: "none", md: "block" }} my={4}>
-            <ToggleMode/>
+          <IconButton
+                display={['none', 'block']}
+                aria-label="toggle mode"
+                size="xs"
+                icon={colorMode === "light" ? <FiSun /> : <FiMoon />}
+                onClick={toggleColorMode}
+                variant="ghost"
+            />
           </Box>
         </Box>
       </Box>
