@@ -8,15 +8,22 @@
     "start": "next start"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@chakra-ui/core": "^1.0.0-rc.2",
     "@chakra-ui/theme": "^1.0.0-rc.2",
+=======
+    "@chakra-ui/core": "next",
+>>>>>>> 1988e8ea2c246c5e5770bac08638483b5173bceb
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+<<<<<<< HEAD
     "react-helmet": "^6.1.0",
+=======
+>>>>>>> 1988e8ea2c246c5e5770bac08638483b5173bceb
     "react-icons": "^3.11.0"
   },
   "devDependencies": {
