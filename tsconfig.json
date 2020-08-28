@@ -4,11 +4,7 @@
     "lib": ["dom","dom.iterable","esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-<<<<<<< HEAD
     "strict": false,
-=======
-    "strict": true,
->>>>>>> 1988e8ea2c246c5e5770bac08638483b5173bceb
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -16,15 +12,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-<<<<<<< HEAD
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
       "components/*": ["src/components/*"]
     },
-=======
-    "jsx": "preserve"
->>>>>>> 1988e8ea2c246c5e5770bac08638483b5173bceb
   },
   "include": ["next-env.d.ts","**/*.ts","**/*.tsx", "src/components/utils/theme.tsx"],
   "exclude": ["node_modules"]
