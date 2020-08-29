@@ -11,15 +11,16 @@ import PageHeader from "components/pageHeader";
 import NextLink from 'next/link';
 
 function Blog({ posts }) {
-  const bg = useColorModeValue("#fff", "#000");
+  const bg = useColorModeValue("1px solid #dadce0", "1px solid #181818");
+  const bgHover = useColorModeValue("rgba(0,0,0,0.06)","rgba(255,255,255,0.06)")
   return (
     <Fragment>
       <SEO title="Blog" />
       <PageHeader title="Blog" />
       <Box px={[5,20]} display="flex" flexDirection={{xs: 'column', lg: 'row'}} justifyContent="space-between">
-        <Box bg={bg} borderRadius={6} py={10}>
+        <Box border={bg} borderRadius={6} py={10}>
           <Box px={[0,5]} py={2}>
-            <Box display="flex" _hover={{bg: 'hsla(0,0%,50%,.125)'}} px={{xs:5, lg:10}} p={{lg: 10}} borderRadius={6} justifyContent="space-between">
+            <Box display="flex"  px={{xs:5, lg:10}} p={{lg: 10}} borderRadius={6} justifyContent="space-between">
                 <Box w="full"display={{xs: 'none', lg: 'block'}}>
                     <Text as="span" fontSize={{xs: 13, lg: 16}} my="auto">
                         12 Juni 2020
@@ -59,7 +60,7 @@ function Blog({ posts }) {
           </Box>
         </Box>
         <Box as="aside" pl={{xs:0, lg:20}} position="sticky" top="5%" width='full' overflow="auto">
-            <Box bg={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 0}}>
+            <Box border={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 0}}>
                 <Text fontWeight="600">Tags</Text>
                 <Stack direction="row" py={2}>
                     <Badge>Tag</Badge>
@@ -71,7 +72,7 @@ function Blog({ posts }) {
 
                 </Stack>
             </Box>
-            <Box bg={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 4}}>
+            <Box border={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 4}}>
                 <Text fontWeight="600">Artikel Terbaru</Text>
 
             </Box>
