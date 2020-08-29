@@ -14,10 +14,14 @@ const overrides = {
       body: {
         fontFamily: "body",
         color: mode("#363537", "#929497")(props),
-        bg: mode("#E2E2E2", "#121212")(props),
+        bg: mode("#FFF", "#121212")(props),
         lineHeight: "base",
       },
-      
+      header: {
+          bg: mode("#FFF", "#121212")(props),
+          color: mode('#363537', '#929497')(props),
+          boxShadow: mode("0px -20px 20px #000", "0px -20px 20px #FFF")(props)
+      }
     }),
   },
 }
