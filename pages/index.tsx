@@ -7,7 +7,6 @@ const IndexPage = () => {
     return (
         <Fragment>
             <SEO title="Home" />
-            <Header/>
             <Main/>
         </Fragment>
     )
