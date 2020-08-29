@@ -3,6 +3,7 @@ import { Router } from 'next/router'
 import type { AppProps } from "next/app";
 import { useEffect, useState } from 'react'
 import AppLayout from 'components/layout/AppLayout'
+import '../lib/styles.css';
 
 function App({Component, pageProps }:AppProps) {
     const [mounted, setMounted] = useState(false);

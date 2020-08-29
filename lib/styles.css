@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif !important;
+    transition: background 0.5s, color 0.6s;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.selected {
+    color: black !important;
+}
+
+.chakra-ui-dark .selected {
+    color: #2e7ad1 !important;
+}
+
+.chakra-ui-dark {
+    background: #111216 !important;
+}
+
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+::selection {
+    background-color: #c5e3ff;
+    color: black;
+}
