@@ -13,35 +13,35 @@ export default function Home() {
                 <Heading as="h1" fontSize="20px">Maulana Kurnia</Heading>
                 <Text as="span" fontSize="13px" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
             </Flex>
-            <Stack direction="row" spacing={4} justifyContent="center">
+            <Stack direction="row" spacing={2} justifyContent="center">
                 <Button 
                     leftIcon={<FaTwitter />} 
-                    bg="rgb(0, 75, 160)" 
+                    bg="#1976d2"
+                    _hover={{bg: '#004ba0'}}
                     color="white"
-                    px={10}
-                    py={15}
+                    size="sm"
                     borderRadius={3}
                     onClick={() => window.open('https://www.twitter.com/maulanaakurniaa','_blank')}>
                     twitter
                 </Button>
                 <Button 
                     leftIcon={<FaInstagram />} 
-                    bg="white" 
+                    bg="gray.100" 
+                    _hover={{bg: 'gray.300'}}
                     color="black" 
-                    px={10}
-                    py={15}
+                    size="sm"
                     borderRadius={3}
                     onClick={() => window.open('https://www.instagram.com/maulanaakurniaa','_blank')}>
                     Instagram
                 </Button>
                 <Button 
                     leftIcon={<FaGithub />} 
-                    bg="#3b434a" 
+                    bg="#2C3034" 
+                    _hover={{bg: '#3B434A'}}
                     color="white"
-                    px={10}
-                    py={15}
+                    size="sm"
                     borderRadius={3}
-                    onClick={() => window.open('https://www.github.com/maulanaakurniaa','_blank')}>
+                    onClick={() => window.open('https://www.github.com/maulanakurnia','_blank')}>
                     Github
                 </Button>
             </Stack>
