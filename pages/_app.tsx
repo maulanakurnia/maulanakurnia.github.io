@@ -1,22 +1,17 @@
-import * as gtag from '../lib/gtag'
+import {initGA, logPageView} from '../lib/analytics'
 import { Router } from 'next/router'
 import type { AppProps } from "next/app";
 import { useEffect, useState } from 'react'
 import AppLayout from 'components/layout/AppLayout'
-import '../lib/styles.css';
 
 function App({Component, pageProps }:AppProps) {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
       setMounted(true);
-      const handleRouteChange = (url) => {
-        gtag.pageview(url)
-      }
-      Router.events.on('routeChangeComplete', handleRouteChange)
-      return () => {
-        Router.events.off('routeChangeComplete', handleRouteChange)
-      }
+      initGA()
+      logPageView()
+      Router.events.on('routeChangeComplete', logPageView);
     }, []);
 
   return (
