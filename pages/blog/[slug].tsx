@@ -6,7 +6,7 @@ export default function Vehicle(){
     const router = useRouter();
     return(
         <Fragment>
-            <Header/>
+
 
         </Fragment>
     );
