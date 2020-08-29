@@ -1,7 +1,7 @@
 import { ChakraProvider, CSSReset, Box } from '@chakra-ui/core'
-import customeTheme from '../../../lib/theme'
+import customeTheme from 'utils/theme'
 import Header from './Header'
-import GlobalStyle from 'lib/GlobalStyle'
+import GlobalStyle from 'utils/GlobalStyle'
 import Helmet from 'react-helmet'
 
 function AppLayout({ children }:any) {

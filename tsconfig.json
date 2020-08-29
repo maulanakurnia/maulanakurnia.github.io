@@ -15,9 +15,10 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "components/*": ["src/components/*"]
+      "components/*": ["src/components/*"],
+      "utils/*": ["src/utils/*"]
     },
   },
-  "include": ["next-env.d.ts","**/*.ts","**/*.tsx", "src/components/utils/theme.tsx"],
+  "include": ["next-env.d.ts","**/*.ts","**/*.tsx", "src/components/lib/theme.tsx"],
   "exclude": ["node_modules"]
 }

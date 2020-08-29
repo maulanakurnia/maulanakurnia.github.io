@@ -1,7 +1,7 @@
 import {Fragment} from 'react'
 import Header from '../src/components/layout/Header';
 import Main from 'components/sections/main'
-import SEO from 'components/utils/seo'
+import SEO from 'components/lib/seo'
 
 const IndexPage = () => {
     return (

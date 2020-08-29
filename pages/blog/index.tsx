@@ -6,7 +6,7 @@ import {
   Badge
 } from "@chakra-ui/core";
 import { Fragment } from "react";
-import SEO from "components/utils/seo";
+import SEO from "components/lib/seo";
 import PageHeader from "components/pageHeader";
 import NextLink from 'next/link';
 

@@ -1,4 +1,4 @@
-import {initGA, logPageView} from '../lib/analytics'
+import {initGA, logPageView} from 'utils/analytics'
 import { Router } from 'next/router'
 import type { AppProps } from "next/app";
 import { useEffect, useState } from 'react'
