@@ -86,7 +86,7 @@ const Header = () => {
                             display="flex"
                             flexDirection={["column","row"]}
                             w="full">
-                            <InputGroup w={"15%"} size="sm" mx={5} isDisabled={true} display={{xs: 'none', md:'block'}} variant="filled" className="inputGroup">
+                            <InputGroup w={"15%"} size="sm" mx={5} display={{xs: 'none', md:'block'}} variant="filled" className="inputGroup">
                                 <InputRightElement className="custom_Icon" children={<BsSlashSquare size={100} color="gray.300" />} fontSize="120px"/>
                                 <Input 
                                     type="text" 
