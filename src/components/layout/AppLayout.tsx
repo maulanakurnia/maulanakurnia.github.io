@@ -1,5 +1,4 @@
 import { ChakraProvider, CSSReset, Box } from '@chakra-ui/core'
-import theme from '@chakra-ui/theme'
 import customeTheme from '../../../lib/theme'
 import Header from './Header'
 
