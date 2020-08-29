@@ -1,7 +1,13 @@
 import React from "react";
 import Helmet from "react-helmet";
 
-function SEO({ description, lang, title }) {
+interface Props {
+    description: string,
+    lang: string,
+    title: string
+}
+
+function SEO({ description, lang, title }: Props) {
   const meta = {
     author: "Maulana Kurnia",
     description: `My Personal Website`,
@@ -25,7 +31,7 @@ function SEO({ description, lang, title }) {
         },
         {
           property: `og:description`,
-          content: meta,
+          content: meta["og:description"],
         },
         {
           property: `og:type`,
