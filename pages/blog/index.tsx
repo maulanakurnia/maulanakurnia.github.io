@@ -12,7 +12,6 @@ import NextLink from 'next/link';
 
 function Blog({ posts }:any) {
   const bg = useColorModeValue("1px solid #dadce0", "1px solid #181818");
-  const bgHover = useColorModeValue("rgba(0,0,0,0.06)","rgba(255,255,255,0.06)")
   return (
     <Fragment>
       <SEO title="Blog" />
