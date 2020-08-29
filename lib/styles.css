@@ -20,6 +20,26 @@ a {
     color: #2e7ad1 !important;
 }
 
+.chakra-ui-dark .custom_Icon {
+    background-color: transparent;
+}
+.chakra-ui-dark .custom_Search{
+    background-color: #1B1B1B;
+}
+.chakra-ui-dark .custom_Search:hover{
+    background-color:rgba(255,255,255,0.06);
+}
+
+.chakra-ui-dark .css-xhsysdk:hover {
+    background-color: rgba(255,255,255,0.06);
+}
+
+.custom_Icon {
+    width: 35px!important;
+    height: 35px!important;
+    margin-top: -4px;
+}
+
 .chakra-ui-dark {
     background: #111216 !important;
 }
