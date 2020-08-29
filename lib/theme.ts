@@ -7,13 +7,14 @@ import { mode } from "@chakra-ui/theme-tools"
 
 // Remember, you can access special theme variables if you
 // declare a style as a function, rather than an object.
+
 const overrides = {
   styles: {
     global: (props) => ({
       body: {
         fontFamily: "body",
-        color: mode("gray.800", "whiteAlpha.900")(props),
-        bg: mode("white", "#121212")(props),
+        color: mode("#363537", "#929497")(props),
+        bg: mode("#E2E2E2", "#121212")(props),
         lineHeight: "base",
       },
       
