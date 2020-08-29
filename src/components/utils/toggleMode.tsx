@@ -5,6 +5,10 @@ import {
 } from "@chakra-ui/core";
 import { FiMoon, FiSun } from "react-icons/fi";
 
+export interface State {
+    colorMode: string,
+    toggleColorMode: boolean
+}
 
 export const ToggleMode = () => {
   const { colorMode, toggleColorMode } = useColorMode();
