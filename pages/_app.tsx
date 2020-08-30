@@ -7,7 +7,7 @@ import Maintaining from "./maintaining";
 function App({Component, pageProps }:AppProps) {
     const [mounted, setMounted] = useState(false);
     const { colorMode, toggleColorMode } = useColorMode();
-    var MAINTAINING: boolean = true;
+    var MAINTAINING: boolean = false;
     useEffect(() => {
         const darkModeValue = localStorage.getItem('chakra-ui-color-mode')
         // @ts-ignore
