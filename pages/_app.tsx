@@ -7,6 +7,7 @@ import Maintaining from "./maintaining";
 function App({Component, pageProps }:AppProps) {
     const [mounted, setMounted] = useState(false);
     const { colorMode, toggleColorMode } = useColorMode();
+    var MAINTAINING: boolean = true;
     useEffect(() => {
         const darkModeValue = localStorage.getItem('chakra-ui-color-mode')
         // @ts-ignore
@@ -20,12 +21,10 @@ function App({Component, pageProps }:AppProps) {
     if (!mounted) return <div />
 
     return (
-        process.env.MAINTAINING === 'true' ? 
+        !MAINTAINING ? 
         <AppLayout> {mounted && <Component {...pageProps} />} </AppLayout>
         :
-        <>
         <Maintaining/>
-        </>
     );
 }
 
