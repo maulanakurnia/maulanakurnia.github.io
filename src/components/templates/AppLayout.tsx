@@ -1,11 +1,10 @@
 import { ChakraProvider, CSSReset, Box } from '@chakra-ui/core'
-import customeTheme from 'components/lib/theme'
-import Header from './Header'
-import GlobalStyle from 'components/lib/GlobalStyle'
+import Header from '../organisms/header'
+import {GlobalStyle, theme } from 'templates/index'
 import Helmet from 'react-helmet'
-import Footer from './footer';
+import Footer from '../organisms/footer';
 import { Router } from 'next/router'
-import { trackPageview } from "src/analytics/track-event";
+import { trackPageview } from "src/config/analytics/track-event";
 
 Router.events.on("routeChangeComplete", (url) => {
     trackPageview(url)
@@ -13,7 +12,7 @@ Router.events.on("routeChangeComplete", (url) => {
 
 const AppLayout = ({ children }:any) => {
     return (
-        <ChakraProvider theme={customeTheme}>
+        <ChakraProvider theme={theme}>
             <CSSReset />
             <Helmet>
                 <link href="http://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" type="text/css"/> 

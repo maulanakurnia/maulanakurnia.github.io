@@ -15,14 +15,14 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
 // Library local
-import { getPostBySlug } from "lib/getPostBySlug";
-import { getPostFilePaths } from "lib/getPostFilePaths";
-import { slugifyPost } from "lib/slugifyPost";
-import { PostFrontmatter } from "lib/postFrontmatter";
-import { AppLayout, SEO } from "src/components/";
+import { getPostBySlug } from "src/lib/getPostBySlug";
+import { getPostFilePaths } from "src/lib/getPostFilePaths";
+import { slugifyPost } from "src/lib/slugifyPost";
+import { PostFrontmatter } from "src/lib/postFrontmatter";
+import SEO from "src/components/atoms/seo";
 import { Box, Heading, Text, Image, Container } from "@chakra-ui/core";
-
-
+import { MDXProvider } from "@mdx-js/react"
+import MDXComponents from "templates/MDXLayout"
 interface PostPageParams extends ParsedUrlQuery {
     slug?: string;
 }
@@ -55,13 +55,7 @@ interface PostPageProps {
   };
 }
 
-/**
- * This page displays an individual post for viewing.
- */
 const PostPage: NextPage<PostPageProps> = (props) => {
-    // Hydrate the MDX content. The second argument is an object of React components
-    // to interpolate into the MDX components. Hydrating in this fashion means that
-    // we can move the MDX to any folder we want, or even to a separate repository.
     const hydrated = useHydrateMdx(props.mdxContent, {});
 
     const {
@@ -75,13 +69,11 @@ const PostPage: NextPage<PostPageProps> = (props) => {
 
     const { HOMEPAGE } = process.env;
 
-    // If there's a banner image, we want to use that for the metadata, so we need
-    // to create a non-relative URL to the image.
     const absoluteImagePath =
     props.image?.src && HOMEPAGE ? HOMEPAGE + props.image?.src : undefined;
 
     return (
-    <AppLayout>
+    <MDXProvider components={MDXComponents}>
         <Head>
             <title>{title}</title>
             <SEO title={title} description={description}/>
@@ -102,7 +94,6 @@ const PostPage: NextPage<PostPageProps> = (props) => {
 
                 <Text
                 as="span"
-                color="rgba(0, 0, 0, 0.7)"
                 marginTop="-1rem"
                 display="block"
                 >
@@ -127,7 +118,7 @@ const PostPage: NextPage<PostPageProps> = (props) => {
                 </NextLink>
             )}
             </Container>
-        </AppLayout>
+        </MDXProvider>
     );
 };
 
@@ -153,11 +144,9 @@ export const getStaticProps: GetPostPageStaticProps = async (ctx) => {
 
     let imageProps: { image?: PostPageProps["image"] } = {};
 
-    // If there's an image, fetch the image, resize it to the max width shown, and
-    // create a low quality placeholder image.
     if (frontmatter.image?.url) {
-    const resized = require(`src/${frontmatter.image.url}?resize&size=640`);
-    const image = require(`src/${frontmatter.image.url}?lqip`);
+    const resized = require(`src/assets/img/posts/${frontmatter.image.url}?resize&size=640`);
+    const image = require(`src/assets/img/posts/${frontmatter.image.url}?lqip`);
 
 
     imageProps.image = {
@@ -167,12 +156,10 @@ export const getStaticProps: GetPostPageStaticProps = async (ctx) => {
     };
     }
 
-    // Render out the MDX content.
     const mdxContent = await renderToString(
     body,
     {},
     {
-        // `prism` adds syntax highlighting as CSS classes to the code blocks.
         rehypePlugins: [prism],
     }
     );

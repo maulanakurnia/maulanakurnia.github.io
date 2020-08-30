@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { useEffect, useState } from 'react'
 import { useColorMode } from '@chakra-ui/core';
-import { AppLayout } from 'src/components/';
+import { AppLayout } from 'templates/index';
 import Maintaining from "./maintaining";
 
 function App({Component, pageProps }:AppProps) {

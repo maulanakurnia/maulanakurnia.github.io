@@ -13,7 +13,6 @@ const excludedFiles = ["markdown-test", "index"];
  */
 export const getPostFilePaths = () => {
   const postFiles = fs.readdirSync(POSTS_BASE_PATH);
-
   return postFiles.filter((filePath) => {
     const isMarkdownFile = /.mdx?$/.test(filePath);
 

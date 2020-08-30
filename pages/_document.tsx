@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import { InitializeColorMode } from "@chakra-ui/core"
-import GAScript from "src/analytics/ga-script"
+import GAScript from "src/config/analytics/ga-script"
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

@@ -1,6 +1,5 @@
 import React from "react"
-import SEO from "components/lib/seo"
-import PageHeader from "components/pageHeader"
+import SEO from "src/components/atoms/seo"
 import {Text,Heading, Container} from '@chakra-ui/core'
 const NotFoundPage = () => (
   <>

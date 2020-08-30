@@ -4,9 +4,9 @@ import { Fragment } from "react";
 import { css } from '@emotion/core'
 
 // @ts-ignore
-import Cover from 'src/img/bg-min.jpg' 
+import Cover from 'src/assets/img/bg-min.jpg' 
 // @ts-ignore
-import Avatar from 'src/img/profile-2-min.jpg' 
+import Avatar from 'src/assets/img/profile-2-min.jpg' 
 
 export default function Home() {
     return(

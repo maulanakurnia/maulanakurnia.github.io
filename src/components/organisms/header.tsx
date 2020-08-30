@@ -2,7 +2,7 @@ import { Box, Link, Button, useColorMode, InputGroup, Input, InputRightElement, 
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import { FiMoon, FiSun, FiSearch } from "react-icons/fi";
-import ActiveLink from './lib/ActiveLink';
+import { ActiveLink } from 'atoms/index';
 import { BsSlashSquare } from 'react-icons/bs';
 
 const MenuItems = ({ children, to }: any) => {

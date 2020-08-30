@@ -9,7 +9,7 @@ interface PostsProps {
     desc: string
 }
 
-export const Posts = ({
+const Posts = ({
     // tags: [],
     title,
     href,
@@ -31,7 +31,7 @@ export const Posts = ({
                 </Box>
                 <Box w="500%">
                     <Text fontWeight="600" fontSize={{ xs: 16, lg: 24 }} mt="-2px">
-                        <NextLink href={href} passHref>{title}</NextLink>
+                        <NextLink as={href} href="/blog/[slug]" passHref>{title}</NextLink>
                     </Text>
                 <Text
                     as="span"
@@ -57,3 +57,5 @@ export const Posts = ({
         </Box>
     )
 }
+
+export default Posts;

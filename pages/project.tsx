@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import SEO from "components/lib/seo";
-import PageHeader from "components/pageHeader";
+import SEO from "src/components/atoms/seo";
+import PageHeader from "src/components/atoms/pageHeader";
 import { Box,useColorModeValue, Text } from '@chakra-ui/core'
 
 export default function Project() {
