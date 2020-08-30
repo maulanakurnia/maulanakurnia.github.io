@@ -1,84 +1,93 @@
-import {
-  Box,
-  Text,
-  useColorModeValue,
-  Stack,
-  Badge
-} from "@chakra-ui/core";
 import { Fragment } from "react";
 import SEO from "components/lib/seo";
+import { GetStaticProps } from 'next';
+import readingTime from 'reading-time';
+import Aside from "containers/blog/aside";
+import { Posts } from "containers/blog/posts";
+import { slugifyPost } from 'lib/slugifyPost';
 import PageHeader from "components/pageHeader";
-import NextLink from 'next/link';
+import { compareDesc, format } from 'date-fns';
+import { getPostBySlug } from 'lib/getPostBySlug';
+import { PostFrontmatter } from "lib/postFrontmatter";
+import { getPostFilePaths } from 'lib/getPostFilePaths';
+import { Box, useColorModeValue } from "@chakra-ui/core";
 
-function Blog({ posts }:any) {
-  const bg = useColorModeValue("1px solid #dadce0", "1px solid #181818");
+type PostPreview = Pick<PostFrontmatter,"title" | "description" | "draft" | "link" | "publisher" | "tags"> & {
+    /** The date that the post was first published. */
+    date: string;
+    /** The `href` to the actual post itself */
+    href: string;
+    /** An estimate of how long the post will take to read */
+    readingTime: string;
+    description: string;
+};
+
+interface BlogPageProps {
+    /** List of blog posts. */
+    posts: PostPreview[];
+}
+
+function Blog({ posts }: BlogPageProps) {
+    const bg = useColorModeValue("1px solid #dadce0", "1px solid rgb(39, 41, 46)");
   return (
     <Fragment>
       <SEO title="Blog" />
       <PageHeader title="Blog" />
-      <Box px={[5,20]} display="flex" flexDirection={{xs: 'column', lg: 'row'}} justifyContent="space-between">
-        <Box border={bg} borderRadius={6} py={10}>
-          <Box px={[0,5]} py={2}>
-            <Box display="flex"  px={{xs:5, lg:10}} p={{lg: 10}} borderRadius={6} justifyContent="space-between">
-                <Box w="full"display={{xs: 'none', lg: 'block'}}>
-                    <Text as="span" fontSize={{xs: 13, lg: 16}} my="auto">
-                        12 Juni 2020
-                    </Text>
-                </Box>
-                <Box w="500%">
-                    <Text fontWeight="600" fontSize={{xs: 16, lg:20}}>
-                        <NextLink href="/">Title here</NextLink>
-                    </Text>
-                    <Text as="span" fontSize={12} my="auto" display={{xs: 'block', lg: 'none'}}>
-                        12 Juni 2020
-                    </Text>
-                    <Stack direction="row" py={2}>
-                        <Badge>Tag</Badge>
-                        <Badge colorScheme="green">Tag</Badge>
-                        <Badge colorScheme="red">Tag</Badge>
-                        <Badge colorScheme="purple">Tag</Badge>
-                    </Stack>
-                    <Text className="description" fontSize={{xs: 13, lg:18}} textAlign="justify">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
-                        quia beatae, non vero rem magnam pariatur accusamus nobis
-                        consequatur doloribus dolor perferendis impedit libero eveniet
-                        fugit, totam aliquid iure quas ratione inventore a!
-                        Voluptatibus sunt hic et cumque ipsa maiores necessitatibus
-                        optio, ipsum esse possimus porro placeat minus. Repudiandae,
-                        dolores laboriosam. Harum vel eveniet facilis commodi
-                        cupiditate totam, accusamus assumenda aliquid quae non libero
-                        dolorum blanditiis molestias eum neque explicabo aut nesciunt?
-                        Tempore, tempora eveniet, veritatis reprehenderit enim soluta
-                        incidunt vel, hic excepturi quae dolorem nam corporis
-                        blanditiis. Aperiam assumenda, dicta neque ducimus ipsum
-                        suscipit distinctio. Quisquam modi perferendis eligendi.
-                    </Text>
-                </Box>
-            </Box>
-
-          </Box>
+      <Box
+        px={[5, 20]}
+        display="flex"
+        flexDirection={{ xs: "column", lg: "row" }}
+        justifyContent="space-between">
+        <Box border={bg} borderRadius={6} py={[2, 10]} w="full">
+            {posts.map((post) => (
+            <Posts
+                key={post.title}
+                title={post.title}
+                date={post.date}
+                href={post.href}
+                desc={post.description}
+            />
+            ))}
         </Box>
-        <Box as="aside" pl={{xs:0, lg:20}} position="sticky" top="5%" width='full' overflow="auto">
-            <Box border={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 0}}>
-                <Text fontWeight="600">Tags</Text>
-                <Stack direction="row" py={2}>
-                    <Badge>Tag</Badge>
-                    <Badge colorScheme="green">Tag</Badge>
-                    <Badge colorScheme="red">Tag</Badge>
-                    <Badge colorScheme="purple">Tag</Badge>
-                    <Badge colorScheme="green">Tag</Badge>
-                    <Badge colorScheme="red">Tag</Badge>
-
-                </Stack>
-            </Box>
-            <Box border={bg} borderRadius={6} p={5} mt={{xs: 5, lg: 4}}>
-                <Text fontWeight="600">Artikel Terbaru</Text>
-
-            </Box>
-        </Box>
+        <Aside/>
       </Box>
     </Fragment>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const postFiles = getPostFilePaths();
+
+  let posts = [];
+
+  for (let postFile of postFiles) {
+    try {
+      const slug = slugifyPost(postFile);
+      const { frontmatter, body } = getPostBySlug(slug);
+
+      // Don't add the post to the list if it's a WIP
+      if (frontmatter.draft) continue;
+
+      const postData = {
+        ...frontmatter,
+        href: `/blog/${slug}`,
+        readingTime: readingTime(body).text,
+      };
+
+      posts.push(postData);
+    } catch (error) {
+      console.log(`Error reading frontmatter of ${postFile}`, error);
+    }
+  }
+
+  const sortedPosts = posts
+    .sort((a, b) => compareDesc(a.date, b.date))
+    .map((p) => ({
+      ...p,
+      date: format(p.date, "dd MMMM yyyy"),
+    }));
+
+  return { props: { posts: sortedPosts } };
+};
 
 export default Blog;

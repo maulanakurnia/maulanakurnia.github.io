@@ -1,6 +1,5 @@
 import {Fragment} from 'react'
-import Header from '../src/components/layout/Header';
-import Main from 'components/sections/main'
+import Main from 'src/containers/home/main'
 import SEO from 'components/lib/seo'
 
 const IndexPage = () => {

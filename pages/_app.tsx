@@ -1,24 +1,32 @@
-import {initGA, logPageView} from 'utils/analytics'
-import { Router } from 'next/router'
 import type { AppProps } from "next/app";
 import { useEffect, useState } from 'react'
-import AppLayout from 'components/layout/AppLayout'
+import { useColorMode } from '@chakra-ui/core';
+import { AppLayout } from 'src/components/';
+import Maintaining from "./maintaining";
 
 function App({Component, pageProps }:AppProps) {
     const [mounted, setMounted] = useState(false);
+    const { colorMode, toggleColorMode } = useColorMode();
+    useEffect(() => {
+        const darkModeValue = localStorage.getItem('chakra-ui-color-mode')
+        // @ts-ignore
+        toggleColorMode(darkModeValue)
+        setMounted(true);
+    }, [])
 
     useEffect(() => {
-      setMounted(true);
-      initGA()
-      logPageView()
-      Router.events.on('routeChangeComplete', logPageView);
-    }, []);
+        localStorage.setItem('chakra-ui-', colorMode)
+    }, [colorMode])
+    if (!mounted) return <div />
 
-  return (
-        <AppLayout>
-            {mounted && <Component {...pageProps} />}
-        </AppLayout>
-  );
+    return (
+        process.env.MAINTAINING === 'true' ? 
+        <AppLayout> {mounted && <Component {...pageProps} />} </AppLayout>
+        :
+        <>
+        <Maintaining/>
+        </>
+    );
 }
 
 export default App;
