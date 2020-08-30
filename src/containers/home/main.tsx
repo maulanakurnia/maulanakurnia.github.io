@@ -1,13 +1,19 @@
 import { Box, Button, Stack, Flex, Text, Heading} from "@chakra-ui/core";
 import { FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa'
 import { Fragment } from "react";
+import { css } from '@emotion/core'
+
+// @ts-ignore
+import Cover from 'src/img/bg-min.jpg' 
+// @ts-ignore
+import Avatar from 'src/img/profile-2-min.jpg' 
 
 export default function Home() {
     return(
         <Fragment>
-        <Box backgroundImage="url(static/images/bg-min.jpg)" h={"calc(30vh)"} w="100%" display="block" backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="center" minHeight={300} borderBottomWidth="1px"/>
+        <Box css={css`background-image: url(${Cover})`} h={"calc(30vh)"} w="100%" display="block" backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="center" minHeight={300} borderBottomWidth="1px"/>
         <Flex justifyContent="center">
-            <Box backgroundImage="url(static/images/profile-2-min.jpg)" h={200} w={200} borderRadius="50%" backgroundSize="200px" display="flex" mt="-100px" borderWidth="1px"/>
+            <Box css={css`background-image: url(${Avatar})`} h={200} w={200} borderRadius="50%" backgroundSize="200px" display="flex" mt="-100px" borderWidth="1px"/>
         </Flex>
             <Flex direction="column" textAlign="center" p={3}>
                 <Heading as="h1" fontSize="20px">Maulana Kurnia</Heading>
