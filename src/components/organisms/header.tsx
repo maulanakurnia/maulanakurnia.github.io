@@ -1,9 +1,8 @@
-import { Box, Link, Button, useColorMode, InputGroup, Input, InputRightElement, IconButton, useColorModeValue } from "@chakra-ui/core";
+import { Box, Link, Button, useColorMode, IconButton, useColorModeValue } from "@chakra-ui/core";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import { FiMoon, FiSun, FiSearch } from "react-icons/fi";
 import { ActiveLink } from 'atoms/index';
-import { BsSlashSquare } from 'react-icons/bs';
 
 const MenuItems = ({ children, to }: any) => {
   return (
@@ -47,7 +46,7 @@ const Header = () => {
                     w={["full","auto"]}>
                     <Box>
                         {/* Brand */}
-                        <Link fontWeight="600" href="/" fontSize={15}>mufradmabni</Link>
+                        <Link fontWeight="600" href="/" fontSize={15} pr={3}>mufradmabni</Link>
                     </Box>
                     <Box
                         display={["flex","none"]}>
@@ -89,18 +88,6 @@ const Header = () => {
                             display="flex"
                             flexDirection={["column","row"]}
                             w="full">
-                            <InputGroup w={"15%"} size="sm" mx={5} display={{xs: 'none', md:'block'}} variant="filled">
-                                <InputRightElement className="custom_Icon" w={'2.2rem'} mt={'-2px'} children={<BsSlashSquare size={100} color="gray.300" />} fontSize="120px"/>
-                                <Input 
-                                    type="text" 
-                                    placeholder="Coming Soon" 
-                                    borderRadius={6} 
-                                    h="24px"
-                                    fontSize={12} 
-                                    className="custom_Search"
-                                    _focus={{outline: 'none'}}
-                                    _placeholder={{fill: '#000!important', fontSize: '13px'}}/>
-                            </InputGroup>
                             <MenuItems to='/'>Home</MenuItems>
                             <MenuItems to='/blog'>Blog</MenuItems>
                             <MenuItems to='/project'>Project</MenuItems>
