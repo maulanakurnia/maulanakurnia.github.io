@@ -4,7 +4,7 @@ import path from "path";
 import { POSTS_BASE_PATH } from "./constants";
 import { getPostFilePaths } from "./getPostFilePaths";
 import { slugifyPost } from "./slugifyPost";
-import { ParsedPost, PostFrontmatter } from "./postFrontmatter";
+import { ParsedPost, PostFrontmatter } from "./@types/postFrontmatter";
 
 /**
  * Given a slug, find the post that matches and return its metadata & content
