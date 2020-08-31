@@ -18,7 +18,7 @@ import NextLink from "next/link";
 import { getPostBySlug } from "src/lib/getPostBySlug";
 import { getPostFilePaths } from "src/lib/getPostFilePaths";
 import { slugifyPost } from "src/lib/slugifyPost";
-import { PostFrontmatter } from "src/lib/postFrontmatter";
+import { PostFrontmatter } from "src/lib/@types/postFrontmatter";
 import SEO from "src/components/atoms/seo";
 import { Box, Heading, Text, Image, Container } from "@chakra-ui/core";
 import { MDXProvider } from "@mdx-js/react"
@@ -28,29 +28,18 @@ interface PostPageParams extends ParsedUrlQuery {
 }
 
 interface PostPageProps {
-    /** The unique slug of the blog post. */
     slug: string;
-    /** The server-rendered MDX content of the article. */
     mdxContent: string;
-    /** If the article has a banner image, this will contain all relevant URIs */
     image?: {
-        /** The full, high-fidelity image URI */
         src: string;
-        /**
-         * A low quality placeholder image. This can be stretched out to fit the same
-         * "size" as the `src` while the high-fidelity image is loading.
-         */
         placeholder: string;
-        /** Alt text for the banner image */
         alt: string;
     };
-  /** Post metadata */
   frontmatter: Pick<
     PostFrontmatter,
     "title" | "description" | "publisher" | "link"
   > & {
     date: string;
-    /** A rough estimate of how long this post will take to read. */
     readingTime: string;
   };
 }
@@ -75,7 +64,7 @@ const PostPage: NextPage<PostPageProps> = (props) => {
     return (
     <MDXProvider components={MDXComponents}>
         <Head>
-            <title>{title}</title>
+            <title>{title} - mufradmabni</title>
             <SEO title={title} description={description}/>
                 {absoluteImagePath && props.image?.alt && (
                     <>
