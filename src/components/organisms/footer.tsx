@@ -1,6 +1,5 @@
 import React from "react";
-import { Box, Icon, Text, Stack, Link, chakra } from "@chakra-ui/core";
-import { IoLogoTwitter, IoLogoLinkedin } from "react-icons/io";
+import { Box, Icon, Text, Link, Grid, Container } from "@chakra-ui/core";
 import { MdEmail } from "react-icons/md";
 import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 
@@ -11,7 +10,7 @@ type FooterLinkProps = {
 
 const FooterLink: React.FC<FooterLinkProps> = ({ icon, href }) => (
   <Link display="inline-block" href={href} isExternal>
-    <Icon as={icon} fontSize="xl" color="gray.400" />
+        <Icon as={icon} fontSize={['sm','md']} color="gray.500" _hover={{fill: '#2273d1'}}/>
   </Link>
 );
 
@@ -35,14 +34,16 @@ const links = [
 ];
 
 export const Footer = () => (
-  <Box as="footer" mt={12} textAlign="center" p={10}>
-    <Stack mt={4} direction="row" spacing="12px" justify="center" p={5}>
-      {links.map((link) => (
-          <FooterLink key={link.url} href={link.url} icon={link.icon} />
-          ))}
-    </Stack>
-    <Text fontSize="sm">Copyright © {new Date().getFullYear()}  All Rights Reserved</Text>
-  </Box>
+    <Container minWidth={{md: 'md', lg:'xl'}} pb={5}>
+        <Box as="footer" mt={12} py={10} borderTopWidth="1px" display={['','','flex']} textAlign="center" justifyContent="space-between" position="relative" h="50px">
+            <Text fontSize={{xs: '12px', md: '15px'}}>Copyright © {new Date().getFullYear()}  All Rights Reserved</Text>
+            <Grid gap={30} display="flex" justifyContent={['center','']} mt={['10px','0']} mb={['40px','0']}>
+            {links.map((link) => (
+                <FooterLink key={link.url} href={link.url} icon={link.icon} />
+                ))}
+            </Grid>
+        </Box>
+    </Container>
 );
 
 export default Footer;
