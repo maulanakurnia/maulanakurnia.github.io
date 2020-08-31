@@ -6,9 +6,9 @@ import { slugifyPost } from "src/lib/slugifyPost";
 import { PageHeader,SEO } from "atoms/index";
 import { compareDesc, format } from "date-fns";
 import { getPostBySlug } from "src/lib/getPostBySlug";
-import { PostFrontmatter } from "src/lib/postFrontmatter";
+import { PostFrontmatter } from "src/lib/@types/postFrontmatter";
 import { getPostFilePaths } from "src/lib/getPostFilePaths";
-import { Box, useColorModeValue } from "@chakra-ui/core";
+import { Box, useColorModeValue, Container, Grid, Input } from "@chakra-ui/core";
 
 type PostPreview = Pick<
   PostFrontmatter,
@@ -32,26 +32,24 @@ function Blog({ posts }: BlogPageProps) {
   return (
     <Fragment>
       <SEO title="Blog" />
-      <PageHeader title="Blog" />
-      <Box
-        px={[5, 20]}
-        display="flex"
-        flexDirection={{ xs: "column", lg: "row" }}
-        justifyContent="space-between"
-      >
-        <Box border={bg} borderRadius={6} py={[2, 10]} w="full">
-          {posts.map((post) => (
-            <Posts
-              key={post.title}
-              title={post.title}
-              date={post.date}
-              href={post.href}
-              desc={post.description}
-            />
-          ))}
-        </Box>
-        <Aside />
-      </Box>
+        <Container maxW="xl">
+            <PageHeader title="Blog" />
+            <Grid gap={2} gridTemplateColumns={{md:"auto 30%", lg:"auto 25%"}}>
+                <Input variant="outline" placeholder="Coming Soon" mb={5}/>
+                <Box></Box>
+                <Box border={bg} borderRadius={6} py={{xs:2,lg:10}} w="full">
+                {posts.map((post) => (
+                    <Posts
+                        key={post.title}
+                        title={post.title}
+                        date={post.date}
+                        href={post.href}
+                        desc={post.description}/>
+                ))}
+                </Box>
+                <Aside />
+            </Grid>
+        </Container>
     </Fragment>
   );
 }
