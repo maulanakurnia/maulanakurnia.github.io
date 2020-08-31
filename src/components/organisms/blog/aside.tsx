@@ -5,20 +5,19 @@ const Aside = () => {
     return(
         <Box
             as="aside"
-            pl={{ xs: 0, lg: 20 }}
             position="sticky"
             top="5%"
-            width={["100%","30%"]}
+            maxW="sm"
             overflow="auto">
-            <Box border={bg} borderRadius={6} p={5} mt={{ xs: 5, lg: 0 }}>
+            <Box border={bg} borderRadius={6} p={5} mt={{ xs: 5, md: 0 }}>
             <Text fontWeight="600">Tags</Text>
             <Stack direction="row" py={2}>
                 <Badge>Tag</Badge>
                 <Badge colorScheme="green">Tag</Badge>
                 <Badge colorScheme="red">Tag</Badge>
-                <Badge colorScheme="purple">Tag</Badge>
+                {/* <Badge colorScheme="purple">Tag</Badge>
                 <Badge colorScheme="green">Tag</Badge>
-                <Badge colorScheme="red">Tag</Badge>
+                <Badge colorScheme="red">Tag</Badge> */}
             </Stack>
             </Box>
             <Box border={bg} borderRadius={6} p={5} mt={{ xs: 5, lg: 4 }}>

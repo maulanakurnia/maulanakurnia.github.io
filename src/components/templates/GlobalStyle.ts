@@ -14,11 +14,8 @@ export default createGlobalStyle`
     }
 
     .selected {
-        color: black !important;
-    }
-
-    .chakra-ui-dark .selected {
         color: #2e7ad1 !important;
+        font-weight: 800;
     }
 
     .chakra-ui-dark .custom_Icon {

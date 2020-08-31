@@ -1,21 +1,23 @@
-import { Box, Button, Stack, Flex, Text, Heading} from "@chakra-ui/core";
+import { Box, Button, Stack, Flex, Text, Heading, Container, Grid, Center} from "@chakra-ui/core";
 import { FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa'
 import { Fragment } from "react";
 import { css } from '@emotion/core'
-
+import { useContent } from '../../../context/contentContext';
 // @ts-ignore
 import Cover from 'src/assets/img/bg-min.jpg' 
 // @ts-ignore
-import Avatar from 'src/assets/img/profile-2-min.jpg' 
+import Avatar from 'src/assets/img/profile-min.jpg' 
+import {CardGame} from "molecules/CardGame";
 
 export default function Home() {
+    const { myGame } = useContent();
     return(
         <Fragment>
         <Box css={css`background-image: url(${Cover})`} h={"calc(30vh)"} w="100%" display="block" backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="center" minHeight={300} borderBottomWidth="1px"/>
         <Flex justifyContent="center">
             <Box css={css`background-image: url(${Avatar})`} h={200} w={200} borderRadius="50%" backgroundSize="200px" display="flex" mt="-100px" borderWidth="1px"/>
         </Flex>
-            <Flex direction="column" textAlign="center" p={3}>
+            {/* <Flex direction="column" textAlign="center" p={3}>
                 <Heading as="h1" fontSize="20px">Maulana Kurnia</Heading>
                 <Text as="span" fontSize="13px" fontStyle="italic">IT Student at UPN "Veteran" Yogyakarta</Text>
             </Flex>
@@ -50,7 +52,25 @@ export default function Home() {
                     onClick={() => window.open('https://www.github.com/maulanakurnia','_blank')}>
                     Github
                 </Button>
-            </Stack>
+            </Stack> */}
+
+            <Container maxW="xl" textAlign="center">
+                <Container>
+                    <Text fontWeight="600" fontSize="30px" transform="skewY(-6deg)" mt={10}>👋 Hai</Text>
+                    <Text mt={5}>Selamat datang di website pribadi saya, disini saya membagikan beberapa source code dan terkadang menulis beberapa tulisan.</Text>
+                    <Text fontWeight="600">Enjoy it</Text>
+                </Container>
+                <Text fontWeight="600" fontSize="30px" mt={10}>Mainan Saya</Text>
+                <Center m="20px">
+                    {myGame.map(({color,title, icon, ...rest}) =>(
+                        <CardGame key={title} aria-label={title} icon={icon} color={color}{...rest}/>
+                    ))}
+                </Center>
+                <Text fontWeight="600" fontSize="30px" mt={10}>Blog</Text>
+                <Text>COMING SOON</Text>
+                <Text fontWeight="600" fontSize="30px" mt={10}>Projek</Text>
+                <Text>COMING SOON</Text>
+            </Container>
         </Fragment>
     );
 }
