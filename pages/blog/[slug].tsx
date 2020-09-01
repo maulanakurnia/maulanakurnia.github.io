@@ -78,7 +78,7 @@ const PostPage: NextPage<PostPageProps> = (props) => {
             }}
         />
 
-        <Container pt={10} maxW="xl">
+        <Container pt={10} maxW="sm">
             <Box margin="2rem 0">
                 <Heading as='h1' fontSize={[25, 30]} mb={[5, 10]} pt={"30px"}>{title}</Heading>
 
