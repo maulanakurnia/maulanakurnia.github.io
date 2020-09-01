@@ -1,10 +1,11 @@
 import { TypeMyGame } from "../lib/@types/TypeMyGame";
 import { DiJavascript1, DiPhp, DiReact, DiSass, DiLinux, DiGit } from "react-icons/di";
+import { SiArchlinux } from 'react-icons/si'
 export const myGame: TypeMyGame[] = [
 {
     title: "Linux Icon",
-    icon: <DiLinux/>,
-    color: "#444444",    
+    icon: <SiArchlinux/>,
+    color: "#1791cd",    
 },
 {
     title: "Git Icon",
