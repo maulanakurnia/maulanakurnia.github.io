@@ -59,7 +59,6 @@ const PostPage: NextPage<PostPageProps> = (props) => {
 
     const absoluteImagePath =
     props.image?.src && HOMEPAGE ? HOMEPAGE + props.image?.src : undefined;
-    console.log(props.image?.src)
     return (
     <MDXProvider components={MDXComponents}>
         <NextSeo
