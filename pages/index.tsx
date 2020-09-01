@@ -1,11 +1,11 @@
 import {Fragment} from 'react'
 import Main from 'organisms/home/main'
-import SEO from 'src/components/atoms/seo'
-
+import { DefaultSeo } from 'next-seo'
+import defaultSeoConfig from 'src/data/next-seo.json'
 const IndexPage = () => {
     return (
         <Fragment>
-            <SEO title="Home" />
+            <DefaultSeo title="mufradmabni"/>
             <Main/>
         </Fragment>
     )

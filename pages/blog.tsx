@@ -3,12 +3,13 @@ import { GetStaticProps } from "next";
 import readingTime from "reading-time";
 import { Posts, Aside } from "organisms/blog/index";
 import { slugifyPost } from "src/lib/slugifyPost";
-import { PageHeader,SEO } from "atoms/index";
+import { PageHeader } from "atoms/index";
 import { compareDesc, format } from "date-fns";
 import { getPostBySlug } from "src/lib/getPostBySlug";
 import { PostFrontmatter } from "src/lib/@types/postFrontmatter";
 import { getPostFilePaths } from "src/lib/getPostFilePaths";
 import { Box, useColorModeValue, Container, Grid, Input } from "@chakra-ui/core";
+import { NextSeo } from "next-seo";
 
 type PostPreview = Pick<
   PostFrontmatter,
@@ -31,7 +32,15 @@ function Blog({ posts }: BlogPageProps) {
   );
   return (
     <Fragment>
-      <SEO title="Blog" />
+      <NextSeo
+        title="Blog"
+        titleTemplate="%s | mufradmabni"
+        noindex={true}
+        description="I write about TypeScript, Node.js, React, security and privacy."
+        openGraph={{
+          title: 'Articles by Maulana Kurnia',
+        }}
+      />
         <Container maxW="xl">
             <PageHeader title="Blog" />
             <Grid gap={2} gridTemplateColumns={{md:"auto 30%", lg:"auto 25%"}}>

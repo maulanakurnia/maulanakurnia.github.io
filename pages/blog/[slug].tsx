@@ -12,17 +12,16 @@ import useHydrateMdx from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 // Next
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Head from "next/head";
 import NextLink from "next/link";
 // Library local
 import { getPostBySlug } from "src/lib/getPostBySlug";
 import { getPostFilePaths } from "src/lib/getPostFilePaths";
 import { slugifyPost } from "src/lib/slugifyPost";
 import { PostFrontmatter } from "src/lib/@types/postFrontmatter";
-import SEO from "src/components/atoms/seo";
 import { Box, Heading, Text, Image, Container } from "@chakra-ui/core";
 import { MDXProvider } from "@mdx-js/react"
 import MDXComponents from "templates/MDXLayout"
+import { NextSeo } from "next-seo";
 interface PostPageParams extends ParsedUrlQuery {
     slug?: string;
 }
@@ -60,22 +59,25 @@ const PostPage: NextPage<PostPageProps> = (props) => {
 
     const absoluteImagePath =
     props.image?.src && HOMEPAGE ? HOMEPAGE + props.image?.src : undefined;
-
+    console.log(props.image?.src)
     return (
     <MDXProvider components={MDXComponents}>
-        <Head>
-            <title>{title} - mufradmabni</title>
-            <SEO title={title} description={description}/>
-                {absoluteImagePath && props.image?.alt && (
-                    <>
-                    <meta name="twitter:image" content={absoluteImagePath} />
-                    <meta name="twitter:image:alt" content={props.image?.alt} />
-                    <meta property="og:image:url" content={absoluteImagePath} />
-                    <meta property="og:image:alt" content={props.image?.alt} />
-                    </>
-                )}
-            <script src="https://unpkg.com/requestidlecallback-polyfill@1.0.2/index.js" />
-        </Head>
+        <NextSeo
+            title={title}
+            titleTemplate="%s | mufradmabni"
+            noindex={true}
+            description={description}
+            openGraph={{
+                title: 'Articles by Maulana Kurnia',
+                images: [
+                  {
+                    url: `${props.image}`,
+                    width: 1280,
+                    height: 720
+                  }
+                ]
+            }}
+        />
 
         <Container pt={10} maxW="xl">
             <Box margin="2rem 0">
