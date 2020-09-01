@@ -4,7 +4,7 @@ export const myGame: TypeMyGame[] = [
 {
     title: "Linux Icon",
     icon: <DiLinux/>,
-    color: "#020202",    
+    color: "#444444",    
 },
 {
     title: "Git Icon",

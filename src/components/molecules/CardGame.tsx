@@ -23,7 +23,7 @@ export const CardGame = forwardRef<CardGameProps, "div">(
           <Box
             w="120px"
             h="121px"
-            bg={useColorModeValue("#E2E2E2","#1e1e1e")}
+            bg={useColorModeValue("#F4F4F4","#1e1e1e")}
             borderRadius={10}
             overflow="hidden"
             flexDirection="row"
