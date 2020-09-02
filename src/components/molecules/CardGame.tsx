@@ -49,7 +49,7 @@ export const CardGame = forwardRef<CardGameProps, "div">(
                     transition: 'all 1s ease',
                     position: 'relative',
                     margin: '19px',
-                    zIndex: '999',
+                    zIndex: '1',
                     transform: 'translateZ(0)'
                 },
                 '& > .overlay': {

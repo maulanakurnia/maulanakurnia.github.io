@@ -61,11 +61,11 @@ export default function Home() {
                     <Text fontWeight="600">Enjoy it</Text>
                 </Container>
                 <Text fontWeight="600" fontSize="30px" mt={10}>Mainan Saya</Text>
-                <Center m="20px">
+                <Box m="20px">
                     {myGame.map(({color,title, icon, ...rest}) =>(
                         <CardGame key={title} aria-label={title} icon={icon} color={color}{...rest}/>
                     ))}
-                </Center>
+                </Box>
                 <Text fontWeight="600" fontSize="30px" mt={10}>Blog</Text>
                 <Text>COMING SOON</Text>
                 <Text fontWeight="600" fontSize="30px" mt={10}>Projek</Text>
