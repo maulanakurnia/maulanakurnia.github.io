@@ -3,19 +3,16 @@ import { FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa'
 import { Fragment } from "react";
 import { css } from '@emotion/core'
 import { useContent } from '../../../context/contentContext';
-// @ts-ignore
-import Cover from 'src/assets/img/bg-min.jpg' 
-// @ts-ignore
-import Avatar from 'src/assets/img/profile-min.jpg' 
+
 import {CardGame} from "molecules/CardGame";
 
 export default function Home() {
     const { myGame } = useContent();
     return(
         <Fragment>
-        <Box css={css`background-image: url(${Cover})`} h={"calc(30vh)"} w="100%" display="block" backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="center" minHeight={300} borderBottomWidth="1px"/>
+        <Box css={css`background-image: url(static/img/bg-min.jpg)`} h={"calc(30vh)"} w="100%" display="block" backgroundAttachment="fixed" backgroundSize="cover" backgroundPosition="center" minHeight={300} borderBottomWidth="1px"/>
         <Flex justifyContent="center">
-            <Box css={css`background-image: url(${Avatar})`} h={200} w={200} borderRadius="50%" backgroundSize="200px" display="flex" mt="-100px" borderWidth="1px"/>
+            <Box css={css`background-image: url(static/img/profile-min.jpg)`} h={200} w={200} borderRadius="50%" backgroundSize="200px" display="flex" mt="-100px" borderWidth="1px"/>
         </Flex>
             {/* <Flex direction="column" textAlign="center" p={3}>
                 <Heading as="h1" fontSize="20px">Maulana Kurnia</Heading>
