@@ -1,63 +1,69 @@
-import { Box, Text, Stack, Badge } from "@chakra-ui/core";
+import { Box, Text, Stack } from "@chakra-ui/core";
 import NextLink from "next/link";
-import Link from "next/link";
-
+import { MDXFrontMatter } from "*.mdx";
+import formatDate from "utils/formatDate";
+import { Tags } from "../../molecules/Tags";
 interface PostsProps {
-    href: string
-    title: string
-    // tags?: string[]
-    date: string,
-    desc: string
+  post: MDXFrontMatter;
 }
 
-const Posts = ({
-    // tags: [],
-    title,
-    href,
-    date,
-    desc
-}: PostsProps) => {
-    return (
-        <Box px={{md:3}} py={3}>
-            <Box
-                display="flex"
-                px={5}
-                my="auto"
-                borderRadius={6}
-                justifyContent="space-between">
-                <Box w="full" display={{ xs: "none", lg: "block" }} mt="5px">
-                    <Text as="span" fontSize={{ xs: 13, lg: 16 }}>
-                        {date}
-                    </Text>
-                </Box>
-                <Box w="500%">
-                <Stack direction="row" py={2}>
-                    <Badge colorScheme="blue"><Link href="/">Tutorial</Link></Badge>
-                    <Badge colorScheme="blue"><Link href="/">Memasak</Link></Badge>
-                    <Badge colorScheme="blue"><Link href="/">Makan</Link></Badge>
-                </Stack>
-                    <NextLink as={href} href="/blog/[slug]">
-                        <Text fontWeight="600" fontSize={{ xs: 16, lg: 24 }} _hover={{color: '#2e7ad1', cursor: 'pointer'}}>
-                                {title}
-                        </Text>
-                    </NextLink>
-                <Text
-                    as="span"
-                    fontSize={12}
-                    my="auto"
-                    display={{ xs: "block", lg: "none" }}>
-                    {date}
-                </Text>
-                <Text
-                    className="description"
-                    fontSize={{ xs: 13, lg: 18 }}
-                    textAlign="justify">
-                        {desc}
-                </Text>
-                </Box>
-            </Box>
+const Posts = ({ post }: PostsProps) => {
+  const date = formatDate(post.date);
+  return (
+    <Box px={{ md: 3 }} py={3}>
+      <Box
+        borderRadius={6}
+        display="flex"
+        justifyContent="space-between"
+        my="auto"
+        px={5}
+      >
+        <Box display={{ xs: "none", lg: "block" }} mt="5px" w="full">
+          <Text as="span" fontSize={14}>
+            {date}
+          </Text>
         </Box>
-    )
-}
+        <Box w="400%">
+          <Stack direction="row" py={2}>
+            <Tags interactive={true} tags={post.tags} />
+          </Stack>
+          <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
+            <Text
+                as="span"
+              _hover={{ cursor: "pointer" }}
+                // @ts-ignore
+              style={{"&>.heading": { color: "#2e7ad1" }}}
+            >
+              <Text
+                _hover={{ color: "#2e7ad1" }}
+                className="heading"
+                fontSize={{ xs: 16, lg: 24 }}
+                fontWeight="600"
+              >
+                {post.title}
+              </Text>
+
+              <Text
+                as="span"
+                display={{ xs: "block", lg: "none" }}
+                fontSize={12}
+                my="auto"
+              >
+                {date}
+              </Text>
+              <Text
+                className="description"
+                fontSize={{ xs: 13, lg: 16 }}
+                textAlign="justify"
+              >
+                {post.description}
+              </Text>
+            </Text>
+          </NextLink>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
 export default Posts;

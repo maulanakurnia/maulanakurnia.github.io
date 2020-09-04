@@ -10,7 +10,12 @@ type FooterLinkProps = {
 
 const FooterLink: React.FC<FooterLinkProps> = ({ icon, href }) => (
   <Link display="inline-block" href={href} isExternal>
-        <Icon as={icon} fontSize={['sm','md']} color="gray.500" _hover={{fill: '#2273d1'}}/>
+    <Icon
+      _hover={{ fill: "#2273d1" }}
+      as={icon}
+      color="gray.500"
+      fontSize={["sm", "md"]}
+    />
   </Link>
 );
 
@@ -34,16 +39,34 @@ const links = [
 ];
 
 export const Footer = () => (
-    <Container minWidth={{md: 'md', lg:'xl'}} pb={5}>
-        <Box as="footer" mt={12} py={10} borderTopWidth="1px" display={['','','flex']} textAlign="center" justifyContent="space-between" position="relative" h="50px">
-            <Text fontSize={{xs: '12px', md: '15px'}}>Copyright © {new Date().getFullYear()}  All Rights Reserved</Text>
-            <Grid gap={30} display="flex" justifyContent={['center','']} mt={['10px','0']} mb={['40px','0']}>
-            {links.map((link) => (
-                <FooterLink key={link.url} href={link.url} icon={link.icon} />
-                ))}
-            </Grid>
-        </Box>
-    </Container>
+  <Container minWidth={{ md: "md", lg: "xl" }} pb={5}>
+    <Box
+      as="footer"
+      borderTopWidth="1px"
+      display={["", "", "flex"]}
+      h="50px"
+      justifyContent="space-between"
+      mt={12}
+      position="relative"
+      py={10}
+      textAlign="center"
+    >
+      <Text fontSize={{ xs: "12px", md: "15px" }}>
+        Copyright © {new Date().getFullYear()} All Rights Reserved
+      </Text>
+      <Grid
+        display="flex"
+        gap={30}
+        justifyContent={["center", ""]}
+        mb={["40px", "0"]}
+        mt={["10px", "0"]}
+      >
+        {links.map((link) => (
+          <FooterLink href={link.url} icon={link.icon} key={link.url} />
+        ))}
+      </Grid>
+    </Box>
+  </Container>
 );
 
 export default Footer;

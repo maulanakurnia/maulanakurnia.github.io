@@ -1,13 +1,12 @@
-import {Fragment} from 'react'
-import Main from 'organisms/home/main'
-import { DefaultSeo } from 'next-seo'
-import defaultSeoConfig from 'src/data/next-seo.json'
+import { Fragment } from "react";
+import Main from "organisms/home/main";
+import { DefaultSeo } from "next-seo";
 const IndexPage = () => {
-    return (
-        <Fragment>
-            <DefaultSeo title="mufradmabni"/>
-            <Main/>
-        </Fragment>
-    )
-}
-export default IndexPage
+  return (
+    <Fragment>
+      <DefaultSeo nofollow={true} noindex={true} title="mufradmabni" />
+      <Main />
+    </Fragment>
+  );
+};
+export default IndexPage;

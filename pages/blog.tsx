@@ -1,100 +1,178 @@
 import { Fragment } from "react";
 import { GetStaticProps } from "next";
-import readingTime from "reading-time";
 import { Posts, Aside } from "organisms/blog/index";
-import { slugifyPost } from "src/lib/slugifyPost";
 import { PageHeader } from "atoms/index";
-import { compareDesc, format } from "date-fns";
-import { getPostBySlug } from "src/lib/getPostBySlug";
-import { PostFrontmatter } from "src/lib/@types/postFrontmatter";
-import { getPostFilePaths } from "src/lib/getPostFilePaths";
-import { Box, useColorModeValue, Container, Grid, Input } from "@chakra-ui/core";
+import {
+  Box,
+  useColorModeValue,
+  Container,
+  Grid,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  CloseButton,
+  Text,
+  Stack,
+  Flex,
+} from "@chakra-ui/core";
+import { Tag } from "molecules/Tags";
 import { NextSeo } from "next-seo";
-
-type PostPreview = Pick<
-  PostFrontmatter,
-  "title" | "description" | "draft" | "link" | "publisher" | "tags"
-> & {
-  date: string;
-  href: string;
-  readingTime: string;
-  description: string;
-};
-
-interface BlogPageProps {
-  posts: PostPreview[];
-}
-
-function Blog({ posts }: BlogPageProps) {
+import blogPosts from "utils/mdxUtils";
+import { MDXFrontMatter } from "*.mdx";
+import { useState, useMemo } from "react";
+import { useQueryState } from "next-usequerystate";
+import { FiTag, FiSearch } from "react-icons/fi";
+import { Tags } from "molecules/Tags";
+export default function Blog({ posts }: { posts: MDXFrontMatter[] }) {
   const bg = useColorModeValue(
     "1px solid #dadce0",
     "1px solid rgb(39, 41, 46)"
   );
+
+  const [tag, setTag] = useQueryState("tags");
+  const [search, setSearch] = useState("");
+  const filteredPosts = useMemo(() => {
+    let p = posts;
+    if (tag) {
+      p = p.filter((post) => post.tags?.includes(tag));
+    }
+    if (search.length > 0) {
+      p = p.filter(
+        (post) =>
+          post.title.toLowerCase().includes(search.toLowerCase()) ||
+          post.description.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    return p;
+  }, [posts, tag, search]);
+
   return (
     <Fragment>
       <NextSeo
+        description="I write about TypeScript, Node.js, React, security and privacy."
+        noindex={true}
+        openGraph={{
+          title: "Articles by Maulana Kurnia",
+        }}
         title="Blog"
         titleTemplate="%s | mufradmabni"
-        noindex={true}
-        description="I write about TypeScript, Node.js, React, security and privacy."
-        openGraph={{
-          title: 'Articles by Maulana Kurnia',
-        }}
       />
-        <Container maxW="xl">
-            <PageHeader title="Blog" />
-            <Grid gap={2} gridTemplateColumns={{md:"auto 30%", lg:"auto 25%"}}>
-                <Input variant="outline" placeholder="Coming Soon" mb={5}/>
-                <Box></Box>
-                <Box border={bg} borderRadius={6} py={{xs:2,lg:10}} w="full">
-                {posts.map((post) => (
-                    <Posts
-                        key={post.title}
-                        title={post.title}
-                        date={post.date}
-                        href={post.href}
-                        desc={post.description}/>
-                ))}
-                </Box>
-                <Aside />
-            </Grid>
-        </Container>
+      <Container maxW="xl">
+        <PageHeader title="Blog" />
+        <Grid gap={2} gridTemplateColumns={{ md: "auto 30%", lg: "auto 25%" }}>
+          <Box>
+            <InputGroup mb={2}>
+              <InputLeftElement
+                children={<FiSearch />}
+                color={
+                  search.length > 0
+                    ? useColorModeValue("gray.600", "gray.400")
+                    : useColorModeValue("gray.400", "gray.600")
+                }
+                w="3rem"
+                zIndex={99}
+              />
+              <Input
+                onChange={(e: any) => setSearch(e.target.value)}
+                placeholder="Cari Artikel"
+                value={search}
+              />
+              {search.length >= 1 && (
+                <InputRightElement
+                  children={
+                    <CloseButton
+                      onClick={() => setSearch("")}
+                      rounded="full"
+                      size="sm"
+                    />
+                  }
+                />
+              )}
+            </InputGroup>
+            {tag && (
+              <Stack
+                alignItems="center"
+                bg={useColorModeValue("blue.50", "gray.800")}
+                borderColor={useColorModeValue("blue.200", "blue.800")}
+                borderWidth="1px"
+                color={useColorModeValue("blue.900", "blue.300")}
+                fontSize="sm"
+                isInline
+                justifyContent="space-between"
+                p={2}
+                pl={3}
+                rounded="md"
+                spacing={3}
+              >
+                <Flex alignItems="center">
+                  <Text marginRight="10px">
+                    <FiTag color={useColorModeValue("blue.600", "blue.400")} />
+                  </Text>
+                  <Text>Menampilan artikel dengan tag</Text>
+                  <Tag
+                    colorScheme="blue"
+                    size="xs"
+                    interactive={false}
+                    ml={2}
+                    name={tag}
+                  />
+                </Flex>
+                <CloseButton
+                  aria-label="Clear"
+                  onClick={() => setTag(null)}
+                  rounded="full"
+                  size="sm"
+                />
+              </Stack>
+            )}
+          </Box>
+          <Box></Box>
+          <Box border={bg} borderRadius={6} py={{ xs: 2, lg: 10 }} w="full">
+            {filteredPosts.map((post, index) => (
+              <Posts key={index} post={post} />
+            ))}
+            {filteredPosts.length === 0 && (
+              <Text
+                color={useColorModeValue("gray.600", "gray.500")}
+                fontSize="sm"
+                my={12}
+                textAlign="center"
+              >
+                Artikel tidak ditemukan
+              </Text>
+            )}
+          </Box>
+          <Box as="aside" maxW="sm" overflow="auto" position="sticky" top="5%">
+            <Box border={bg} borderRadius={6} mt={{ xs: 5, md: 0 }} p={15}>
+              <Text fontWeight="600">Tags</Text>
+              <Box display="inline-block" py={2}>
+                {/* <Tags interactive={true} tags={posts.tags} /> */}
+              </Box>
+            </Box>
+            <Box border={bg} borderRadius={6} mt={{ xs: 5, lg: 4 }} p={5}>
+              <Text fontWeight="600">Artikel Terbaru</Text>
+            </Box>
+          </Box>
+        </Grid>
+      </Container>
     </Fragment>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postFiles = getPostFilePaths();
+  const posts = Array.from(blogPosts.values())
+    .map((post) => post.frontMatter)
+    .sort((a, b) => {
+      return Number(new Date(b.date || "")) - Number(new Date(a.date || ""));
+    })
+    .filter((post) => !post.hidden);
 
-  let posts = [];
-
-  for (let postFile of postFiles) {
-    try {
-      const slug = slugifyPost(postFile);
-      const { frontmatter, body } = getPostBySlug(slug);
-
-      if (frontmatter.draft) continue;
-
-      const postData = {
-        ...frontmatter,
-        href: `/blog/${slug}`,
-        readingTime: readingTime(body).text,
-      };
-
-      posts.push(postData);
-    } catch (error) {
-      console.log(`Error reading frontmatter of ${postFile}`, error);
-    }
-  }
-
-  const sortedPosts = posts
-    .sort((a, b) => compareDesc(a.date, b.date))
-    .map((p) => ({
-      ...p,
-      date: format(p.date, "dd MMMM yyyy"),
-    }));
-
-  return { props: { posts: sortedPosts } };
+  return {
+    props: { posts },
+  };
 };
 
-export default Blog;
+function ExampleTags(tags) {
+  console.log("dari example tags:", tags);
+}

@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
     body {
@@ -15,7 +15,7 @@ export default createGlobalStyle`
 
     .selected {
         color: #2e7ad1 !important;
-        font-weight: 800;
+        font-weight: 700 !important;
     }
 
     .chakra-ui-dark .custom_Icon {
@@ -58,4 +58,4 @@ export default createGlobalStyle`
         background-color: #c5e3ff;
         color: black;
     }
-`
+`;

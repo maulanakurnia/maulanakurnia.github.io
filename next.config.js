@@ -1,18 +1,46 @@
-const withMdxEnhanced = require('next-mdx-enhanced')
-const withOptimizedImages = require('next-optimized-images')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-    enabled: process.env.ANALYZE === 'true'
-})
+// const withOptimizedImages = require('next-optimized-images')
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
-module.exports = withBundleAnalyzer(
-    withMdxEnhanced({
-        fileExtensions: ['mdx', 'md']
-    })(
-        withOptimizedImages({
-            env: {
-                HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
-                GA_KEY: process.env.GA_KEY
-            }
-        })
-    )
-)
+// module.exports = withBundleAnalyzer(
+//     (
+//         withOptimizedImages({
+//             env: {
+//                 HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
+//                 GA_KEY: process.env.GA_KEY
+//             }
+//         })
+//     )
+// )
+
+module.exports = withBundleAnalyzer({
+  env: {
+    HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
+
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /\.(ttf)$/i,
+        loader: "file-loader",
+      },
+      {
+        test: /\.(frag|vert|glsl)$/i,
+        loader: "glsl-shader-loader",
+      },
+      {
+        test: /\.mdx?$/,
+        use: ["babel-loader", "@mdx-js/loader"],
+      },
+    ];
+
+    return config;
+  },
+});

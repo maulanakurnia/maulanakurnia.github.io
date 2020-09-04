@@ -13,15 +13,25 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "baseUrl": "./",
+        "baseUrl": ".",
         "paths": {
+            "*": ["./src/@types/*"],
+            "utils/*": ["src/utils/*"],
             "atoms/*": ["src/components/atoms/*"],
             "molecules/*": ["src/components/molecules/*"],
             "organisms/*": ["src/components/organisms/*"],
             "templates/*": ["src/components/templates/*"],
-            "pages/*": ["src/components/pages/*"]
+            "pages/*": ["src/components/pages/*"],
+            "config/*": ["src/config/*"],
+            "data/*": ["src/data/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx","**/*.mdx"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "@types/mdx.d.ts",
+        "**/*.mdx",
+        "next-env.d.ts"
+    ]
 }

@@ -1,25 +1,31 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
-import GAScript from "src/config/analytics/ga-script"
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from "next/document";
+import GAScript from "src/config/analytics/ga-script";
 import { ColorModeScript } from "@chakra-ui/core";
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
     return (
       <Html>
-        <Head/>
+        <Head />
         <body>
-            <ColorModeScript/>
+          <ColorModeScript />
           <Main />
           <NextScript />
           <GAScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

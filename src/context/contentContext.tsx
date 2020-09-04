@@ -1,18 +1,23 @@
-import * as React from 'react';
-import { TypeMyGame } from '../lib/@types/TypeMyGame';
+import * as React from "react";
+import { TypeMyGame } from "../@types/TypeMyGame";
 
 interface ContentContextValue {
   myGame: TypeMyGame[];
 }
 
 const ContentContext = React.createContext<ContentContextValue>({ myGame: [] });
-ContentContext.displayName = 'ContentContext';
+ContentContext.displayName = "ContentContext";
 
 export const useContent = () => React.useContext(ContentContext);
 
-export const ContentProvider: React.FC<ContentContextValue> = ({ children, ...rest }) => {
+export const ContentProvider: React.FC<ContentContextValue> = ({
+  children,
+  ...rest
+}) => {
   const values = { ...rest };
-  return <ContentContext.Provider value={values}>{children}</ContentContext.Provider>;
+  return (
+    <ContentContext.Provider value={values}>{children}</ContentContext.Provider>
+  );
 };
 
-ContentProvider.displayName = 'ContentProvider';
+ContentProvider.displayName = "ContentProvider";
