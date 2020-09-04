@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, FlexProps, Button, ButtonProps, useColorModeValue } from "@chakra-ui/core";
+import { Flex, FlexProps, Button, ButtonProps, Text, useColorModeValue } from "@chakra-ui/core";
 import NextLink from "next/link";
 
 export interface TagProps extends ButtonProps {
@@ -13,22 +13,19 @@ export const Tag: React.FC<TagProps> = ({
   ...props
 }) => {
   if (!interactive) {
-    return <Button _hover={{ cursor: "pointer", bg: "#2e7ad1", color: useColorModeValue('white','black'), border: 'none' }}
-    _focus={{outline: 'none'}}
-    textTransform="lowercase"
-    size="xs"
-    variant="outline"
-    mr={2} {...props}>{name}</Button>;
+    return <Text ml={1} fontSize={{xs: '10px', sm:'12px', md: '14px'}} fontWeight="700">{name}</Text>;
   }
+
   return (
     <NextLink href={`/blog?tags=${name}`}>
       <Button
         {...props}
-        _hover={{ cursor: "pointer", bg: "#2e7ad1", color: useColorModeValue('white','black'), border: 'none' }}
+        _hover={{ cursor: "pointer", bg: "#2e7ad1", color: useColorModeValue('#fff', '#000')}}
         _focus={{outline: 'none'}}
         textTransform="lowercase"
         size="xs"
         variant="outline"
+        color={useColorModeValue('#000','#929497')}
         mr={2}
       >
         {name}

@@ -15,7 +15,6 @@ const customTheme = {
     global: (props: any) => ({
       // @ts-ignore
       ...theme.styles.global(props),
-      color: mode("gray.700", "whiteAlpha.900")(props),
       ".deleted": {
         color: "#ff8383 !important",
         fontStyle: "normal !important",

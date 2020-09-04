@@ -20,7 +20,10 @@ export const CardGame = forwardRef<CardGameProps, "div">(function CardGane(
         focusable: false,
       })
     : null;
-
+const bw = useColorModeValue(
+    "1px solid #dadce0",
+    "1px solid rgb(39, 41, 46)"
+    );
   return (
     <Box
       __css={{
@@ -70,7 +73,8 @@ export const CardGame = forwardRef<CardGameProps, "div">(function CardGane(
         bg: color,
       }}
       aria-label={ariaLabel}
-      bg={useColorModeValue("#F4F4F4", "#1e1e1e")}
+    //   bg={useColorModeValue("#F4F4F4", "#1e1e1e")}
+      border={bw}
       borderRadius={10}
       display="inline-block"
       flexDirection="row"
@@ -101,16 +105,3 @@ export const CardGame = forwardRef<CardGameProps, "div">(function CardGane(
     </Box>
   );
 });
-// {
-//     return(
-//         <Box style={css`
-
-//         `}>
-//             <Box>
-//                 <IconContext.Provider value={{ color: color}}>
-
-//                 </IconContext.Provider>
-//             </Box>
-//         </Box>
-//     );
-// }

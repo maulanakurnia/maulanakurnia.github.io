@@ -109,7 +109,7 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }) {
                   <Text marginRight="10px">
                     <FiTag color={useColorModeValue("blue.600", "blue.400")} />
                   </Text>
-                  <Text>Menampilan artikel dengan tag</Text>
+                  <Text fontSize={{xs: '10px', sm:'12px', md: '14px'}}>Menampilan artikel dengan tag</Text>
                   <Tag
                     colorScheme="blue"
                     size="xs"
