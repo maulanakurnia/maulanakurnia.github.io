@@ -7,6 +7,7 @@ import { Router } from "next/router";
 import { trackPageview } from "config/analytics/track-event";
 import { ContentProvider } from "../../context/contentContext";
 import { myGame } from "../../data/myGame";
+import { projects } from "../../data/project";
 Router.events.on("routeChangeComplete", (url) => {
   trackPageview(url);
 });
@@ -22,7 +23,7 @@ const AppLayout = ({ children }: any) => {
           type="text/css"
         />
       </Head>
-      <ContentProvider myGame={myGame}>
+      <ContentProvider myGame={myGame} myProject={projects}>
         <GlobalStyle />
         <Header />
         <Box as="main" className="main" minHeight="84vh">

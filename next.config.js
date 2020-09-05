@@ -3,16 +3,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-// module.exports = withBundleAnalyzer(
-//     (
-//         withOptimizedImages({
-//             env: {
-//                 HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
-//                 GA_KEY: process.env.GA_KEY
-//             }
-//         })
-//     )
-// )
+const useURL = path => `${process.env.URL}${path || ''}`
 
 module.exports = withBundleAnalyzer({
   env: {
@@ -42,5 +33,5 @@ module.exports = withBundleAnalyzer({
     ];
 
     return config;
-  },
+  }
 });

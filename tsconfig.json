@@ -23,7 +23,8 @@
             "templates/*": ["src/components/templates/*"],
             "pages/*": ["src/components/pages/*"],
             "config/*": ["src/config/*"],
-            "data/*": ["src/data/*"]
+            "data/*": ["src/data/*"],
+            "context/*": ["src/context/*"]
         }
     },
     "exclude": ["node_modules"],

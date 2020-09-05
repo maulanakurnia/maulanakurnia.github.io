@@ -1,11 +1,13 @@
 import * as React from "react";
-import { TypeMyGame } from "../@types/TypeMyGame";
+import { TypeMyGame } from "TypeMyGame";
+import { TypeProject } from "TypeProject";
 
 interface ContentContextValue {
-  myGame: TypeMyGame[];
+  myGame?: TypeMyGame[];
+  myProject?: TypeProject[]; 
 }
 
-const ContentContext = React.createContext<ContentContextValue>({ myGame: [] });
+const ContentContext = React.createContext<ContentContextValue>({ myGame: [], myProject: [] });
 ContentContext.displayName = "ContentContext";
 
 export const useContent = () => React.useContext(ContentContext);
