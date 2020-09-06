@@ -52,7 +52,7 @@ export const Footer = () => (
       textAlign="center"
     >
       <Text fontSize={{ xs: "12px", md: "15px" }}>
-        Copyright © {new Date().getFullYear()} All Rights Reserved
+        © 2019 - {new Date().getFullYear()} Maulana Kurnia
       </Text>
       <Grid
         display="flex"
