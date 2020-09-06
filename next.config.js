@@ -3,8 +3,6 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-const useURL = path => `${process.env.URL}${path || ''}`
-
 module.exports = withBundleAnalyzer({
   env: {
     HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
