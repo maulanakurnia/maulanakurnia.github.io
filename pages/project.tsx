@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/core";
 import { NextSeo } from "next-seo";
 import { useContent } from "context/contentContext";
+import { CardProject } from "molecules/CardProjects";
 
 export default function Project() {
   const { myProject } = useContent();
@@ -35,24 +36,7 @@ export default function Project() {
         <PageHeader title="Project" />
         <Box border={bg} borderRadius={6} p={10} w="full">
           {myProject.map(({ title, cover, url, ...rest }, index) => (
-            <Box key={index} w="30%" borderWidth="1px" borderRadius="10px">
-              <Image src={cover} />
-              <Text textAlign="center" fontWeight="600">
-                {title}
-              </Text>
-              <Flex justifyContent="center">
-                <Link href={url}>
-                  <Button
-                    mt="10px"
-                    borderRadius="10px 10px 0px 0px"
-                    size="sm"
-                    _focus={{ outline: "none" }}
-                  >
-                    souce code
-                  </Button>
-                </Link>
-              </Flex>
-            </Box>
+            <CardProject key={index} title={title} url={url} cover={cover} {...rest} />
           ))}
         </Box>
       </Container>
