@@ -1,6 +1,6 @@
 import { Text, Box } from "@chakra-ui/core";
 import { CardGame } from "molecules/CardGame";
-import { useContent } from "../../../context/contentContext";
+import { useContent } from "context/contentContext";
 
 export const SectionDevelop = () => {
   const { myGame } = useContent();
