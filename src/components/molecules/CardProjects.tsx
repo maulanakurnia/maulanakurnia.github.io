@@ -12,7 +12,7 @@ export const CardProject = (project: CardProjectProps) => {
         {project.title}
       </Text>
       <Flex justifyContent="center">
-        <Link href={project.url}>
+        <Link href={project.url} isExternal>
           <Button
             mt="10px"
             borderRadius="10px 10px 0px 0px"
