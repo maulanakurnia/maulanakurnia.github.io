@@ -1,5 +1,5 @@
-import {Box, Flex, Heading, Text} from '@chakra-ui/core'
-import { SectionSocial } from './SectionSocial';
+import { Box, Flex, Heading, Text } from "@chakra-ui/core";
+import { SectionSocial } from "./SectionSocial";
 import { css } from "@emotion/core";
 export const SectionHeader = () => (
   <>
@@ -37,7 +37,7 @@ export const SectionHeader = () => (
       <Text as="span" fontSize="13px" fontStyle="italic">
         IT Student at UPN "Veteran" Yogyakarta
       </Text>
-      <SectionSocial />
     </Flex>
+    <SectionSocial />
   </>
 );
