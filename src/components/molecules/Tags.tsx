@@ -20,7 +20,7 @@ export const Tag: React.FC<TagProps> = ({
     <NextLink href={`/blog?tags=${name}`}>
       <Button
         {...props}
-        _hover={{ cursor: "pointer", bg: "#2e7ad1", color: useColorModeValue('#fff', '#000')}}
+        _hover={{ cursor: "pointer", bg: "#004ba0", color: '#fff'}}
         _focus={{outline: 'none'}}
         textTransform="lowercase"
         size="xs"
