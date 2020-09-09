@@ -1,4 +1,4 @@
-import {Text} from '@chakra-ui/core'
+import { Text } from "@chakra-ui/core";
 export const SectionProject = () => (
   <>
     <Text fontSize="30px" fontWeight="600" mt={10}>

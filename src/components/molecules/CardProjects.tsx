@@ -6,18 +6,22 @@ interface CardProjectProps {
 }
 export const CardProject = (project: CardProjectProps) => {
   return (
-    <Box w={{xs: '100%', md: '30%'}} borderWidth="1px" borderRadius="10px">
+    <Box borderRadius="10px" borderWidth="1px" w={{ xs: "100%", md: "30%" }}>
       <Image src={project.cover} />
-      <Text textAlign="center" fontWeight="600" fontSize={{xs: '13px', sm: '16px'}}>
+      <Text
+        fontSize={{ xs: "13px", sm: "16px" }}
+        fontWeight="600"
+        textAlign="center"
+      >
         {project.title}
       </Text>
       <Flex justifyContent="center">
         <Link href={project.url} isExternal>
           <Button
-            mt="10px"
-            borderRadius="10px 10px 0px 0px"
-            size="sm"
             _focus={{ outline: "none" }}
+            borderRadius="10px 10px 0px 0px"
+            mt="10px"
+            size="sm"
           >
             souce code
           </Button>

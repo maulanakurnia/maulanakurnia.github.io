@@ -29,10 +29,10 @@ const Posts = ({ post }: PostsProps) => {
           </Stack>
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
             <Text
-                as="span"
               _hover={{ cursor: "pointer" }}
-                // @ts-ignore
-              style={{"&>.heading": { color: "#2e7ad1" }}}
+              as="span"
+              // @ts-ignore
+              style={{ "&>.heading": { color: "#2e7ad1" } }}
             >
               <Text
                 _hover={{ color: "#2e7ad1" }}

@@ -36,7 +36,13 @@ export default function Project() {
         <PageHeader title="Project" />
         <Box border={bg} borderRadius={6} p={10} w="full">
           {myProject.map(({ title, cover, url, ...rest }, index) => (
-            <CardProject key={index} title={title} url={url} cover={cover} {...rest} />
+            <CardProject
+              cover={cover}
+              key={index}
+              title={title}
+              url={url}
+              {...rest}
+            />
           ))}
         </Box>
       </Container>

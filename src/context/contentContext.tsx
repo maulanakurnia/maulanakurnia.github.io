@@ -4,10 +4,13 @@ import { TypeProject } from "TypeProject";
 
 interface ContentContextValue {
   myGame?: TypeMyGame[];
-  myProject?: TypeProject[]; 
+  myProject?: TypeProject[];
 }
 
-const ContentContext = React.createContext<ContentContextValue>({ myGame: [], myProject: [] });
+const ContentContext = React.createContext<ContentContextValue>({
+  myGame: [],
+  myProject: [],
+});
 ContentContext.displayName = "ContentContext";
 
 export const useContent = () => React.useContext(ContentContext);

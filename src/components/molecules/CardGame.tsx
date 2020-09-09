@@ -20,10 +20,10 @@ export const CardGame = forwardRef<CardGameProps, "div">(function CardGane(
         focusable: false,
       })
     : null;
-const bw = useColorModeValue(
+  const Border = useColorModeValue(
     "1px solid #dadce0",
     "1px solid rgb(39, 41, 46)"
-    );
+  );
   return (
     <Box
       __css={{
@@ -73,8 +73,8 @@ const bw = useColorModeValue(
         bg: color,
       }}
       aria-label={ariaLabel}
-    //   bg={useColorModeValue("#F4F4F4", "#1e1e1e")}
-      border={bw}
+      //   bg={useColorModeValue("#F4F4F4", "#1e1e1e")}
+      border={Border}
       borderRadius={10}
       display="inline-block"
       flexDirection="row"

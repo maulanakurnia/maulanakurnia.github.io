@@ -116,22 +116,22 @@ export default function PostPage({
             <>
               <PageHeader title={widont(title)} />
 
-            <Flex justifyContent="space-between" mt="-20px">
+              <Flex justifyContent="space-between" mt="-20px">
                 {date && (
-                    <Text fontSize="md" display="flex">
-                        <Text mr="5px" my="auto">
-                            <FiCalendar/>
-                        </Text>
-                    {formattedDate}  
+                  <Text display="flex" fontSize="md">
+                    <Text mr="5px" my="auto">
+                      <FiCalendar />
                     </Text>
+                    {formattedDate}
+                  </Text>
                 )}
                 <Text as="span" display="flex">
-                    <Text mr="5px" my="auto">
-                        <FiClock/>
-                    </Text>
-                    {readingTime}
+                  <Text mr="5px" my="auto">
+                    <FiClock />
+                  </Text>
+                  {readingTime}
                 </Text>
-            </Flex>
+              </Flex>
             </>
             {content}
           </Container>

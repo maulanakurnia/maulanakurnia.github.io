@@ -68,7 +68,13 @@ const Header = () => {
               _focus={{ outline: "none" }}
               aria-label="toggle mode"
               className="customIcon"
-              icon={colorMode === "light" ? <FiSun fill="#000"/> : <FiMoon fill="#fff"/>}
+              icon={
+                colorMode === "light" ? (
+                  <FiSun fill="#000" />
+                ) : (
+                  <FiMoon fill="#fff" />
+                )
+              }
               onClick={toggleColorMode}
               size="xs"
               variant="ghost"
@@ -109,7 +115,13 @@ const Header = () => {
               aria-label="toggle mode"
               className="customIcon"
               display={["none", "flex"]}
-              icon={colorMode === "light" ? <FiSun fill="#000"/> : <FiMoon fill="#fff"/>}
+              icon={
+                colorMode === "light" ? (
+                  <FiSun fill="#000" />
+                ) : (
+                  <FiMoon fill="#fff" />
+                )
+              }
               onClick={toggleColorMode}
               size="xs"
               variant="ghost"
