@@ -15,7 +15,7 @@
         "jsx": "preserve",
         "baseUrl": ".",
         "paths": {
-            "*": ["./src/@types/*"],
+            "types/*": ["./src/@types/*"],
             "utils/*": ["src/utils/*"],
             "atoms/*": ["src/components/atoms/*"],
             "molecules/*": ["src/components/molecules/*"],

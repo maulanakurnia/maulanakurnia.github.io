@@ -1,6 +1,6 @@
 import * as React from "react";
-import { TypeMyGame } from "TypeMyGame";
-import { TypeProject } from "TypeProject";
+import { TypeMyGame } from "types/TypeMyGame";
+import { TypeProject } from "types/TypeProject";
 
 interface ContentContextValue {
   myGame?: TypeMyGame[];
