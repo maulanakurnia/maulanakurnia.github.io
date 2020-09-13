@@ -10,12 +10,11 @@ export const SectionBlog = ({ posts }) => {
       {posts.map((post, index) => (
         <Link as={`blog/${post.slug}`} href={`/blog/[...slug]`} key={index}>
           <Box
-            mb="20px"
+            padding={5}
             _hover={{
               cursor: "pointer",
-              '&>.title': {
-                  color: '#2e7ad1'
-              }
+              borderWidth: "1px",
+              borderRadius: '6px'
             }}
           >
             <Heading className="title" size="md">{post.title}</Heading>
@@ -24,7 +23,7 @@ export const SectionBlog = ({ posts }) => {
           </Box>
         </Link>
       ))}
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" mt="20px">
           <Link href="blog/">
             <Button justifyItems="center" size="sm">Lebih Banyak</Button>
           </Link>
