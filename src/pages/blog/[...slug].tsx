@@ -118,8 +118,8 @@ export default function PostPage({
 
               <Flex justifyContent="space-between" mt="-20px">
                 {date && (
-                  <Text display="flex" fontSize="md">
-                    <Text mr="5px" my="auto">
+                  <Text as="span" display="flex" fontSize="md">
+                    <Text as="span" mr="5px" my="auto">
                       <FiCalendar />
                     </Text>
                     {formattedDate}
@@ -153,7 +153,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, frontMatter } = source;
   const extraComponents = buildComponentMap(content);
   const components = {
-    // ...defaultComponents,
     ...extraComponents,
   };
 

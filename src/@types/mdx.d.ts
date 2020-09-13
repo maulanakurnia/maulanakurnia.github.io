@@ -1,13 +1,12 @@
 declare module "*.mdx" {
   export interface MDXFrontMatter {
-    title?: string;
-    date?: string;
-    hidden?: boolean;
-    excerpt?: string;
+    title: string;
+    date: string;
     tags?: string[];
     slug?: string;
-    ogSlug?: string;
-    description?: string;
+    ogSlug?:string;
+    excerpt?:string;
+    description: string;
   }
 
   export interface MDXFile {

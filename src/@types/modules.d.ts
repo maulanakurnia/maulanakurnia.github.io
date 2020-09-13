@@ -9,8 +9,3 @@ declare module "react-katex";
 declare module "react-script-tag";
 declare module "rehype-slug";
 declare module "remark-abbr";
-
-// what is this ...?
-declare module "*.frag";
-declare module "*.glsl";
-declare module "*.vert";

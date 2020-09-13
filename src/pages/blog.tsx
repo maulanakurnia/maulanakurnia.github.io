@@ -168,7 +168,6 @@ export const getStaticProps: GetStaticProps = async () => {
     .sort((a, b) => {
       return Number(new Date(b.date || "")) - Number(new Date(a.date || ""));
     })
-    .filter((post) => !post.hidden);
 
   return {
     props: { posts },

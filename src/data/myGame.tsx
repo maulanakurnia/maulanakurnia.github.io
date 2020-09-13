@@ -1,10 +1,8 @@
-import { TypeMyGame } from "../@types/TypeMyGame";
+import { TypeMyGame } from "types/TypeMyGame";
 import {
   DiJavascript1,
   DiPhp,
   DiReact,
-  DiSass,
-  DiLinux,
   DiGit,
 } from "react-icons/di";
 import { SiArchlinux } from "react-icons/si";

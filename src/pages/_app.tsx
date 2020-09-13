@@ -3,14 +3,13 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import { Router } from "next/router";
 import { myGame } from "data/myGame";
-import { projects } from "data/project";
+import { projects } from "data/myProject";
 import type { AppProps } from "next/app";
 import { Header, Footer } from "organisms/index";
 import { GlobalStyle, theme } from "templates/index";
 import { ContentProvider } from "context/contentContext";
 import { trackPageview } from "config/analytics/track-event";
 import { ChakraProvider, CSSReset, Box } from "@chakra-ui/core";
-
 Router.events.on("routeChangeComplete", (url) => {
   trackPageview(url);
 });

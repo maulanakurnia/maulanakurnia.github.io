@@ -6,7 +6,7 @@ export const SectionDevelop = () => {
   const { myGame } = useContent();
   return (
     <>
-      <Text fontSize="30px" fontWeight="600" mt={10}>
+      <Text fontSize="30px" fontWeight="700" mt={10}>
         Mainan Saya
       </Text>
       <Box m="20px">

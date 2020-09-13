@@ -13,7 +13,7 @@ export const SectionWelcome = () => (
     >
       <WavingHand /> Hai
     </Box>
-    <Text mt={5}>
+    <Text mt={5} textAlign="center">
       Selamat datang di website pribadi saya, disini saya membagikan beberapa
       source code dan terkadang menulis beberapa tulisan.
     </Text>

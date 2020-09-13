@@ -24,9 +24,6 @@ const Posts = ({ post }: PostsProps) => {
           </Text>
         </Box>
         <Box w="400%">
-          <Stack direction="row" py={2}>
-            <Tags interactive={true} tags={post.tags} />
-          </Stack>
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
             <Text
               _hover={{ cursor: "pointer" }}
@@ -42,7 +39,9 @@ const Posts = ({ post }: PostsProps) => {
               >
                 {post.title}
               </Text>
-
+              <Stack direction="row" py={2}>
+                <Tags interactive={true} tags={post.tags} />
+              </Stack>
               <Text
                 as="span"
                 display={{ xs: "block", lg: "none" }}

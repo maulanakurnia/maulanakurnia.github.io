@@ -9,7 +9,7 @@ interface ContentContextValue {
 
 const ContentContext = React.createContext<ContentContextValue>({
   myGame: [],
-  myProject: [],
+  myProject: []
 });
 ContentContext.displayName = "ContentContext";
 

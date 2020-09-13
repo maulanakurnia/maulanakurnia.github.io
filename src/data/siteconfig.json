@@ -2,26 +2,27 @@
     "title": "mufradmabni",
     "titleTemplate": "%s | mufradmabni",
     "description": "Web developer, open-sourcerer, writer.",
-    "additionalMetaTags": [
-      { "property": "author", "content": "Maulana Kurnia" },
-      {
-        "property": "keywords",
-        "content": "bio,homepage,engineer,developer,freelance,remote,typescript,node.js,node,react,open-source,open source,privacy,security,cryptography,e2ee,end-to-end encryption,end to end encryption,surveillance,web,blog,writer,writing"
-      }
+    "additionalMetaTags": [{
+            "property": "author",
+            "content": "Maulana Kurnia"
+        },
+        {
+            "property": "keywords",
+            "content": "bio,homepage,engineer,developer,freelance,remote,typescript,node.js,node,react,open-source,open source,privacy,security,cryptography,e2ee,end-to-end encryption,end to end encryption,surveillance,web,blog,writer,writing"
+        }
     ],
     "twitter": {
-      "cardType": "summary_large_image",
-      "handle": "fortysevenfx",
-      "site": "fortysevenfx"
+        "cardType": "summary_large_image",
+        "handle": "maulanaakurniaa",
+        "site": "maulanaakurniaa"
     },
     "openGraph": {
-      "type": "website",
-      "locale": "en_ID",
-      "site_name": "mufradmabni",
-      "profile": {
-        "firstName": "Maulana",
-        "lastName": "Kurnia"
-      }
+        "type": "website",
+        "locale": "en_ID",
+        "site_name": "mufradmabni",
+        "profile": {
+            "firstName": "Maulana",
+            "lastName": "Kurnia"
+        }
     }
-  }
-  
+}
