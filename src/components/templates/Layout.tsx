@@ -29,8 +29,8 @@ const Content = ({ frontMatter, children }: LayoutProps) => {
         description={excerpt || site.description}
         thumbnail={
           ogSlug
-            ? `https://${process.env.VERCEL_URL}/og/${ogSlug}`
-            : `https://${process.env.VERCEL_URL}/images/og.png`
+            ? `${process.env.VERCEL_URL}/og/${ogSlug}`
+            : `${process.env.VERCEL_URL}/images/og.png`
         }
         title={title}
       />

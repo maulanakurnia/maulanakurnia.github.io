@@ -3,8 +3,8 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 module.exports = withBundleAnalyzer({
     env: {
-        HOMEPAGE: process.env.URL || process.env.VERCEL_URL,
-    },
+        VERCEL_URL: process.env.VERCEL_URL || "maulanakurnia.now.sh",
+      },
     webpack: (config, {
         isServer
     }) => {
