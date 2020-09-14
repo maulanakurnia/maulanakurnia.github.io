@@ -53,7 +53,6 @@ const Image = ({
           alt={alt}
           borderRadius={6}
           className={invertInDarkMode ? "invertInDarkMode" : ""}
-          loading="lazy"
           mx="auto"
           sizes={sizes}
           src={"/images/posts/" + src}
