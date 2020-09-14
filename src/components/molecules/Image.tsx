@@ -19,20 +19,21 @@ const Image = ({
   invertInDarkMode = false,
   src,
 }: ImageProps) => {
-  const usesSrcSet = !src.endsWith("svg");
+  const isSVG = src.endsWith("svg");
   const extension = src.split(".").slice(-1);
   const imageWidths = [114, 272, 340, 544, 680, 1360];
 
-  // Assume webp support by default to limit requests on modern browsers
-  const webPSupport = useContext(WebPSupportContext);
+  const webpSrcSet = imageWidths
+    .map(
+      (size) =>
+        `/api/image?name=/images/posts/${src}&w=${size}&fm=webp ${size}w`
+    )
+    .join(", ");
 
   const srcSet = imageWidths
     .map(
       (size) =>
-        `/api/image?name=/images/posts/${src}&w=${size}&fm=${
-          webPSupport ? "webp" : extension
-        }
-        ${size}w`
+        `/api/image?name=/images/posts/${src}&w=${size}&fm=${extension} ${size}w`
     )
     .join(", ");
 
@@ -42,17 +43,24 @@ const Image = ({
 
   const img = (
     <>
-      <ChakraImage
-        alt={alt}
-        borderRadius={6}
-        className={invertInDarkMode ? "invertInDarkMode" : ""}
-        loading="lazy"
-        mx="auto"
-        sizes={sizes}
-        src={"/images/posts/" + src}
-        srcSet={usesSrcSet ? srcSet : ""}
-        textAlign="center"
-      />
+      <picture>
+        {!isSVG && (
+          <>
+            <source sizes={sizes} srcSet={webpSrcSet} type="image/webp" />
+            <source sizes={sizes} srcSet={srcSet} type={`image/${extension}`} />
+          </>
+        )}
+        <ChakraImage
+          alt={alt}
+          borderRadius={6}
+          className={invertInDarkMode ? "invertInDarkMode" : ""}
+          loading="lazy"
+          mx="auto"
+          sizes={sizes}
+          src={"/images/posts/" + src}
+          textAlign="center"
+        />
+      </picture>
       <style jsx>{`
         @media (prefers-color-scheme: dark) {
           .invertInDarkMode {
