@@ -45,6 +45,7 @@ const Header = () => {
       px={5}
       w="100%"
       zIndex={999}
+      bg={useColorModeValue("#fffffff7", "#111216f7")}
     >
       <Box // Header Content
         display="flex"
