@@ -92,7 +92,7 @@ export const components = {
   table: Table,
   th: THead,
   td: TData,
-  a: (props: any) => <chakra.a apply="mdx.a" {...props} />,
+  a: (props: any) => <chakra.a apply="mdx.a" color="#2e7ad1" {...props} />,
   p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props: any) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,

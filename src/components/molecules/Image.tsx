@@ -1,6 +1,5 @@
 import Markdown from "utils/Markdown";
 import React, { useContext } from "react";
-import WebPSupportContext from "atoms/WebPSupportContext";
 import { Box, Image as ChakraImage, Text } from "@chakra-ui/core";
 
 interface ImageProps {
@@ -75,9 +74,9 @@ const Image = ({
     <Box m="2rem 0">
       {img}
       {caption && (
-        <Text size="100px" textAlign="center">
-          {caption}
-        </Text>
+        <Box textAlign="center">
+          <Markdown>{caption}</Markdown>
+        </Box>
       )}
     </Box>
   );
