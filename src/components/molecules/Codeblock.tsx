@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/core";
 import theme from "prism-react-renderer/themes/nightOwl";
 import React, { useState } from "react";
-import { LiveEditor, LivePreview, LiveProvider } from "react-live";
+import { LiveEditor, LiveProvider } from "react-live";
 
 export const liveEditorStyle: React.CSSProperties = {
   fontSize: 14,
