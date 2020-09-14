@@ -104,7 +104,7 @@ const Header = () => {
               flexDirection={["column", "row"]}
               py={[3, 0]}
               w="full"
-              justifyContent="end"
+              justifyContent="flex-end"
             >
               <MenuItems to="/">Home</MenuItems>
               <MenuItems to="/blog">Blog</MenuItems>
