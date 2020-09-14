@@ -1,34 +1,18 @@
 import { MDXFile, MDXFrontMatter } from "*.mdx";
 import allBlogPosts from "utils/mdxUtils";
 import { generateOgImages } from "utils/ogImage";
-import smartypants from "@ngsctt/remark-smartypants";
-import prism from "mdx-prism";
 import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import dynamic from "next/dynamic";
 import { ComponentType } from "react";
-import katex from "rehype-katex";
+
+// Plugins
 import slug from "rehype-slug";
-import abbr from "remark-abbr";
-import math from "remark-math";
-import toc from "remark-toc";
 import readingTime from "reading-time";
 
-import formatDate from "utils/formatDate";
-import { useWebP } from "utils/useWebP";
-import widont from "utils/widont";
-import siteConfig from "data/siteconfig.json";
-import { GlobalStyle } from "templates/index";
-import Metatags from "atoms/Metatags";
-import WebPSupportContext from "atoms/WebPSupportContext";
-
-import { Text, Container, Flex } from "@chakra-ui/core";
-import { PageHeader } from "atoms/index";
-
-import { MDXProvider } from "@mdx-js/react";
-import MDXComponents from "templates/MDXLayout";
-import { FiClock, FiCalendar } from "react-icons/fi";
+import Layout from "templates/Layout";
+import { components as defaultComponents } from "templates/MDXLayout";
 
 // OpaqueComponentType is basically a generic that will be used for dynamically
 // importing components in MDX files.
@@ -83,63 +67,14 @@ export default function PostPage({
   source,
   frontMatter,
   extraComponents,
-  readingTime,
 }: PostPageProps) {
   const components = {
+    ...defaultComponents,
     ...buildComponentMap(`<${extraComponents.join("<")}`),
   };
 
   const content = hydrate(source, { components });
-
-  const site = siteConfig;
-  const title = frontMatter?.title || site.title;
-  const date = frontMatter?.date;
-  const formattedDate = formatDate(frontMatter?.date || "");
-  const excerpt = frontMatter?.excerpt;
-  const webPSupport = useWebP(true);
-  const ogSlug = frontMatter?.ogSlug;
-
-  return (
-    <>
-      <MDXProvider components={MDXComponents}>
-        <WebPSupportContext.Provider value={webPSupport}>
-          <Metatags
-            description={excerpt || site.description}
-            thumbnail={
-              ogSlug
-                ? `https://${process.env.VERCEL_URL}/og/${ogSlug}`
-                : `https://${process.env.VERCEL_URL}/images/og.png`
-            }
-            title={title}
-          />
-          <Container maxW="md">
-            <>
-              <PageHeader title={widont(title)} />
-
-              <Flex justifyContent="space-between" mt="-20px">
-                {date && (
-                  <Text as="span" display="flex" fontSize="md">
-                    <Text as="span" mr="5px" my="auto">
-                      <FiCalendar />
-                    </Text>
-                    {formattedDate}
-                  </Text>
-                )}
-                <Text as="span" display="flex">
-                  <Text mr="5px" my="auto">
-                    <FiClock />
-                  </Text>
-                  {readingTime}
-                </Text>
-              </Flex>
-            </>
-            {content}
-          </Container>
-        </WebPSupportContext.Provider>
-      </MDXProvider>
-      <GlobalStyle />
-    </>
-  );
+  return <Layout frontMatter={frontMatter}>{content}</Layout>;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -153,19 +88,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { content, frontMatter } = source;
   const extraComponents = buildComponentMap(content);
   const components = {
+    ...defaultComponents,
     ...extraComponents,
   };
 
-  const mdxSource = await renderToString(
-    content,
-    {},
-    {
-      components,
-      remarkPlugins: [abbr, smartypants, math, toc],
-      rehypePlugins: [katex, prism, slug],
-      scope: frontMatter,
-    }
-  );
+  const mdxSource = await renderToString(content, {
+    components,
+    mdxOptions: {
+      remarkPlugins: [],
+      rehypePlugins: [slug],
+    },
+    scope: frontMatter,
+  });
 
   return {
     props: {

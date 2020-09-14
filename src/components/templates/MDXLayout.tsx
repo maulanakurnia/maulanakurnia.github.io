@@ -1,7 +1,12 @@
 import { Box, chakra, Kbd, useColorModeValue } from "@chakra-ui/core";
-import React from "react";
 import Image from "molecules/Image";
 import CodeBlock from "molecules/Codeblock";
+import { MDXProvider } from "@mdx-js/react";
+import React, { ReactElement, ReactNode } from "react";
+
+interface MDXLayoutProps {
+  children: ReactNode;
+}
 
 const Pre = (props: any) => (
   <chakra.div borderRadius="sm" my="2em" {...props} />
@@ -71,7 +76,7 @@ const LinkedHeading = (props: any) => (
   </chakra.h2>
 );
 
-const MDXComponents = {
+export const components = {
   h1: (props: any) => <chakra.h1 apply="mdx.h1" {...props} />,
   h2: (props: any) => <LinkedHeading apply="mdx.h2" {...props} />,
   h3: (props: any) => <LinkedHeading apply="mdx.h3" as="h3" {...props} />,
@@ -97,4 +102,11 @@ const MDXComponents = {
   ),
 };
 
-export default MDXComponents;
+const MDXLayout = ({
+  children,
+}: MDXLayoutProps): ReactElement<typeof MDXProvider> => (
+  <MDXProvider components={{ ...components }}>{children}</MDXProvider>
+);
+
+export default MDXLayout;
+

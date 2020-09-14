@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, ReactElement } from "react";
 import { GetStaticProps } from "next";
 import { Posts, Aside } from "organisms/blog/index";
 import { PageHeader } from "atoms/index";
@@ -24,7 +24,8 @@ import { useState, useMemo } from "react";
 import { useQueryState } from "next-usequerystate";
 import { FiTag, FiSearch } from "react-icons/fi";
 import { Tags } from "molecules/Tags";
-export default function Blog({ posts }: { posts: MDXFrontMatter[] }) {
+import Layout from "templates/Layout";
+export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactElement<typeof Layout> {
   const bg = useColorModeValue(
     "1px solid #dadce0",
     "1px solid rgb(39, 41, 46)"
@@ -48,7 +49,7 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }) {
   }, [posts, tag, search]);
 
   return (
-    <Fragment>
+    <>
       <NextSeo
         description="I write about TypeScript, Node.js, React, security and privacy."
         noindex={true}
@@ -158,7 +159,7 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }) {
           </Box>
         </Grid>
       </Container>
-    </Fragment>
+    </>
   );
 }
 
