@@ -4,7 +4,7 @@ import Link from "next/link";
 export const SectionBlog = ({ posts }) => {
   return (
     <>
-      <Text fontSize="30px" fontWeight="700" mt={10} mb={5}>
+      <Text textAlign="center" fontSize="25px" fontWeight="700" mt={10} mb={5}>
         Artikel Terbaru
       </Text>
       {posts.map((post, index) => (

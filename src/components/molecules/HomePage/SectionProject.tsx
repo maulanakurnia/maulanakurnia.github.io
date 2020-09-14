@@ -1,9 +1,9 @@
 import { Text } from "@chakra-ui/core";
 export const SectionProject = () => (
   <>
-    <Text fontSize="30px" fontWeight="700" mt={10}>
+    <Text textAlign="center" fontSize="25px" fontWeight="700" mt={10}>
       Projek
     </Text>
-    <Text>COMING SOON</Text>
+    <Text textAlign="center">COMING SOON</Text>
   </>
 );
