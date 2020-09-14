@@ -24,8 +24,12 @@ import { useState, useMemo } from "react";
 import { useQueryState } from "next-usequerystate";
 import { FiTag, FiSearch } from "react-icons/fi";
 import { Tags } from "molecules/Tags";
-import Layout from "templates/Layout";
-export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactElement<typeof Layout> {
+import Layout from "templates/MDXLayout";
+export default function Blog({
+  posts,
+}: {
+  posts: MDXFrontMatter[];
+}): ReactElement<typeof Layout> {
   const bg = useColorModeValue(
     "1px solid #dadce0",
     "1px solid rgb(39, 41, 46)"
@@ -61,7 +65,6 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactEleme
       />
       <Container maxW="xl">
         <PageHeader title="Blog" />
-        <Grid gap={2} gridTemplateColumns={{ md: "auto 30%", lg: "auto 25%" }}>
           <Box>
             <InputGroup mb={2}>
               <InputLeftElement
@@ -104,6 +107,7 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactEleme
                 p={2}
                 pl={3}
                 rounded="md"
+                mb="10px"
                 spacing={3}
               >
                 <Flex alignItems="center">
@@ -130,7 +134,6 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactEleme
               </Stack>
             )}
           </Box>
-          <Box></Box>
           <Box border={bg} borderRadius={6} py={{ xs: 2, lg: 10 }} w="full">
             {filteredPosts.map((post, index) => (
               <Posts key={index} post={post} />
@@ -146,29 +149,16 @@ export default function Blog({ posts }: { posts: MDXFrontMatter[] }): ReactEleme
               </Text>
             )}
           </Box>
-          <Box as="aside" maxW="sm" overflow="auto" position="sticky" top="5%">
-            <Box border={bg} borderRadius={6} mt={{ xs: 5, md: 0 }} p={15}>
-              <Text fontWeight="600">Tags</Text>
-              <Box display="inline-block" py={2}>
-                {/* <Tags interactive={true} tags={posts.tags} /> */}
-              </Box>
-            </Box>
-            <Box border={bg} borderRadius={6} mt={{ xs: 5, lg: 4 }} p={5}>
-              <Text fontWeight="600">Artikel Terbaru</Text>
-            </Box>
-          </Box>
-        </Grid>
       </Container>
     </>
   );
 }
-
 export const getStaticProps: GetStaticProps = async () => {
   const posts = Array.from(blogPosts.values())
     .map((post) => post.frontMatter)
     .sort((a, b) => {
       return Number(new Date(b.date || "")) - Number(new Date(a.date || ""));
-    })
+    });
 
   return {
     props: { posts },

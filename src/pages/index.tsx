@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
     .sort((a, b) => {
       return Number(new Date(b.date || "")) - Number(new Date(a.date || ""));
     })
-    .slice(0, 5);
+    .slice(0, 3);
 
   return {
     props: { posts },

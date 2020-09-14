@@ -8,7 +8,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/core";
 import NextLink from "next/link";
-
+import { AiFillTags } from "react-icons/ai";
 export interface TagProps extends ButtonProps {
   name: string;
   interactive?: boolean;
@@ -39,10 +39,17 @@ export const Tag: React.FC<TagProps> = ({
         _hover={{ cursor: "pointer", bg: "#004ba0", color: "#fff" }}
         color={useColorModeValue("#000", "#929497")}
         mr={2}
-        size="xs"
+        size="13px"
+        fontSize="13px"
+        px="5px"
+        py="2px"
+        my="auto"
         textTransform="lowercase"
         variant="outline"
       >
+          <Text as="span" mr="5px">
+            <AiFillTags />
+          </Text>
         {name}
       </Button>
     </NextLink>

@@ -11,17 +11,31 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis purus pos
 
 ### Example Code
 
+```js
+import { makeECPrivateKey, wrapProfileToken, Person, useColorModeValue, Box, Flat } from "blockstack";
+
+const privateKey = makeECPrivateKey();
+
+const person = new Person(profileOfNaval);
+const token = person.toToken(privateKey);
+const tokenFile = [wrapProfileToken(token)];
+```
+
+### Inline Code
+
 ```bash
 sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
-sudo pacman -Syu
 ```
+
+### No Lang
+
+```
+yay -Syu
+```
+
+## Nulis Lagi
+
+disini saya akan menuliskan kata `~/.zshrc`
 
 ### Image
 

@@ -5,6 +5,7 @@ import {
   useColorMode,
   IconButton,
   useColorModeValue,
+  Container,
 } from "@chakra-ui/core";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
@@ -47,89 +48,92 @@ const Header = () => {
       zIndex={999}
       bg={useColorModeValue("#fffffff7", "#111216f7")}
     >
-      <Box // Header Content
-        display="flex"
-        flexDirection={["column", "row"]}
-        justifyContent="space-between"
-      >
-        <Box // Brand & Button
+      <Container maxW="xl">
+        <Box // Header Content
           display="flex"
+          flexDirection={["column", "row"]}
           justifyContent="space-between"
-          w={["full", "auto"]}
         >
-          <Box>
-            {/* Brand */}
-            <Link fontSize={15} fontWeight="600" href="/" pr={3}>
-              mufradmabni
-            </Link>
-          </Box>
-          <Box display={["flex", "none"]}>
-            {/* Humberger */}
-            <IconButton
-              _focus={{ outline: "none" }}
-              aria-label="toggle mode"
-              className="customIcon"
-              icon={
-                colorMode === "light" ? (
-                  <FiSun fill="#000" />
-                ) : (
-                  <FiMoon fill="#fff" />
-                )
-              }
-              onClick={toggleColorMode}
-              size="xs"
-              variant="ghost"
-            />
-            <Button
-              _focus={{ outline: 0 }}
-              className="customIcon"
-              fontSize={14}
-              onClick={() => setOpen(!open)}
-              size="xs"
-              variant="ghost"
-            >
-              {open ? <RiCloseLine /> : <RiMenuLine />}
-            </Button>
-          </Box>
-        </Box>
-        <Box // Content
-          display={[open ? "flex" : "none", "flex"]}
-          justifyContent="space-between"
-          w="full"
-        >
-          <Box
+          <Box // Brand & Button
             display="flex"
-            flexDirection={["column", "row"]}
-            py={[3, 0]}
+            justifyContent="space-between"
+            w={["full", "auto"]}
+          >
+            <Box>
+              {/* Brand */}
+              <Link fontSize={15} fontWeight="600" href="/" pr={3}>
+                mufradmabni
+              </Link>
+            </Box>
+            <Box display={["flex", "none"]}>
+              {/* Humberger */}
+              <IconButton
+                _focus={{ outline: "none" }}
+                aria-label="toggle mode"
+                className="customIcon"
+                icon={
+                  colorMode === "light" ? (
+                    <FiSun fill="#000" />
+                  ) : (
+                    <FiMoon fill="#fff" />
+                  )
+                }
+                onClick={toggleColorMode}
+                size="xs"
+                variant="ghost"
+              />
+              <Button
+                _focus={{ outline: 0 }}
+                className="customIcon"
+                fontSize={14}
+                onClick={() => setOpen(!open)}
+                size="xs"
+                variant="ghost"
+              >
+                {open ? <RiCloseLine /> : <RiMenuLine />}
+              </Button>
+            </Box>
+          </Box>
+          <Box // Content
+            display={[open ? "flex" : "none", "flex"]}
+            justifyContent="space-between"
             w="full"
           >
-            <MenuItems to="/">Home</MenuItems>
-            <MenuItems to="/blog">Blog</MenuItems>
-            <MenuItems to="/project">Project</MenuItems>
-          </Box>
+            <Box
+              display="flex"
+              flexDirection={["column", "row"]}
+              py={[3, 0]}
+              w="full"
+              justifyContent="end"
+            >
+              <MenuItems to="/">Home</MenuItems>
+              <MenuItems to="/blog">Blog</MenuItems>
+              <MenuItems to="/project">Project</MenuItems>
+            </Box>
 
-          <Box>
-            {" "}
-            {/* Toggle Theme */}
-            <IconButton
-              _focus={{ outline: "none" }}
-              aria-label="toggle mode"
-              className="customIcon"
-              display={["none", "flex"]}
-              icon={
-                colorMode === "light" ? (
-                  <FiSun fill="#000" />
-                ) : (
-                  <FiMoon fill="#fff" />
-                )
-              }
-              onClick={toggleColorMode}
-              size="xs"
-              variant="ghost"
-            />
+            <Box>
+              {" "}
+              {/* Toggle Theme */}
+              <IconButton
+                _focus={{ outline: "none" }}
+                aria-label="toggle mode"
+                className="customIcon"
+                display={["none", "flex"]}
+                icon={
+                  colorMode === "light" ? (
+                    <FiSun fill="#000" />
+                  ) : (
+                    <FiMoon fill="#fff" />
+                  )
+                }
+                onClick={toggleColorMode}
+                size="xs"
+                variant="ghost"
+              />
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };

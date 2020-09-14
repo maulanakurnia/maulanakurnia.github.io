@@ -11,8 +11,8 @@ import { ComponentType } from "react";
 import slug from "rehype-slug";
 import readingTime from "reading-time";
 
-import Layout from "templates/Layout";
-import { components as defaultComponents } from "templates/MDXLayout";
+import MDXLayout from "templates/MDXLayout";
+import { components as defaultComponents } from "templates/MDXComponent";
 
 // OpaqueComponentType is basically a generic that will be used for dynamically
 // importing components in MDX files.
@@ -67,6 +67,7 @@ export default function PostPage({
   source,
   frontMatter,
   extraComponents,
+  readingTime
 }: PostPageProps) {
   const components = {
     ...defaultComponents,
@@ -74,7 +75,7 @@ export default function PostPage({
   };
 
   const content = hydrate(source, { components });
-  return <Layout frontMatter={frontMatter}>{content}</Layout>;
+  return <MDXLayout frontMatter={frontMatter} readingTime={readingTime}>{content}</MDXLayout>;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

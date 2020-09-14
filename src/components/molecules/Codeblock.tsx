@@ -1,81 +1,118 @@
-import {
-  Box,
-  BoxProps,
-  Button,
-  ButtonProps,
-  chakra,
-  useClipboard,
-} from "@chakra-ui/core";
-import theme from "prism-react-renderer/themes/nightOwl";
 import React, { useState } from "react";
-import { LiveEditor, LiveProvider } from "react-live";
-
-export const liveEditorStyle: React.CSSProperties = {
-  fontSize: 14,
-  overflowX: "auto",
-  fontFamily: "SF Mono, Menlo, monospace",
-};
-
-export const liveErrorStyle: React.CSSProperties = {
-  fontFamily: "SF Mono, Menlo, monospace",
-  fontSize: 14,
-  padding: "1em",
-  overflowX: "auto",
-  color: "white",
-  backgroundColor: "red",
-};
+import styled from "styled-components";
+import Highlight, { defaultProps } from "prism-react-renderer";
+import theme from "prism-react-renderer/themes/nightOwl";
+import { Box, Button, ButtonProps, useClipboard } from "@chakra-ui/core";
+import { MdContentCopy, MdContentPaste } from "react-icons/md";
 
 const CopyButton = (props: ButtonProps) => (
   <Button
-    fontSize="xs"
-    height="24px"
+    fontSize="13px"
+    padding="5px"
     position="absolute"
-    right="1.25em"
+    right="0.3em"
     size="sm"
     textTransform="uppercase"
-    top={3}
+    top={5.5}
     zIndex="1"
+    display="none"
+    bg="#3b3b3b"
+    _hover={{ bg: "#4f4f4f" }}
+    _focus={{ outline: "none" }}
     {...props}
   />
 );
+const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 0;
+  padding: 0.5em;
+  overflow: auto;
+  border-radius: 6px;
+  background-color: #111216 !important;
+  border: 1px solid rgb(55, 56, 59);
+  &:hover .copy {
+    display: flex;
+  }
+`;
 
-const CodeContainer = (props: any) => (
-  <Box bg="#011627" my="8" padding="5" rounded="8px" {...props} />
-);
+const Line = styled.div`
+  display: table-row;
+`;
 
-function CodeBlock(props: any) {
-  const { className, live = true, manual, render, children, ...rest } = props;
+const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+  border-right: 1px solid rgb(55, 56, 59);
+  padding-left: 10px;
+`;
 
+const LineContent = styled.span`
+  padding-left: 10px;
+  display: table-cell;
+  margin-left: 10px;
+`;
+
+const WithLineNumbers = (props: any) => {
+  const { className, render, children, ...rest } = props;
   const [editorCode] = useState(children.trim());
-
   const language = className && className.replace(/language-/, "");
   const { hasCopied, onCopy } = useClipboard(editorCode);
-
-  const liveProviderProps = {
+  const customProps = {
     theme,
     language,
     code: editorCode,
-
-    noInline: manual,
     ...rest,
   };
-
+  if (language !== "bash" && language !== undefined) {
+    return (
+      <Highlight {...defaultProps} {...customProps}>
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <Box position="relative">
+            <Pre className={className} style={style}>
+              {tokens.map((line, i) => (
+                <Line key={i} {...getLineProps({ line, key: i })}>
+                  <LineNo>{i + 1}</LineNo>
+                  <LineContent>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ token, key })} />
+                    ))}
+                  </LineContent>
+                </Line>
+              ))}
+              <CopyButton onClick={onCopy} className="copy">
+                {hasCopied ? <MdContentPaste /> : <MdContentCopy />}
+              </CopyButton>
+            </Pre>
+          </Box>
+        )}
+      </Highlight>
+    );
+  }
   return (
-    <LiveProvider disabled {...liveProviderProps}>
-      <Box position="relative" zIndex="0">
-        <CodeContainer>
-          <LiveEditor style={liveEditorStyle} />
-          <CopyButton onClick={onCopy}>
-            {hasCopied ? "copied" : "copy"}
-          </CopyButton>
-        </CodeContainer>
-      </Box>
-    </LiveProvider>
+    <Highlight {...defaultProps} {...customProps}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <Box position="relative">
+          <Pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <Line key={i} {...getLineProps({ line, key: i })}>
+                <LineContent>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </LineContent>
+              </Line>
+            ))}
+            <CopyButton onClick={onCopy} className="copy">
+              {hasCopied ? <MdContentPaste /> : <MdContentCopy />}
+            </CopyButton>
+          </Pre>
+        </Box>
+      )}
+    </Highlight>
   );
-}
-
-CodeBlock.defaultProps = {
-  mountStylesheet: false,
 };
 
-export default CodeBlock;
+export default WithLineNumbers;

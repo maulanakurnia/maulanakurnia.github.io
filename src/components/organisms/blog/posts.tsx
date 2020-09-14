@@ -23,14 +23,18 @@ const Posts = ({ post }: PostsProps) => {
             {date}
           </Text>
         </Box>
-        <Box w="400%">
+        <Box
+          w="400%"
+          css={{
+            ":hover": {
+              ".heading": {
+                color: "#2e7ad1",
+              },
+            },
+          }}
+        >
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
-            <Text
-              _hover={{ cursor: "pointer" }}
-              as="span"
-              // @ts-ignore
-              style={{ "&>.heading": { color: "#2e7ad1" } }}
-            >
+            <Text _hover={{ cursor: "pointer" }} as="span">
               <Text
                 _hover={{ color: "#2e7ad1" }}
                 className="heading"
@@ -39,16 +43,19 @@ const Posts = ({ post }: PostsProps) => {
               >
                 {post.title}
               </Text>
-              <Stack direction="row" py={2}>
-                <Tags interactive={true} tags={post.tags} />
-              </Stack>
-              <Text
-                as="span"
-                display={{ xs: "block", lg: "none" }}
-                fontSize={12}
-                my="auto"
-              >
-                {date}
+              <Text as="span" display="flex">
+                <Text
+                    as="span"
+                    display={{ xs: "block", lg: "none" }}
+                    fontSize={12}
+                    my="auto"
+                    mr="5px"
+                >
+                    {date}
+                </Text>
+                <Stack direction="row" py={2}>
+                    <Tags interactive={true} tags={post.tags} />
+                </Stack>
               </Text>
               <Text
                 className="description"
