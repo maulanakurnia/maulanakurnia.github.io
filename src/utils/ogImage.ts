@@ -3,7 +3,7 @@ import widont from "utils/widont";
 import { createCanvas } from "canvas";
 import { existsSync, promises as fs } from "fs";
 import path from "path";
-import siteConfig from "../data/siteconfig.json";
+import siteConfig from "config/siteconfig.json";
 
 const { mkdir, writeFile } = fs;
 

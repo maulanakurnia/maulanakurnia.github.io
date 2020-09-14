@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { ReactElement } from "react";
-import site from "data/siteconfig.json";
+import site from "config/siteconfig.json";
 
 interface MetatagsProps {
   title?: string;
