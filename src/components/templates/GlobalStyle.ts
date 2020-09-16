@@ -9,10 +9,6 @@ export default createGlobalStyle`
         transition: background 0.5s, color 0.6s;
     }
 
-    a {
-        text-decoration: none !important;
-    }
-
     .selected {
         color: #2e7ad1 !important;
         font-weight: 700 !important;
@@ -57,5 +53,26 @@ export default createGlobalStyle`
     ::selection {
         background-color: #c5e3ff;
         color: black;
+    }
+    .remark-code-title {
+        font-size: 0.9em;
+        padding: 0.5em 0.9em;
+        font-weight: 600;
+        margin-top:25px;
+        margin-bottom: -32px;
+        border-radius: 6px 6px 0px 0px;
+    }
+    .remark-code-title + div>div>pre {
+        border-top-left-radius: 0!important;
+        border-top-right-radius: 0!important;
+        border-top: none;
+    }
+    .chakra-ui-light .remark-code-title {
+        background-color: #f6f8fa;
+        border: 1px solid #e1e4e8;
+    }
+    .chakra-ui-dark .remark-code-title {
+        background-color: #1b1c1f;
+        border: 1px solid rgb(39,41,46);
     }
 `;
