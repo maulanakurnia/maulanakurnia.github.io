@@ -55,13 +55,11 @@ export default function Blog({
   return (
     <>
       <NextSeo
+        title="Blog | mufradmabni"
         description="I write about TypeScript, Node.js, React, security and privacy."
-        noindex={true}
         openGraph={{
           title: "Articles by Maulana Kurnia",
         }}
-        title="Blog"
-        titleTemplate="%s | mufradmabni"
       />
       <Container maxW="xl">
         <PageHeader title="Blog" />

@@ -3,11 +3,11 @@ import widont from "utils/widont";
 import formatDate from "utils/formatDate";
 import { ReactNode } from "react";
 import siteConfig from "config/siteconfig.json";
-import Metatags from "atoms/Metatags";
 import MDXComponent from "./MDXComponent";
 import { Text, Container, Flex } from "@chakra-ui/core";
 import { PageHeader } from "atoms/index";
 import { FiClock, FiCalendar } from "react-icons/fi";
+import { NextSeo } from "next-seo";
 
 type LayoutProps = {
   frontMatter?: MDXFrontMatter;
@@ -25,18 +25,27 @@ export default function Layout({
   const isRoot = title == site.title;
   const date = frontMatter?.date;
   const formattedDate = formatDate(date || "");
-  const excerpt = frontMatter?.excerpt;
+  const description = frontMatter?.description;
   const ogSlug = frontMatter?.ogSlug;
   return (
     <MDXComponent>
-      <Metatags
-        description={excerpt || site.description}
-        thumbnail={
-          ogSlug
-            ? `${process.env.VERCEL_URL}/og/${ogSlug}`
-            : `${process.env.VERCEL_URL}/images/og.png`
-        }
-        title={title}
+      <NextSeo
+        title={title + " | " + site.title}
+        description={description || site.description}
+        twitter={site.twitter}
+        openGraph={{
+          locale: "en_ID",
+          images: [
+            {
+              url: ogSlug
+                ? `${process.env.VERCEL_URL}og/${ogSlug}`
+                : `${process.env.VERCEL_URL}images/og.png`,
+              width: 800,
+              height: 600,
+              alt: "Og Image Alt",
+            },
+          ],
+        }}
       />
       <Container maxW="md">
         <PageHeader title={widont(title)} />
