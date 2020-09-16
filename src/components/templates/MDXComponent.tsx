@@ -94,13 +94,14 @@ export const components = {
   table: Table,
   th: THead,
   td: TData,
+  mark: (props: any) => <Box as="mark" px="0.6em" bg="rgba(255, 200, 0, 0.15)" color="inherit" {...props}/>,
   a: (props: any) => <chakra.a apply="mdx.a" color="#2e7ad1" {...props} />,
   p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props: any) => <chakra.ul apply="mdx.ul" {...props} />,
   ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
-    <chakra.div apply="mdx.blockquote" as="blockquote" {...props} />
+    <chakra.div apply="mdx.blockquote" as="blockquote" bg="rgba(255,200,0,0.15)" border="1px solid rgba(255,200,0,0.15)" {...props} />
   ),
 };
 

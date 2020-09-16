@@ -3,12 +3,7 @@ import PageHeader from "atoms/pageHeader";
 import {
   Box,
   useColorModeValue,
-  Text,
   Container,
-  Image,
-  Link,
-  Button,
-  Flex,
 } from "@chakra-ui/core";
 import { NextSeo } from "next-seo";
 import { useContent } from "context/contentContext";
@@ -24,13 +19,11 @@ export default function Project() {
   return (
     <Fragment>
       <NextSeo
+        title="Project | mufradmabni"
         description="I write about TypeScript, Node.js, React, security and privacy."
-        noindex={true}
         openGraph={{
           title: "Project by Maulana Kurnia",
         }}
-        title="Project"
-        titleTemplate="%s | mufradmabni"
       />
       <Container maxW="xl">
         <PageHeader title="Project" />

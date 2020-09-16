@@ -37,7 +37,7 @@ export const Tag: React.FC<TagProps> = ({
         {...props}
         _focus={{ outline: "none" }}
         _hover={{ cursor: "pointer", bg: "#004ba0", color: "#fff" }}
-        color={useColorModeValue("#000", "#929497")}
+        color={useColorModeValue("#474d54", "#929497")}
         mr={2}
         size="13px"
         fontSize="13px"

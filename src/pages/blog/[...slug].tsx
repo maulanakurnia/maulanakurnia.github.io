@@ -10,7 +10,7 @@ import { ComponentType } from "react";
 // Plugins
 import slug from "rehype-slug";
 import readingTime from "reading-time";
-
+import titleCode from "remark-code-titles";
 import MDXLayout from "templates/MDXLayout";
 import { components as defaultComponents } from "templates/MDXComponent";
 
@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const mdxSource = await renderToString(content, {
     components,
     mdxOptions: {
-      remarkPlugins: [],
+      remarkPlugins: [titleCode],
       rehypePlugins: [slug],
     },
     scope: frontMatter,

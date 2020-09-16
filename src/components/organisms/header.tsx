@@ -6,11 +6,13 @@ import {
   IconButton,
   useColorModeValue,
   Container,
+  Text,
 } from "@chakra-ui/core";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { ActiveLink } from "atoms/index";
+import NextLink from "next/link";
 
 const MenuItems = ({ children, to }: any) => {
   return (
@@ -46,7 +48,7 @@ const Header = () => {
       px={5}
       w="100%"
       zIndex={999}
-      bg={useColorModeValue("#fffffff7", "#111216f7")}
+      bg={useColorModeValue("rgba(255,255,255,0.95)", "rgba(17, 18, 22,0.95)")}
     >
       <Container maxW="xl">
         <Box // Header Content
@@ -61,9 +63,16 @@ const Header = () => {
           >
             <Box>
               {/* Brand */}
-              <Link fontSize={15} fontWeight="600" href="/" pr={3}>
-                mufradmabni
-              </Link>
+              <NextLink href="/">
+                <Text
+                  as="span"
+                  fontSize={15}
+                  fontWeight="600"
+                  _hover={{ cursor: "pointer" }}
+                >
+                  mufradmabni
+                </Text>
+              </NextLink>
             </Box>
             <Box display={["flex", "none"]}>
               {/* Humberger */}
@@ -112,7 +121,6 @@ const Header = () => {
             </Box>
 
             <Box>
-              {" "}
               {/* Toggle Theme */}
               <IconButton
                 _focus={{ outline: "none" }}

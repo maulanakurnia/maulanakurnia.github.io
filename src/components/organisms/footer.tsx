@@ -1,7 +1,6 @@
 import React from "react";
-import { Box, Icon, Text, Link, Grid, Container } from "@chakra-ui/core";
-import { MdEmail } from "react-icons/md";
-import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Box, Link, Container, Flex, IconButton, Text } from "@chakra-ui/core";
+import { FiTwitter, FiGithub, FiInstagram, FiMail } from "react-icons/fi";
 
 type FooterLinkProps = {
   icon?: React.ElementType;
@@ -9,31 +8,34 @@ type FooterLinkProps = {
 };
 
 const FooterLink: React.FC<FooterLinkProps> = ({ icon, href }) => (
-  <Link display="inline-block" href={href} isExternal>
-    <Icon
-      _hover={{ fill: "#2273d1" }}
-      as={icon}
+  <Link display="inline-block" mx="5px" href={href} isExternal>
+    <IconButton
+      aria-label="Twitter"
+      // @ts-ignore
+      icon={icon}
+      borderRadius="50%"
+      size="md"
       color="gray.500"
-      fontSize={["sm", "md"]}
+      variant="ghost"
     />
   </Link>
 );
 
 const links = [
   {
-    icon: FaGithub,
+    icon: <FiGithub />,
     url: "https://github.com/maulanakurnia",
   },
   {
-    icon: FaTwitter,
+    icon: <FiTwitter />,
     url: "https://twitter.com/maulanaakurniaa",
   },
   {
-    icon: FaInstagram,
+    icon: <FiInstagram />,
     url: "https://instagram.com/maulanaakurniaa",
   },
   {
-    icon: MdEmail,
+    icon: <FiMail />,
     url: "mailto:maulanaakurniaa@yahoo.com",
   },
 ];
@@ -42,29 +44,33 @@ export const Footer = () => (
   <Container minWidth={{ md: "md", lg: "xl" }} pb={5}>
     <Box
       as="footer"
-      borderTopWidth="1px"
-      display={["", "", "flex"]}
       h="50px"
-      justifyContent="space-between"
       mt={12}
       position="relative"
-      py={10}
+      pt="2em"
+      pb="3em"
       textAlign="center"
     >
-      <Text fontSize={{ xs: "12px", md: "15px" }}>
-        © 2019 - {new Date().getFullYear()} Maulana Kurnia
+      <Text fontSize="sm">
+        This website is open source,<br></br> build with{" "}
+        <Link color="#2e7ad1" href="https://nextjs.org/" isExternal>
+          Next.js
+        </Link>{" "}
+        and{" "}
+        <Link color="#2e7ad1" href="https://chakra-ui.com/" isExternal>
+          ChakraUI
+        </Link>
       </Text>
-      <Grid
-        display="flex"
-        gap={30}
-        justifyContent={["center", ""]}
-        mb={["40px", "0"]}
-        mt={["10px", "0"]}
-      >
+      <Flex justifyContent={["center", ""]} mb="10px" mt={["10px", "0"]}>
         {links.map((link) => (
-          <FooterLink href={link.url} icon={link.icon} key={link.url} />
+          <FooterLink
+            href={link.url}
+            // @ts-ignore
+            icon={link.icon}
+            key={link.url}
+          />
         ))}
-      </Grid>
+      </Flex>
     </Box>
   </Container>
 );

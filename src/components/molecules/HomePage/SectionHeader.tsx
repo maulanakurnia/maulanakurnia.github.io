@@ -5,11 +5,13 @@ export const SectionHeader = () => (
   <>
     <Box
       backgroundAttachment="fixed"
-      backgroundPosition="center"
+      backgroundPosition="center center"
+      backgroundRepeat="no-repeat"
       backgroundSize="cover"
       borderBottomWidth="1px"
+      objectFit="cover"
       css={css`
-        background-image: url(${process.env.URL}images/bg-min.jpg);
+        background-image: url(${process.env.VERCEL_URL}images/bg-min.jpg);
       `}
       display="block"
       h={"calc(30vh)"}
@@ -22,7 +24,7 @@ export const SectionHeader = () => (
         borderRadius="50%"
         borderWidth="1px"
         css={css`
-          background-image: url(${process.env.URL}images/profile-min.jpg);
+          background-image: url(${process.env.VERCEL_URL}images/profile-min.jpg);
         `}
         display="flex"
         h={200}

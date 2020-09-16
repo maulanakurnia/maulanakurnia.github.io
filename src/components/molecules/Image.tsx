@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { Box, Image as ChakraImage, Text } from "@chakra-ui/core";
 
 interface ImageProps {
-  align?: "left" | "right";
   alt?: string;
   caption?: string;
   defaultSize?: string;
@@ -12,7 +11,6 @@ interface ImageProps {
 }
 
 const Image = ({
-  align,
   alt,
   caption,
   invertInDarkMode = false,

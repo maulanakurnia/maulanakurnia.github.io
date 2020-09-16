@@ -16,7 +16,7 @@ const IndexPage = ({ posts }: { posts: MDXFrontMatter[] }) => {
     <Fragment>
       <DefaultSeo nofollow={true} noindex={true} title="mufradmabni" />
       <SectionHeader />
-      <Container maxW="md" >
+      <Container maxW="md">
         <SectionWelcome />
         {/* <SectionDevelop /> */}
         <SectionBlog posts={posts}/>

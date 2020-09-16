@@ -43,7 +43,6 @@ const Posts = ({ post }: PostsProps) => {
               >
                 {post.title}
               </Text>
-              <Text as="span" display="flex">
                 <Text
                     as="span"
                     display={{ xs: "block", lg: "none" }}
@@ -56,7 +55,6 @@ const Posts = ({ post }: PostsProps) => {
                 <Stack direction="row" py={2}>
                     <Tags interactive={true} tags={post.tags} />
                 </Stack>
-              </Text>
               <Text
                 className="description"
                 fontSize={{ xs: 13, lg: 16 }}

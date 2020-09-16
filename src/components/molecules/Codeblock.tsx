@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
-import { Box, Button, ButtonProps, useClipboard } from "@chakra-ui/core";
+import nightOwlLight from "prism-react-renderer/themes/nightOwlLight";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+import {
+  Box,
+  Button,
+  ButtonProps,
+  useClipboard,
+  useColorModeValue,
+  Text,
+} from "@chakra-ui/core";
 import { MdContentCopy, MdContentPaste } from "react-icons/md";
 
 const CopyButton = (props: ButtonProps) => (
@@ -16,76 +23,104 @@ const CopyButton = (props: ButtonProps) => (
     top={5.5}
     zIndex="1"
     display="none"
-    bg="#3b3b3b"
-    _hover={{ bg: "#4f4f4f" }}
+    bg={useColorModeValue("#f6f8fa", "#27292e")}
+    border={useColorModeValue("1px solid #dadce0", "1px solid rgb(39, 41, 46)")}
+    _hover={{ bg: useColorModeValue("#f4f4f4", "#1d1f1f") }}
     _focus={{ outline: "none" }}
+    css={{ ":hover": { ".text-copy": { display: "flex" } } }}
     {...props}
   />
 );
-const Pre = styled.pre`
-  text-align: left;
-  margin: 1em 0;
-  padding: 0.5em;
-  overflow: auto;
-  border-radius: 6px;
-  background-color: #111216 !important;
-  border: 1px solid rgb(55, 56, 59);
-  &:hover .copy {
-    display: flex;
-  }
-`;
 
-const Line = styled.div`
-  display: table-row;
-`;
-
-const LineNo = styled.span`
-  display: table-cell;
-  text-align: right;
-  padding-right: 1em;
-  user-select: none;
-  opacity: 0.5;
-  border-right: 1px solid rgb(55, 56, 59);
-  padding-left: 10px;
-`;
-
-const LineContent = styled.span`
-  padding-left: 10px;
-  display: table-cell;
-  margin-left: 10px;
-`;
-
-const WithLineNumbers = (props: any) => {
+const Codeblock = (props: any) => {
   const { className, render, children, ...rest } = props;
   const [editorCode] = useState(children.trim());
   const language = className && className.replace(/language-/, "");
   const { hasCopied, onCopy } = useClipboard(editorCode);
+  const theme = useColorModeValue(nightOwlLight, nightOwl);
   const customProps = {
     theme,
     language,
     code: editorCode,
     ...rest,
   };
+  const Border = useColorModeValue(
+    "1px solid #dadce0",
+    "1px solid rgb(39, 41, 46)"
+  );
   if (language !== "bash" && language !== undefined) {
     return (
       <Highlight {...defaultProps} {...customProps}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Box position="relative">
-            <Pre className={className} style={style}>
+            <Box
+              as="pre"
+              m="1em 0"
+              p="0.5em"
+              overflow="auto"
+              borderRadius="6px"
+              bg="transparent!important"
+              border={Border}
+              className={className}
+              style={style}
+              maxH={['320px','736px']}
+              css={{
+                ":hover": {
+                  ".copy": {
+                    display: "flex",
+                  },
+                },
+                "::-webkit-scrollbar": {
+                  width: "5px",
+                  height: "7px",
+                  backgroundColor: 'transparent!important'
+                },
+                "::-webkit-scrollbar-thumb": {
+                  backgroundColor: "darkgrey",
+                  borderRadius: "6px",
+                },
+              }}
+            >
               {tokens.map((line, i) => (
-                <Line key={i} {...getLineProps({ line, key: i })}>
-                  <LineNo>{i + 1}</LineNo>
-                  <LineContent>
+                <Box
+                  display="table-row"
+                  key={i}
+                  {...getLineProps({ line, key: i })}
+                >
+                  <Text
+                    as="span"
+                    display="table-cell"
+                    paddingRight="1em"
+                    paddingLeft="0.5em"
+                    userSelect="none"
+                    opacity="0.6"
+                    borderRight={Border}
+                  >
+                    {i + 1}
+                  </Text>
+                  <Text as="span" pl="0.5em" display="table-cell" ml="0.5em">
                     {line.map((token, key) => (
                       <span key={key} {...getTokenProps({ token, key })} />
                     ))}
-                  </LineContent>
-                </Line>
+                  </Text>
+                </Box>
               ))}
               <CopyButton onClick={onCopy} className="copy">
-                {hasCopied ? <MdContentPaste /> : <MdContentCopy />}
+                {hasCopied ? (
+                  <Text as="span" display="flex">
+                    <MdContentPaste />
+                    <Text ml="0.5em">Berhasil Di copy</Text>
+                  </Text>
+                ) : (
+                  <Text as="span" display="flex">
+                    <MdContentCopy />
+                    <Text ml="0.5em" display="none" className="text-copy">
+                      Copy
+                    </Text>
+                  </Text>
+                )}
               </CopyButton>
-            </Pre>
+            </Box>
           </Box>
         )}
       </Highlight>
@@ -95,24 +130,57 @@ const WithLineNumbers = (props: any) => {
     <Highlight {...defaultProps} {...customProps}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Box position="relative">
-          <Pre className={className} style={style}>
+          <Box
+            as="pre"
+            m="1em 0"
+            p="0.5em"
+            overflow="auto"
+            borderRadius="6px"
+            bg="transparent!important"
+            border={Border}
+            className={className}
+            style={style}
+            css={{
+              ":hover": {
+                ".copy": {
+                  display: "flex",
+                },
+              },
+            }}
+          >
             {tokens.map((line, i) => (
-              <Line key={i} {...getLineProps({ line, key: i })}>
-                <LineContent>
+              <Box
+                display="table-row"
+                key={i}
+                {...getLineProps({ line, key: i })}
+              >
+                <Text as="span" pl="0.5em" display="table-cell" ml="0.5em">
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}
-                </LineContent>
-              </Line>
+                </Text>
+              </Box>
             ))}
             <CopyButton onClick={onCopy} className="copy">
-              {hasCopied ? <MdContentPaste /> : <MdContentCopy />}
+              {hasCopied ? (
+                <Text as="span" display="flex">
+                  <MdContentPaste />
+                  <Text ml="0.5em">Berhasil Di copy</Text>
+                </Text>
+              ) : (
+                <Text as="span" display="flex">
+                  <MdContentCopy />
+                  <Text ml="0.5em" display="none" className="text-copy">
+                    Copy
+                  </Text>
+                </Text>
+              )}
             </CopyButton>
-          </Pre>
+          </Box>
         </Box>
       )}
     </Highlight>
   );
 };
 
-export default WithLineNumbers;
+export default Codeblock;
