@@ -8,7 +8,6 @@ export default createGlobalStyle`
         font-family: 'Montserrat', sans-serif !important;
         transition: background 0.5s, color 0.6s;
     }
-
     .selected {
         color: #2e7ad1 !important;
         font-weight: 700 !important;

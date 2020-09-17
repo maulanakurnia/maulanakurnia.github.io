@@ -13,7 +13,7 @@ function PageHeader({ title, simple }: Partial<Props>) {
     );
   }
   return (
-    <Heading as="h1" fontSize={[25, 30]} mb={[5, 10]} pt={"70px"}>
+    <Heading as="h1" fontSize={[23, 25]} mb={[5, 10]} pt={"70px"}>
       {title}
     </Heading>
   );

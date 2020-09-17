@@ -107,7 +107,6 @@ export const Note: React.FC<NoteProps> = ({
   icon,
   titleProps = {},
   children,
-  ...props
 }) => {
   const { colorMode } = useColorMode();
   const { defaultIcon, accent, bg, color } = styles[status];
@@ -124,7 +123,7 @@ export const Note: React.FC<NoteProps> = ({
       flexWrap="wrap"
       flexDirection={!!title ? "column" : "row"}
       alignItems={!!title ? "flex-start" : "center"}
-      {...props}
+      my="1em"
     >
       {(Icon || !!title) && (
         <HeaderWrapper wrap={!!title} mb={2} alignItems="center">

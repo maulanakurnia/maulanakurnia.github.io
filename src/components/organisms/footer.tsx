@@ -9,7 +9,7 @@ export const Footer = () => (
       as="footer"
       h="50px"
       position="relative"
-      mt="3.5em"
+      mt="2em"
       pb="3em"
       textAlign="center"
     >

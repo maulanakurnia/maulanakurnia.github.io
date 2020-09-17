@@ -1,14 +1,13 @@
 {
     "title": "mufradmabni",
-    "titleTemplate": "%s | mufradmabni",
-    "description": "Web developer, open-sourcerer, writer.",
+    "description": "Web developer",
     "additionalMetaTags": [{
             "property": "author",
             "content": "Maulana Kurnia"
         },
         {
             "property": "keywords",
-            "content": "bio,homepage,engineer,developer,freelance,remote,typescript,node.js,node,react,open-source,open source,privacy,security,cryptography,e2ee,end-to-end encryption,end to end encryption,surveillance,web,blog,writer,writing"
+            "content": "bio,website,maulanaakurniaa,mufradmabni,linux,open source"
         }
     ],
     "twitter": {

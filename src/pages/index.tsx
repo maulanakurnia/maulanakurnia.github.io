@@ -7,14 +7,14 @@ import {
   SectionProject,
   SectionWelcome,
 } from "molecules/HomePage";
-import { DefaultSeo } from "next-seo";
+import { NextSeo } from "next-seo";
 import blogPosts from "utils/mdxUtils";
 import { GetStaticProps } from "next";
 import { MDXFrontMatter } from "*.mdx";
 const IndexPage = ({ posts }: { posts: MDXFrontMatter[] }) => {
   return (
     <Fragment>
-      <DefaultSeo nofollow={true} noindex={true} title="mufradmabni" />
+      <NextSeo title="mufradmabni" />
       <SectionHeader />
       <Container maxW="md">
         <SectionWelcome />

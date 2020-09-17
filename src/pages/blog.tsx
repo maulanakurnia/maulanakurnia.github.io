@@ -50,6 +50,10 @@ export default function Blog({
     }
     return p;
   }, [posts, tag, search]);
+  const Border = useColorModeValue(
+    "1px solid #dadce0",
+    "1px solid rgb(39, 41, 46)"
+  );
 
   return (
     <>
@@ -62,90 +66,92 @@ export default function Blog({
       />
       <Container maxW="lg">
         <PageHeader title="Blog" />
-          <Box>
-            <InputGroup mb={2}>
-              <InputLeftElement
-                children={<FiSearch />}
-                color={
-                  search.length > 0
-                    ? useColorModeValue("gray.600", "gray.400")
-                    : useColorModeValue("gray.400", "gray.600")
-                }
-                w="3rem"
-                zIndex={99}
-              />
-              <Input
-                onChange={(e: any) => setSearch(e.target.value)}
-                placeholder="Cari Artikel"
-                value={search}
-              />
-              {search.length >= 1 && (
-                <InputRightElement
-                  children={
-                    <CloseButton
-                      onClick={() => setSearch("")}
-                      rounded="full"
-                      size="sm"
-                    />
-                  }
-                />
-              )}
-            </InputGroup>
-            {tag && (
-              <Stack
-                alignItems="center"
-                bg={useColorModeValue("blue.50", "gray.800")}
-                borderColor={useColorModeValue("blue.200", "blue.800")}
-                borderWidth="1px"
-                color={useColorModeValue("blue.900", "blue.300")}
-                fontSize="sm"
-                isInline
-                justifyContent="space-between"
-                p={2}
-                pl={3}
-                rounded="md"
-                mb="10px"
-                spacing={3}
-              >
-                <Flex alignItems="center">
-                  <Text marginRight="10px">
-                    <FiTag color={useColorModeValue("blue.600", "blue.400")} />
-                  </Text>
-                  <Text fontSize={{ xs: "10px", sm: "12px", md: "14px" }}>
-                    Menampilan artikel dengan tag
-                  </Text>
-                  <Tag
-                    colorScheme="blue"
-                    interactive={false}
-                    ml={2}
-                    name={tag}
-                    size="xs"
+        <Box>
+          <InputGroup mb={2}>
+            <InputLeftElement
+              children={<FiSearch />}
+              color={
+                search.length > 0
+                  ? useColorModeValue("gray.600", "gray.400")
+                  : useColorModeValue("gray.400", "gray.600")
+              }
+              w="3rem"
+              zIndex={99}
+            />
+            <Input
+              onChange={(e: any) => setSearch(e.target.value)}
+              placeholder="Cari Artikel"
+              value={search}
+              bg="transparent"
+              border={Border}
+            />
+            {search.length >= 1 && (
+              <InputRightElement
+                children={
+                  <CloseButton
+                    onClick={() => setSearch("")}
+                    rounded="full"
+                    size="sm"
                   />
-                </Flex>
-                <CloseButton
-                  aria-label="Clear"
-                  onClick={() => setTag(null)}
-                  rounded="full"
-                  size="sm"
+                }
+              />
+            )}
+          </InputGroup>
+          {tag && (
+            <Stack
+              alignItems="center"
+              bg={useColorModeValue("blue.50", "gray.800")}
+              borderColor={useColorModeValue("blue.200", "blue.800")}
+              borderWidth="1px"
+              color={useColorModeValue("blue.900", "blue.300")}
+              fontSize="sm"
+              isInline
+              justifyContent="space-between"
+              p={2}
+              pl={3}
+              rounded="md"
+              mb="10px"
+              spacing={3}
+            >
+              <Flex alignItems="center">
+                <Text marginRight="10px">
+                  <FiTag color={useColorModeValue("blue.600", "blue.400")} />
+                </Text>
+                <Text fontSize={{ xs: "10px", sm: "12px", md: "14px" }}>
+                  Menampilan artikel dengan tag
+                </Text>
+                <Tag
+                  colorScheme="blue"
+                  interactive={false}
+                  ml={2}
+                  name={tag}
+                  size="xs"
                 />
-              </Stack>
-            )}
-          </Box>
-          <Box border={bg} borderRadius={6} py={{ xs: 2, lg: 10 }} w="full">
-            {filteredPosts.map((post, index) => (
-              <Posts key={index} post={post} />
-            ))}
-            {filteredPosts.length === 0 && (
-              <Text
-                color={useColorModeValue("gray.600", "gray.500")}
-                fontSize="sm"
-                my={12}
-                textAlign="center"
-              >
-                Artikel tidak ditemukan
-              </Text>
-            )}
-          </Box>
+              </Flex>
+              <CloseButton
+                aria-label="Clear"
+                onClick={() => setTag(null)}
+                rounded="full"
+                size="sm"
+              />
+            </Stack>
+          )}
+        </Box>
+        <Box border={bg} borderRadius={6} py={{ xs: 2, lg: 10 }} w="full">
+          {filteredPosts.map((post, index) => (
+            <Posts key={index} post={post} />
+          ))}
+          {filteredPosts.length === 0 && (
+            <Text
+              color={useColorModeValue("gray.600", "gray.500")}
+              fontSize="sm"
+              my={12}
+              textAlign="center"
+            >
+              Artikel tidak ditemukan
+            </Text>
+          )}
+        </Box>
       </Container>
     </>
   );

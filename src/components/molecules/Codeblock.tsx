@@ -98,7 +98,7 @@ const Codeblock = (props: any) => {
                   >
                     {i + 1}
                   </Text>
-                  <Text as="span" pl="0.5em" display="table-cell" ml="0.5em">
+                  <Text as="span" pl="0.5em" display="table-cell">
                     {line.map((token, key) => (
                       <span key={key} {...getTokenProps({ token, key })} />
                     ))}

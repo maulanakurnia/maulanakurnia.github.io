@@ -96,11 +96,11 @@ export const components = {
   table: Table,
   th: THead,
   td: TData,
-  mark: (props: any) => <Box as="mark" px="0.6em" bg="rgba(255, 200, 0, 0.15)" color="inherit" {...props}/>,
+  mark: (props: any) => <Box as="mark" px="0.1em" bg="rgba(255, 200, 0, 0.15)" color="inherit" {...props}/>,
   a: Link,
   p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props: any) => <chakra.ul p="0 1.5em"  apply="mdx.ul" {...props} />,
-  ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,
+  ol: (props: any) => <chakra.ol apply="mdx.ul" p="0 1.5em" {...props} />,
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
     <chakra.div apply="mdx.blockquote" as="blockquote" bg="rgba(255,200,0,0.15)" border="1px solid rgba(255,200,0,0.15)" {...props} />
