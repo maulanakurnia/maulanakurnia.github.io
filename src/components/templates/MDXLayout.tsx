@@ -47,7 +47,7 @@ export default function Layout({
           ],
         }}
       />
-      <Container maxW="md">
+      <Container maxW="md" borderBottomWidth="1px" pb="5em">
         <PageHeader title={widont(title)} />
         {!isRoot && (
           <Flex justifyContent="space-between" mt="-20px">

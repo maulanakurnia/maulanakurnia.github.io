@@ -9,14 +9,18 @@ tags:
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis purus posuere, scelerisque ipsum eu, ullamcorper eros. Suspendisse potenti. Vivamus a congue odio. Sed id tortor non lorem mattis semper ut non nisi. Aliquam massa orci, mattis nec placerat et, malesuada vel orci. Maecenas eget erat ligula. Cras tempor quam at metus elementum eleifend. In ut tortor eget sapien faucibus lacinia. Nam rutrum congue eros, sed fringilla mauris convallis sit amet. Sed sollicitudin eleifend diam, blandit aliquet libero commodo eu. Duis fringilla diam non mattis semper. Cras in leo finibus, pretium diam non, tempor justo.
 contoh marking tulisan <mark>yeeayy aku dimark</mark>
+
 ### Example Code
 
 ```js:src/index.jsx
-import React from "react"; import { Box, Icon, Text, Link, Grid, Container } from "@chakra-ui/core"; import { MdEmail } from "react-icons/md"; import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import React from "react";
+import { Box, Icon, Text, Link, Grid, Container } from "@chakra-ui/core";
+import { MdEmail } from "react-icons/md";
+import { FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 
 type FooterLinkProps = {
-  icon?: React.ElementType;
-  href?: string;
+  icon?: React.ElementType,
+  href?: string,
 };
 
 const FooterLink: React.FC<FooterLinkProps> = ({ icon, href }) => (
@@ -99,7 +103,8 @@ yay -Syu
 
 disini saya akan menuliskan kata `~/.zshrc`
 
-## Note
+## BlockQuote
+
 > saya adalah Note
 > kamu tau ini adalah Note
 > coba lorem lah
@@ -111,3 +116,11 @@ disini saya akan menuliskan kata `~/.zshrc`
   src="2020/hockney-scrabble.jpg"
   alt="example-image"
 />
+
+### Note
+
+<Note title="CleanShot Feature Request" status="info">
+    If anyone from CleanShot reads this post, a feature to use the clipboard
+    image as a source for the "Pin to the Screen" menu action would save an
+    extra step here.
+</Note>

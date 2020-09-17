@@ -6,7 +6,6 @@ import {
   Box,
   useColorModeValue,
   Container,
-  Grid,
   Input,
   InputGroup,
   InputLeftElement,
@@ -61,7 +60,7 @@ export default function Blog({
           title: "Articles by Maulana Kurnia",
         }}
       />
-      <Container maxW="xl">
+      <Container maxW="lg">
         <PageHeader title="Blog" />
           <Box>
             <InputGroup mb={2}>
@@ -162,7 +161,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { posts },
   };
 };
-
-function ExampleTags(tags) {
-  console.log("dari example tags:", tags);
-}

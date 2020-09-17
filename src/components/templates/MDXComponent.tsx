@@ -4,6 +4,8 @@ import CodeBlock from "molecules/Codeblock";
 import { MDXProvider } from "@mdx-js/react";
 import React, { ReactElement, ReactNode } from "react";
 import {BsLink45Deg} from 'react-icons/bs'
+import Link from "atoms/Link";
+import { Note, NoteProps } from "molecules/Note";
 interface MDXComponentProps {
   children: ReactNode;
 }
@@ -95,13 +97,25 @@ export const components = {
   th: THead,
   td: TData,
   mark: (props: any) => <Box as="mark" px="0.6em" bg="rgba(255, 200, 0, 0.15)" color="inherit" {...props}/>,
-  a: (props: any) => <chakra.a apply="mdx.a" color="#2e7ad1" {...props} />,
+  a: Link,
   p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
-  ul: (props: any) => <chakra.ul apply="mdx.ul" {...props} />,
+  ul: (props: any) => <chakra.ul p="0 1.5em"  apply="mdx.ul" {...props} />,
   ol: (props: any) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
     <chakra.div apply="mdx.blockquote" as="blockquote" bg="rgba(255,200,0,0.15)" border="1px solid rgba(255,200,0,0.15)" {...props} />
+  ),
+  Note: (props: NoteProps) => (
+    <Note
+      mx={[-4, 0]}
+      rounded={['none', 'sm']}
+      css={{
+        '& p:last-child': {
+          marginBottom: 0
+        }
+      }}
+      {...props}
+    />
   ),
 };
 

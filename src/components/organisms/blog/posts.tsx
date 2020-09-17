@@ -1,4 +1,4 @@
-import { Box, Text, Stack } from "@chakra-ui/core";
+import { Box, Text } from "@chakra-ui/core";
 import NextLink from "next/link";
 import { MDXFrontMatter } from "*.mdx";
 import formatDate from "utils/formatDate";
@@ -25,36 +25,34 @@ const Posts = ({ post }: PostsProps) => {
         </Box>
         <Box
           w="400%"
-          css={{
-            ":hover": {
-              ".heading": {
-                color: "#2e7ad1",
-              },
-            },
-          }}
+          //   css={{
+          //     ":hover": {
+          //       ".heading": {
+          //         color: "#2e7ad1",
+          //       },
+          //     },
+          //   }}
         >
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
             <Text _hover={{ cursor: "pointer" }} as="span">
+              <Tags interactive={true} tags={post.tags} mt="9px"/>
               <Text
                 _hover={{ color: "#2e7ad1" }}
-                className="heading"
+                // className="heading"
                 fontSize={{ xs: 16, lg: 24 }}
-                fontWeight="600"
+                fontWeight="700"
               >
                 {post.title}
               </Text>
-                <Text
-                    as="span"
-                    display={{ xs: "block", lg: "none" }}
-                    fontSize={12}
-                    my="auto"
-                    mr="5px"
-                >
-                    {date}
-                </Text>
-                <Stack direction="row" py={2}>
-                    <Tags interactive={true} tags={post.tags} />
-                </Stack>
+              <Text
+                as="span"
+                display={{ xs: "block", lg: "none" }}
+                fontSize={12}
+                my="auto"
+                mr="5px"
+              >
+                {date}
+              </Text>
               <Text
                 className="description"
                 fontSize={{ xs: 13, lg: 16 }}
