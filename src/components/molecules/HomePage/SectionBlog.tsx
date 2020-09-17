@@ -9,6 +9,7 @@ import {
 import formatDate from "utils/formatDate";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Tags } from "molecules/Tags";
 export const MotionBox = motion.custom(Box);
 export const SectionBlog = ({ posts }) => {
   const Border = `1px solid ${useColorModeValue("#E2E8F0", "rgb(39,41,46)")}`;
@@ -41,7 +42,10 @@ export const SectionBlog = ({ posts }) => {
             <Heading className="title" size="md">
               {post.title}
             </Heading>
-            <Text fontSize="15px">{formatDate(post.date)}</Text>
+            <Flex mt="2px">
+                <Text fontSize="13px" color="grey">{formatDate(post.date)}</Text>
+                <Tags interactive={true} tags={post.tags} ml="1em" mt="1px"/>
+            </Flex>
             <Text mt="10px">{post.description}</Text>
           </MotionBox>
         </Link>
