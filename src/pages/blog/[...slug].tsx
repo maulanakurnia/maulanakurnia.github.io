@@ -1,73 +1,26 @@
-import { MDXFile, MDXFrontMatter } from "*.mdx";
+import { MDXFile } from "*.mdx";
 import allBlogPosts from "utils/mdxUtils";
 import { generateOgImages } from "utils/ogImage";
 import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
-import dynamic from "next/dynamic";
-import { ComponentType } from "react";
-
-// Plugins
 import slug from "rehype-slug";
 import readingTime from "reading-time";
 import titleCode from "remark-code-titles";
 import MDXLayout from "templates/MDXLayout";
 import { components as defaultComponents } from "templates/MDXComponent";
-
-// OpaqueComponentType is basically a generic that will be used for dynamically
-// importing components in MDX files.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type OpaqueComponentType = ComponentType<any>;
-
-interface ComponentMap {
-  [key: string]: {
-    regex: RegExp;
-    component: OpaqueComponentType;
-  };
-}
-
-/**
- * Takes a Markdown/MDX string and returns an object of custom/imported
- * components found.
- *
- * When adding new components to a post/MDX page, `componentsMap` needs to be
- * updated.
- */
-function buildComponentMap(source: string) {
-  // Define the components that should be made optionally available in MDX
-  const availableComponents: ComponentMap = {
-    Codepen: {
-      regex: /<Codepen/,
-      component: dynamic(() => import("react-codepen-embed")),
-    },
-  };
-
-  // Search the passed string for component instances and include them if
-  // necessary
-  const map: { [key: string]: OpaqueComponentType } = {};
-  for (const prop in availableComponents) {
-    const currentComponent = availableComponents[prop];
-    const matches = currentComponent.regex.test(source);
-    if (matches) {
-      map[prop] = currentComponent.component;
-    }
-  }
-
-  return map;
-}
-
-interface PostPageProps {
-  source: string;
-  frontMatter: MDXFrontMatter;
-  extraComponents: string[];
-  readingTime: string;
-}
+import { Box, Container, Text, useColorModeValue } from "@chakra-ui/core";
+import Link from "next/link";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import buildComponentMap from "utils/buildComponentMap";
+import { PostPageProps } from "types/postPageProps";
 
 export default function PostPage({
   source,
   frontMatter,
   extraComponents,
-  readingTime
+  readingTime,
+  recentPosts,
 }: PostPageProps) {
   const components = {
     ...defaultComponents,
@@ -75,7 +28,87 @@ export default function PostPage({
   };
 
   const content = hydrate(source, { components });
-  return <MDXLayout frontMatter={frontMatter} readingTime={readingTime}>{content}</MDXLayout>;
+  const Border = useColorModeValue(
+    "1px solid #dadce0",
+    "1px solid rgb(39, 41, 46)"
+  );
+  return (
+    <>
+      <Container
+        maxW="xl"
+        display={["block", "flex"]}
+        justifyContent="space-between"
+        borderBottom={Border}
+        pb="1em"
+      >
+        <MDXLayout frontMatter={frontMatter} readingTime={readingTime}>
+          {content}
+        </MDXLayout>
+        <Box
+          position={['static','sticky']}
+          top="3em"
+          height="25%"
+          mt="5em"
+          pl={['0','5em']}
+          minW={['100%','30%']}
+        >
+          <Box
+            border={Border}
+            px="15px"
+            py="10px"
+            borderRadius="6px"
+            minW="100%"
+            mb="1em"
+          >
+            <Text fontWeight="700" mb="0.5em" pb="0.5em">
+              Daftar Isi
+            </Text>
+            <Box>
+              <Text ml="1em">SOON</Text>
+            </Box>
+          </Box>
+          <Box
+            border={Border}
+            px="15px"
+            py="10px"
+            borderRadius="6px"
+            minW="100%"
+          >
+            <Text fontWeight="700" mb="0.5em" pb="0.4em">
+              Artikel Terbaru
+            </Text>
+            {recentPosts.map((p, index) => (
+              <Box key={index}>
+                <Link href={p.slug}>
+                  <Text
+                    as="span"
+                    _hover={{ color: "blue.500", cursor: "pointer" }}
+                    display="block"
+                  >
+                    {p.title}
+                  </Text>
+                </Link>
+              </Box>
+            ))}
+            <Link href="/blog">
+              <Text
+                _hover={{ color: "blue.500", cursor: "pointer" }}
+                justifyContent="flex-end"
+                display="flex"
+                mt="1em"
+                pt="0.2em"
+              >
+                Selengakapnya
+                <Text mt="0.35em">
+                  <MdKeyboardArrowRight />
+                </Text>
+              </Text>
+            </Link>
+          </Box>
+        </Box>
+      </Container>
+    </>
+  );
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -102,12 +135,20 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     scope: frontMatter,
   });
 
+  const recentPosts = Array.from(allBlogPosts.values())
+    .map((post) => post.frontMatter)
+    .sort((a, b) => {
+      return Number(new Date(b.date || "")) - Number(new Date(a.date || ""));
+    })
+    .slice(0, 3);
+
   return {
     props: {
       source: mdxSource,
       frontMatter,
       readingTime: readingTime(content).text,
       extraComponents: Object.keys(extraComponents),
+      recentPosts,
     },
   };
 };
