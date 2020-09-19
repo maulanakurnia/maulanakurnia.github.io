@@ -1,8 +1,8 @@
 import React from "react";
 import { IconButton, Link } from "@chakra-ui/core";
-import { TypeIconLink } from "types/iconLinkProps";
+import { IconLinkProps } from "types/iconLinkProps";
 
-export const IconLink: React.FC<TypeIconLink> = ({ icon, href }) => (
+export const IconLink: React.FC<IconLinkProps> = ({ icon, href }) => (
   <Link display="inline-block" mx="5px" href={href} isExternal>
     <IconButton
       aria-label="social icon"

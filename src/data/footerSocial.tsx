@@ -1,6 +1,6 @@
 import { FiTwitter, FiGithub, FiInstagram, FiMail } from "react-icons/fi";
-import {TypeFooterSocial} from "types/footerSocialProps";
-export const footerSocial: TypeFooterSocial[] = [
+import {FooterSocialProps} from "types/footerSocialProps";
+export const footerSocial: FooterSocialProps[] = [
   {
     icon: <FiGithub />,
     url: "https://github.com/maulanakurnia",

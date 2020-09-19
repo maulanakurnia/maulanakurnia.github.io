@@ -1,10 +1,10 @@
 import * as React from "react";
-import { TypeMyGame } from "types/gameProps";
-import { TypeProject } from "types/projecPropst";
+import { GameProps } from "types/gameProps";
+import { ProjectProps } from "types/projecPropst";
 
 interface ContentContextValue {
-  myGame?: TypeMyGame[];
-  myProject?: TypeProject[];
+  myGame?: GameProps[];
+  myProject?: ProjectProps[];
 }
 
 const ContentContext = React.createContext<ContentContextValue>({

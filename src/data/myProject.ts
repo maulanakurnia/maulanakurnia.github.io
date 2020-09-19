@@ -1,6 +1,6 @@
-import { TypeProject } from "types/projecPropst";
+import { ProjectProps } from "types/projecPropst";
 
-export const projects: TypeProject[] = [
+export const projects: ProjectProps[] = [
   {
     title: "Coffe Shop Desktop",
     cover:

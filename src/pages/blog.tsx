@@ -121,7 +121,6 @@ export default function Blog({
                   Menampilan artikel dengan tag
                 </Text>
                 <Tag
-                  interactive={false}
                   ml={2}
                   name={tag}
                   size="xs"

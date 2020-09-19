@@ -1,4 +1,4 @@
-import { TypeMyGame } from "types/gameProps";
+import { GameProps } from "types/gameProps";
 import {
   DiJavascript1,
   DiPhp,
@@ -6,7 +6,7 @@ import {
   DiGit,
 } from "react-icons/di";
 import { SiArchlinux } from "react-icons/si";
-export const myGame: TypeMyGame[] = [
+export const myGame: GameProps[] = [
   {
     title: "Linux Icon",
     icon: <SiArchlinux />,

@@ -17,7 +17,7 @@ const Aside = ({ posts }: PostsProps) => {
       <Box border={bg} borderRadius={6} mt={{ xs: 5, md: 0 }} p={5}>
         <Text fontWeight="600">Tags</Text>
         <Stack direction="row" py={2}>
-          <Tags interactive={true} tags={posts.tags} />
+          <Tags tags={posts.tags} />
         </Stack>
       </Box>
       <Box border={bg} borderRadius={6} mt={{ xs: 5, lg: 4 }} p={5}>
