@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
-
-export interface TypeFooterSocial {
+export type IconLinkProps = {
   icon: ReactElement;
-  url: string;
-}
+  href: string;
+};

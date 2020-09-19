@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-export interface TypeMyGame {
+export interface GameProps {
   title: string;
   icon: ReactElement;
   color: string;

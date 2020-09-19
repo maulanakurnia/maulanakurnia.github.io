@@ -4,11 +4,21 @@ import formatDate from "utils/formatDate";
 import { ReactNode } from "react";
 import siteConfig from "config/siteconfig.json";
 import MDXComponent from "./MDXComponent";
-import { Text, Container, Flex, Link, Box, Image } from "@chakra-ui/core";
+import {
+  Text,
+  Container,
+  Flex,
+  Link,
+  Box,
+  Image,
+  useColorModeValue,
+} from "@chakra-ui/core";
 import { PageHeader } from "atoms/index";
 import { FiClock, FiCalendar } from "react-icons/fi";
 import { NextSeo } from "next-seo";
-import { HiOutlinePencilAlt } from "react-icons/hi";
+import { SectionLicenses } from "molecules/PostsPage/SectionLicenses";
+import { SectionDaftarIsi } from "molecules/PostsPage/SectionDaftarIsi";
+
 type LayoutProps = {
   frontMatter?: MDXFrontMatter;
   children: ReactNode;
@@ -28,6 +38,10 @@ export default function Layout({
   const description = frontMatter?.description;
   const ogSlug = frontMatter?.ogSlug;
   const editUrl = `https://github.com/maulanakurnia/personalwebsite/edit/master/blog/${frontMatter.slug}.mdx`;
+  const Border = useColorModeValue(
+    "1px solid #dadce0",
+    "1px solid rgb(39, 41, 46)"
+  );
   return (
     <MDXComponent>
       <NextSeo
@@ -48,11 +62,10 @@ export default function Layout({
           ],
         }}
       />
-      {/* <Container maxW="lg" pb="5em"> */}
       <Box>
         <PageHeader title={widont(title)} />
         {!isRoot && (
-          <Flex justifyContent="space-between" mt="-20px">
+          <Flex justifyContent="space-between" mt={["0", "-20px"]}>
             {date && (
               <Text as="span" display="flex" fontSize="md">
                 <Text as="span" mr="5px" my="auto">
@@ -69,47 +82,18 @@ export default function Layout({
             </Text>
           </Flex>
         )}
+        <SectionDaftarIsi
+          display={["block", "none"]}
+          my="1em"
+          fontSize="16px"
+          borderTopWidth="1px"
+          pb="1em"
+          borderBottomWidth="1px"
+          pt="1em"
+        />
         {children}
-        <Flex mt="5em">
-          <Link
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-          >
-            <Image
-              alt="Lisensi Creative Commons"
-              src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
-            />
-          </Link>
-          <Box fontSize="13px" ml="1em">
-            <Text as="span">This article is licensed under:</Text>
-            <br></br>
-            <Link
-              rel="license"
-              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            >
-              Attribution-NonCommercial-ShareAlike International 4.0 (CC
-              BY-NC-SA 4.0)
-            </Link>
-          </Box>
-          <Box ml="auto" justifyContent="flex-end" my="auto" fontSize="14px">
-            <Link
-              display="flex"
-              href={editUrl}
-              css={{
-                svg: {
-                  marginTop: "0.2em",
-                  marginRight: "0.5em",
-                },
-              }}
-              isExternal
-            >
-              <HiOutlinePencilAlt />
-              Edit on Github
-            </Link>
-          </Box>
-        </Flex>
+        <SectionLicenses editUrl={editUrl} />
       </Box>
-      .{/* </Container> */}
     </MDXComponent>
   );
 }

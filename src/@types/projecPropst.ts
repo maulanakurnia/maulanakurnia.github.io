@@ -1,4 +1,4 @@
-export interface TypeProject {
+export interface ProjectProps {
   title: string;
   cover: string;
   url: string;
