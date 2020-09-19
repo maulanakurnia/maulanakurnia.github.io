@@ -10,12 +10,7 @@ interface ImageProps {
   src: string;
 }
 
-const Image = ({
-  alt,
-  caption,
-  invertInDarkMode = false,
-  src,
-}: ImageProps) => {
+const Image = ({ alt, caption, invertInDarkMode = false, src }: ImageProps) => {
   const isSVG = src.endsWith("svg");
   const extension = src.split(".").slice(-1);
   const imageWidths = [114, 272, 340, 544, 680, 1360];
@@ -71,7 +66,7 @@ const Image = ({
     <Box m="2rem 0">
       {img}
       {caption && (
-        <Box textAlign="center">
+        <Box textAlign="center" fontSize={["14px", "16px"]}>
           <Markdown>{caption}</Markdown>
         </Box>
       )}

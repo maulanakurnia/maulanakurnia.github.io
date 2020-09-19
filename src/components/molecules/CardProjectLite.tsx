@@ -17,7 +17,7 @@ export const Project: React.FC<ProjectProps> = ({
       borderWidth="1px"
       borderRadius="6px"
       display="inline-block"
-      mr="1em"
+      mr={["0", "1em"]}
       mb="1em"
       p={5}
     >

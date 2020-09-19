@@ -54,11 +54,11 @@ export default createGlobalStyle`
         color: black;
     }
     .remark-code-title {
-        font-size: 0.9em;
+        font-size: 13px;
         padding: 0.5em 0.9em;
         font-weight: 600;
         margin-top:25px;
-        margin-bottom: -32px;
+        margin-bottom: -34px;
         border-radius: 6px 6px 0px 0px;
     }
     .remark-code-title + div>div>pre {

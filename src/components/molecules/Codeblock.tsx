@@ -63,7 +63,7 @@ const Codeblock = (props: any) => {
               border={Border}
               className={className}
               style={style}
-              maxH={['320px','736px']}
+              maxH={["320px", "736px"]}
               css={{
                 ":hover": {
                   ".copy": {
@@ -73,7 +73,7 @@ const Codeblock = (props: any) => {
                 "::-webkit-scrollbar": {
                   width: "5px",
                   height: "7px",
-                  backgroundColor: 'transparent!important'
+                  backgroundColor: "transparent!important",
                 },
                 "::-webkit-scrollbar-thumb": {
                   backgroundColor: "darkgrey",
@@ -86,6 +86,7 @@ const Codeblock = (props: any) => {
                   display="table-row"
                   key={i}
                   {...getLineProps({ line, key: i })}
+                  fontSize={["14px", "16px"]}
                 >
                   <Text
                     as="span"
@@ -152,6 +153,7 @@ const Codeblock = (props: any) => {
               <Box
                 display="table-row"
                 key={i}
+                fontSize={["14px", "16px"]}
                 {...getLineProps({ line, key: i })}
               >
                 <Text as="span" pl="0.5em" display="table-cell" ml="0.5em">

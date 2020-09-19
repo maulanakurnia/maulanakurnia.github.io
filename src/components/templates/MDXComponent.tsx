@@ -3,7 +3,7 @@ import Image from "molecules/Image";
 import CodeBlock from "molecules/Codeblock";
 import { MDXProvider } from "@mdx-js/react";
 import React, { ReactElement, ReactNode } from "react";
-import {BsLink45Deg} from 'react-icons/bs'
+import { BsLink45Deg } from "react-icons/bs";
 import Link from "atoms/Link";
 import { Note, NoteProps } from "molecules/Note";
 interface MDXComponentProps {
@@ -65,7 +65,7 @@ const LinkedHeading = (props: any) => (
           _focus={{ opacity: 1, outline: "none" }}
           aria-label="anchor"
           color="#2e7ad170"
-          _hover={{color: '#2e7ad1'}}
+          _hover={{ color: "#2e7ad1" }}
           fontWeight="normal"
           href={`#${props.id}`}
           ml="0.375rem"
@@ -73,7 +73,7 @@ const LinkedHeading = (props: any) => (
           outline="none"
           mt="5px"
         >
-          <BsLink45Deg/>
+          <BsLink45Deg />
         </chakra.a>
       )}
     </chakra.div>
@@ -87,7 +87,15 @@ export const components = {
   h4: (props: any) => <LinkedHeading apply="mdx.h4" as="h4" {...props} />,
   hr: (props: any) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props: any) => <Box as="strong" fontWeight="semibold" {...props} />,
-  inlineCode: (props: any) => <chakra.code apply="mdx.code" bg="transparent" borderWidth="1px" {...props} color="#7eaaff"/>,
+  inlineCode: (props: any) => (
+    <chakra.code
+      apply="mdx.code"
+      bg="transparent"
+      borderWidth="1px"
+      {...props}
+      color="#7eaaff"
+    />
+  ),
   code: CodeBlock,
   Image,
   pre: Pre,
@@ -96,23 +104,40 @@ export const components = {
   table: Table,
   th: THead,
   td: TData,
-  mark: (props: any) => <Box as="mark" px="0.1em" bg="rgba(255, 200, 0, 0.15)" color="inherit" {...props}/>,
+  mark: (props: any) => (
+    <Box
+      as="mark"
+      px="0.1em"
+      bg="rgba(255, 200, 0, 0.15)"
+      color="inherit"
+      {...props}
+    />
+  ),
   a: Link,
-  p: (props: any) => <chakra.p apply="mdx.p" {...props} />,
-  ul: (props: any) => <chakra.ul p="0 1.5em"  apply="mdx.ul" {...props} />,
+  p: (props: any) => (
+    <chakra.p fontSize={["14px", "16px"]} apply="mdx.p" {...props} />
+  ),
+  ul: (props: any) => <chakra.ul p="0 1.5em" apply="mdx.ul" {...props} />,
   ol: (props: any) => <chakra.ol apply="mdx.ul" p="0 1.5em" {...props} />,
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
-    <chakra.div apply="mdx.blockquote" as="blockquote" bg="rgba(255,200,0,0.15)" border="1px solid rgba(255,200,0,0.15)" {...props} />
+    <chakra.div
+      apply="mdx.blockquote"
+      as="blockquote"
+      bg="rgba(255,200,0,0.15)"
+      border="1px solid rgba(255,200,0,0.15)"
+      fontSize={["14px", "16px"]}
+      {...props}
+    />
   ),
   Note: (props: NoteProps) => (
     <Note
       mx={[-4, 0]}
-      rounded={['none', 'sm']}
+      rounded={["none", "sm"]}
       css={{
-        '& p:last-child': {
-          marginBottom: 0
-        }
+        "& p:last-child": {
+          marginBottom: 0,
+        },
       }}
       {...props}
     />
@@ -126,4 +151,3 @@ const MDXComponent = ({
 );
 
 export default MDXComponent;
-

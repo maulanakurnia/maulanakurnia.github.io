@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, { ReactElement } from "react";
 import {
   Alert,
   AlertProps,
@@ -7,7 +7,7 @@ import {
   Flex,
   useColorMode,
   Box,
-  BoxProps
+  BoxProps,
 } from "@chakra-ui/core";
 import {
   FiInfo,
@@ -124,16 +124,12 @@ export const Note: React.FC<NoteProps> = ({
       flexDirection={!!title ? "column" : "row"}
       alignItems={!!title ? "flex-start" : "center"}
       my="1em"
+      fontSize={["14px", "16px"]}
     >
       {(Icon || !!title) && (
         <HeaderWrapper wrap={!!title} mb={2} alignItems="center">
           {Icon && (
-            <Box
-              as={Icon}
-              color={accent[colorMode]}
-              mr={2}
-              flexShrink={0}
-            />
+            <Box as={Icon} color={accent[colorMode]} mr={2} flexShrink={0} />
           )}
           {title && (
             <AlertTitle mr={4} {...titleProps}>
