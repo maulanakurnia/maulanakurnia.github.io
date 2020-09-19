@@ -1,4 +1,4 @@
-import { TypeMyGame } from "types/TypeMyGame";
+import { TypeMyGame } from "types/gameProps";
 import {
   DiJavascript1,
   DiPhp,

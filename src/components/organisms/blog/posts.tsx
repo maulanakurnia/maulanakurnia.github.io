@@ -23,23 +23,13 @@ const Posts = ({ post }: PostsProps) => {
             {date}
           </Text>
         </Box>
-        <Box
-          w="400%"
-          //   css={{
-          //     ":hover": {
-          //       ".heading": {
-          //         color: "#2e7ad1",
-          //       },
-          //     },
-          //   }}
-        >
+        <Box w="400%">
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
             <Text _hover={{ cursor: "pointer" }} as="span">
-              <Tags interactive={true} tags={post.tags} mt="9px"/>
+              <Tags tags={post.tags} mt="9px" />
               <Text
                 _hover={{ color: "#2e7ad1" }}
-                // className="heading"
-                fontSize={{ xs: 16, lg: 24 }}
+                fontSize={{ xs: 16, lg: 20 }}
                 fontWeight="700"
               >
                 {post.title}
@@ -53,13 +43,7 @@ const Posts = ({ post }: PostsProps) => {
               >
                 {date}
               </Text>
-              <Text
-                className="description"
-                fontSize={{ xs: 13, lg: 16 }}
-                textAlign="justify"
-              >
-                {post.description}
-              </Text>
+              <Text fontSize={{ xs: 13, lg: 16 }}>{post.description}</Text>
             </Text>
           </NextLink>
         </Box>

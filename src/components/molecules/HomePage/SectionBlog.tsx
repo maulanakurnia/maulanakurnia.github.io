@@ -22,8 +22,8 @@ export const SectionBlog = ({ posts }) => {
         <Link as={`blog/${post.slug}`} href={`/blog/[...slug]`} key={index}>
           <MotionBox
             // [soon] react dom does not recognize the props
-            whileTap={{y: 0}}
-            whileHover={{y: -4}}
+            whileTap={{ y: 0 }}
+            whileHover={{ y: -4 }}
             padding={5}
             borderRadius="6px"
             mb="15px"
@@ -39,14 +39,18 @@ export const SectionBlog = ({ posts }) => {
               cursor: "pointer",
             }}
           >
-            <Heading className="title" size="md">
+            <Heading className="title" size="md" fontSize={{ xs: 16, lg: 20 }}>
               {post.title}
             </Heading>
             <Flex mt="2px">
-                <Text fontSize="13px" color="grey">{formatDate(post.date)}</Text>
-                <Tags interactive={true} tags={post.tags} ml="1em" mt="1px"/>
+              <Text fontSize="13px" color="grey">
+                {formatDate(post.date)}
+              </Text>
+              <Tags tags={post.tags} ml="1em" mt="1px" />
             </Flex>
-            <Text mt="10px">{post.description}</Text>
+            <Text mt="10px" fontSize={{ xs: 13, lg: 16 }}>
+              {post.description}
+            </Text>
           </MotionBox>
         </Link>
       ))}

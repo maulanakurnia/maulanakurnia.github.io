@@ -1,52 +1,32 @@
 import React from "react";
-import {
-  Flex,
-  FlexProps,
-  ButtonProps,
-  Text
-} from "@chakra-ui/core";
+import { Flex, FlexProps, ButtonProps, Text } from "@chakra-ui/core";
 import NextLink from "next/link";
 import { Badge } from "atoms/Badge";
 export interface TagProps extends ButtonProps {
   name: string;
-  interactive?: boolean;
 }
 
 export const Tag: React.FC<TagProps> = ({
   name,
-  interactive = true,
   ...props
 }) => {
-  if (!interactive) {
-    return (
-      <Text
-        fontSize={{ xs: "10px", sm: "12px", md: "14px" }}
-        fontWeight="700"
-        ml={1}
-      >
-        {name}
-      </Text>
-    );
-  }
 
   return (
-    <NextLink href={`/blog?tags=${name}`}>
-      <Badge {...props} className="tags">
-          {name}
-      </Badge>
-    </NextLink>
+    <Badge {...props} className="tags">
+      <NextLink href={`/blog?tags=${name}`}>
+        <Text as="span">{name}</Text>
+      </NextLink>
+    </Badge>
   );
 };
 
 export interface TagsProps extends FlexProps {
-  interactive?: boolean;
   tags?: string[];
   tagProps?: TagProps;
 }
 
 export const Tags: React.FC<TagsProps> = ({
   tags,
-  interactive = true,
   tagProps = {},
   ...props
 }) => {
@@ -57,7 +37,6 @@ export const Tags: React.FC<TagsProps> = ({
     <Flex alignItems="center" flexWrap="wrap" m="-2px" {...props}>
       {tags.map((tag) => (
         <Tag
-          interactive={interactive}
           key={tag}
           mb={2}
           mr={1}

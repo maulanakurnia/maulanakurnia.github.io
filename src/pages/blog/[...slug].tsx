@@ -7,13 +7,14 @@ import renderToString from "next-mdx-remote/render-to-string";
 import slug from "rehype-slug";
 import readingTime from "reading-time";
 import titleCode from "remark-code-titles";
-import MDXLayout from "templates/MDXLayout";
+import MDXLayout from "templates/PostsLayout";
 import { components as defaultComponents } from "templates/MDXComponent";
 import { Box, Container, Text, useColorModeValue } from "@chakra-ui/core";
-import Link from "next/link";
-import { MdKeyboardArrowRight } from "react-icons/md";
+
 import buildComponentMap from "utils/buildComponentMap";
 import { PostPageProps } from "types/postPageProps";
+import { SectionRecentPosts } from "molecules/PostsPage/SectionRecentPosts";
+import { SectionDaftarIsi } from "molecules/PostsPage/SectionDaftarIsi";
 
 export default function PostPage({
   source,
@@ -45,66 +46,20 @@ export default function PostPage({
           {content}
         </MDXLayout>
         <Box
-          position={['static','sticky']}
+          position={["static", "sticky"]}
           top="3em"
           height="25%"
-          mt="5em"
-          pl={['0','5em']}
-          minW={['100%','30%']}
+          mt={["0", "5em"]}
+          pl={["0", "5em"]}
+          minW={["100%", "30%"]}
         >
-          <Box
-            border={Border}
+          <SectionDaftarIsi
+            display={["none", "block"]}
             px="15px"
             py="10px"
-            borderRadius="6px"
-            minW="100%"
-            mb="1em"
-          >
-            <Text fontWeight="700" mb="0.5em" pb="0.5em">
-              Daftar Isi
-            </Text>
-            <Box>
-              <Text ml="1em">SOON</Text>
-            </Box>
-          </Box>
-          <Box
-            border={Border}
-            px="15px"
-            py="10px"
-            borderRadius="6px"
-            minW="100%"
-          >
-            <Text fontWeight="700" mb="0.5em" pb="0.4em">
-              Artikel Terbaru
-            </Text>
-            {recentPosts.map((p, index) => (
-              <Box key={index}>
-                <Link href={p.slug}>
-                  <Text
-                    as="span"
-                    _hover={{ color: "blue.500", cursor: "pointer" }}
-                    display="block"
-                  >
-                    {p.title}
-                  </Text>
-                </Link>
-              </Box>
-            ))}
-            <Link href="/blog">
-              <Text
-                _hover={{ color: "blue.500", cursor: "pointer" }}
-                justifyContent="flex-end"
-                display="flex"
-                mt="1em"
-                pt="0.2em"
-              >
-                Selengakapnya
-                <Text mt="0.35em">
-                  <MdKeyboardArrowRight />
-                </Text>
-              </Text>
-            </Link>
-          </Box>
+            fontSize="15px"
+          />
+          <SectionRecentPosts recentPosts={recentPosts} pt="1em" />
         </Box>
       </Container>
     </>

@@ -23,7 +23,7 @@ import { useState, useMemo } from "react";
 import { useQueryState } from "next-usequerystate";
 import { FiTag, FiSearch } from "react-icons/fi";
 import { Tags } from "molecules/Tags";
-import Layout from "templates/MDXLayout";
+import Layout from "templates/PostsLayout";
 export default function Blog({
   posts,
 }: {
@@ -121,7 +121,6 @@ export default function Blog({
                   Menampilan artikel dengan tag
                 </Text>
                 <Tag
-                  colorScheme="blue"
                   interactive={false}
                   ml={2}
                   name={tag}

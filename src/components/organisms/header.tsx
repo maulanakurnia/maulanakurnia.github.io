@@ -50,7 +50,7 @@ const Header = () => {
       zIndex={999}
       bg={useColorModeValue("rgba(255,255,255,0.95)", "rgba(17, 18, 22,0.95)")}
     >
-      <Container maxW="xl">
+      <Container maxW="xl" px={{xs: '0', md: '1em'}}>
         <Box // Header Content
           display="flex"
           flexDirection={["column", "row"]}
