@@ -39,7 +39,7 @@ export const SectionBlog = ({ posts }) => {
               cursor: "pointer",
             }}
           >
-            <Heading className="title" size="md" fontSize={{ xs: 16, lg: 20 }}>
+            <Heading className="title" fontSize={{ xs: 16, lg: 20 }}>
               {post.title}
             </Heading>
             <Flex mt="2px">
@@ -48,7 +48,7 @@ export const SectionBlog = ({ posts }) => {
               </Text>
               <Tags tags={post.tags} ml="1em" mt="1px" />
             </Flex>
-            <Text mt="10px" fontSize={{ xs: 13, lg: 16 }}>
+            <Text mt="10px" fontSize={{ xs: 13, lg: 14 }}>
               {post.description}
             </Text>
           </MotionBox>

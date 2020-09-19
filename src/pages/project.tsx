@@ -28,12 +28,12 @@ export default function Project() {
       <Container maxW="xl">
         <PageHeader title="Project" />
         <Box border={bg} borderRadius={6} p={10} w="full">
-          {myProject.map(({ title, cover, url, ...rest }, index) => (
+          {myProject.map(({ title, cover, source, ...rest }, index) => (
             <CardProject
               cover={cover}
               key={index}
               title={title}
-              url={url}
+              url={source}
               {...rest}
             />
           ))}
