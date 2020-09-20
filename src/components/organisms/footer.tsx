@@ -1,4 +1,3 @@
-
 import { Box, Link, Container, Flex, Text } from "@chakra-ui/core";
 import { footerSocial } from "data/footerSocial";
 import { IconLink } from "molecules/IconLink";
@@ -8,9 +7,9 @@ export const Footer = () => (
     <Box
       as="footer"
       h="50px"
-      position="relative"
       mt="2em"
       pb="3em"
+      position="relative"
       textAlign="center"
     >
       <Text fontSize="sm">
@@ -25,11 +24,7 @@ export const Footer = () => (
       </Text>
       <Flex justifyContent={["center", ""]} mb="10px" mt={["10px", "0"]}>
         {footerSocial.map((data) => (
-          <IconLink
-            href={data.url}
-            icon={data.icon}
-            key={data.url}
-          />
+          <IconLink href={data.url} icon={data.icon} key={data.url} />
         ))}
       </Flex>
     </Box>

@@ -9,13 +9,13 @@ export const SectionHeader = () => (
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       borderBottomWidth="1px"
-      objectFit="cover"
       css={css`
         background-image: url(/images/bg-min.jpg);
       `}
       display="block"
       h={"calc(30vh)"}
       minHeight={300}
+      objectFit="cover"
       w="100%"
     />
     <Flex justifyContent="center">
@@ -37,7 +37,7 @@ export const SectionHeader = () => (
         Maulana Kurnia
       </Heading>
       <Text as="span" fontSize="13px" fontStyle="italic">
-        IT Student at UPN "Veteran" Yogyakarta
+        IT Student at UPN “Veteran” Yogyakarta
       </Text>
     </Flex>
     <SectionSocial />

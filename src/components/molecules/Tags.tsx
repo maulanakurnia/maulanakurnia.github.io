@@ -6,11 +6,7 @@ export interface TagProps extends ButtonProps {
   name: string;
 }
 
-export const Tag: React.FC<TagProps> = ({
-  name,
-  ...props
-}) => {
-
+export const Tag: React.FC<TagProps> = ({ name, ...props }) => {
   return (
     <Badge {...props} className="tags">
       <NextLink href={`/blog?tags=${name}`}>
@@ -36,13 +32,7 @@ export const Tags: React.FC<TagsProps> = ({
   return (
     <Flex alignItems="center" flexWrap="wrap" m="-2px" {...props}>
       {tags.map((tag) => (
-        <Tag
-          key={tag}
-          mb={2}
-          mr={1}
-          name={tag}
-          {...tagProps}
-        />
+        <Tag key={tag} mb={2} mr={1} name={tag} {...tagProps} />
       ))}
     </Flex>
   );

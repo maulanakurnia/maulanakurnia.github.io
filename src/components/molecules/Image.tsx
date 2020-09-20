@@ -66,7 +66,7 @@ const Image = ({ alt, caption, invertInDarkMode = false, src }: ImageProps) => {
     <Box m="2rem 0">
       {img}
       {caption && (
-        <Box textAlign="center" fontSize={["14px", "16px"]}>
+        <Box fontSize={["14px", "16px"]} textAlign="center">
           <Markdown>{caption}</Markdown>
         </Box>
       )}

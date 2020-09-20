@@ -22,7 +22,7 @@ import { SectionDaftarIsi } from "molecules/PostsPage/SectionDaftarIsi";
 type LayoutProps = {
   frontMatter?: MDXFrontMatter;
   children: ReactNode;
-  readingTime: String;
+  readingTime: string;
 };
 
 export default function Layout({
@@ -45,9 +45,7 @@ export default function Layout({
   return (
     <MDXComponent>
       <NextSeo
-        title={title + " | " + site.title}
         description={description || site.description}
-        twitter={site.twitter}
         openGraph={{
           locale: "en_ID",
           images: [
@@ -61,11 +59,17 @@ export default function Layout({
             },
           ],
         }}
+        title={title + " | " + site.title}
+        twitter={site.twitter}
       />
       <Box>
         <PageHeader title={widont(title)} />
         {!isRoot && (
-          <Flex justifyContent="space-between" mt={["0", "-20px"]}>
+          <Flex
+            fontSize={["14px", "16px"]}
+            justifyContent="space-between"
+            mt={["0", "-20px"]}
+          >
             {date && (
               <Text as="span" display="flex" fontSize="md">
                 <Text as="span" mr="5px" my="auto">
@@ -83,12 +87,12 @@ export default function Layout({
           </Flex>
         )}
         <SectionDaftarIsi
-          display={["block", "none"]}
-          my="1em"
-          fontSize="16px"
-          borderTopWidth="1px"
-          pb="1em"
           borderBottomWidth="1px"
+          borderTopWidth="1px"
+          display={["block!important", "none"]}
+          fontSize="16px"
+          my="1em"
+          pb="1em"
           pt="1em"
         />
         {children}

@@ -36,30 +36,30 @@ export default function PostPage({
   return (
     <>
       <Container
-        maxW="xl"
-        display={["block", "flex"]}
-        justifyContent="space-between"
         borderBottom={Border}
+        display={{ xs: "block", lg: "flex" }}
+        justifyContent="space-between"
+        maxW="xl"
         pb="1em"
       >
         <MDXLayout frontMatter={frontMatter} readingTime={readingTime}>
           {content}
         </MDXLayout>
         <Box
-          position={["static", "sticky"]}
-          top="3em"
           height="25%"
-          mt={["0", "5em"]}
-          pl={["0", "5em"]}
           minW={["100%", "30%"]}
+          mt={{ xs: "0", lg: "5em" }}
+          pl={{ xs: "0", lg: "5em" }}
+          position={{ xs: "static", lg: "sticky" }}
+          top="3em"
         >
           <SectionDaftarIsi
-            display={["none", "block"]}
+            display={{ xs: "none", lg: "block" }}
+            fontSize="15px"
             px="15px"
             py="10px"
-            fontSize="15px"
           />
-          <SectionRecentPosts recentPosts={recentPosts} pt="1em" />
+          <SectionRecentPosts pt="1em" recentPosts={recentPosts} />
         </Box>
       </Container>
     </>

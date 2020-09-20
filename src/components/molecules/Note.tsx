@@ -114,22 +114,22 @@ export const Note: React.FC<NoteProps> = ({
   const Icon = icon || defaultIcon;
   return (
     <Alert
+      alignItems={!!title ? "flex-start" : "center"}
+      bg={bg[colorMode]}
+      borderLeftColor={accent[colorMode]}
+      color={color[colorMode]}
+      flexDirection={!!title ? "column" : "row"}
+      flexWrap="wrap"
+      fontSize={["14px", "16px"]}
+      my="1em"
+      p={4}
       rounded="sm"
       variant="left-accent"
-      p={4}
-      bg={bg[colorMode]}
-      color={color[colorMode]}
-      borderLeftColor={accent[colorMode]}
-      flexWrap="wrap"
-      flexDirection={!!title ? "column" : "row"}
-      alignItems={!!title ? "flex-start" : "center"}
-      my="1em"
-      fontSize={["14px", "16px"]}
     >
       {(Icon || !!title) && (
-        <HeaderWrapper wrap={!!title} mb={2} alignItems="center">
+        <HeaderWrapper alignItems="center" mb={2} wrap={!!title}>
           {Icon && (
-            <Box as={Icon} color={accent[colorMode]} mr={2} flexShrink={0} />
+            <Box as={Icon} color={accent[colorMode]} flexShrink={0} mr={2} />
           )}
           {title && (
             <AlertTitle mr={4} {...titleProps}>

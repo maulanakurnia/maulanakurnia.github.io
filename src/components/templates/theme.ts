@@ -27,7 +27,7 @@ const customTheme = {
         color: mode("#363537", "#929497")(props),
         bg: mode("#FFF", "#0f1117")(props),
         transition: "background 0.5s, color 0.6s",
-        fontSize: '17px',
+        fontSize: "17px",
       },
       header: {
         bg: mode("#FFF", "#0f1117")(props),

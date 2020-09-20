@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { ReactNode } from "react";
-import { Link as ChakraLink } from "@chakra-ui/core"
+import { Link as ChakraLink } from "@chakra-ui/core";
 export interface LinkProps {
   children: ReactNode;
   underline?: boolean;
@@ -9,11 +9,7 @@ export interface LinkProps {
   className?: string;
 }
 
-const Link = ({
-  children,
-  href,
-  as,
-}: LinkProps) => {
+const Link = ({ children, href, as }: LinkProps) => {
   const external =
     href.startsWith("http") ||
     href.startsWith("https") ||
@@ -22,12 +18,12 @@ const Link = ({
   return (
     <>
       {external ? (
-        <ChakraLink href={href} color="rgb(46, 122, 209)" isExternal>
-            {children}
+        <ChakraLink color="rgb(46, 122, 209)" href={href} isExternal>
+          {children}
         </ChakraLink>
       ) : (
         <NextLink as={as} href={href} passHref>
-          <ChakraLink href={href} color="rgb(46, 122, 209)">
+          <ChakraLink color="rgb(46, 122, 209)" href={href}>
             {children}
           </ChakraLink>
         </NextLink>

@@ -1,6 +1,6 @@
 import { Box, Text, BoxProps } from "@chakra-ui/core";
 export const SectionDaftarIsi: React.FC<BoxProps> = ({ ...props }) => (
-  <Box minW="100%" mb="1em" {...props}>
+  <Box mb="1em" minW="100%" {...props}>
     <Text as="span" fontSize={["20px", "15px"]} fontWeight="700" pb="0.5em">
       Daftar Isi
     </Text>

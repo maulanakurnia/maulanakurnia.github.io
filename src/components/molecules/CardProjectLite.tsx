@@ -12,77 +12,77 @@ export const Project: React.FC<ProjectProps> = ({
 }) => {
   return (
     <Box
-      maxW={["100%", "305px"]}
-      minW="351px"
-      borderWidth="1px"
       borderRadius="6px"
+      borderWidth="1px"
       display="inline-block"
-      mr={["0", "1em"]}
+      maxW={["100%", "305px"]}
       mb="1em"
+      minW={["100%", "351px"]}
+      mr={["0", "1em"]}
       p={5}
     >
       <Heading
+        fontSize={{ xs: 16, lg: 20 }}
+        fontWeight="700"
+        mb="0.5em"
         overflow="hidden"
         textOverflow="ellipsis"
         whiteSpace="nowrap"
-        fontWeight="700"
-        fontSize={{ xs: 16, lg: 20 }}
-        mb="0.5em"
       >
         {title}
       </Heading>
       <Box position="relative">
         <Text
-          position="relative"
           fontSize="14px"
-          overflow="hidden"
-          textOverflow="ellipsis"
           maxH="3em"
           minH="3em"
+          overflow="hidden"
+          position="relative"
+          textOverflow="ellipsis"
         >
           {description}
         </Text>
       </Box>
       <Flex
+        fontSize="14px"
+        justifyContent="space-between"
         maxW="100%"
         minH="0"
         pt="1em"
-        fontSize="14px"
-        justifyContent="space-between"
       >
         <Flex>
           <Box
             as="span"
-            position="relative"
-            my="auto"
+            bg={langColor}
+            borderRadius="50%"
+            display="inline-block"
+            h="12px"
             ml="5px"
             mr="0.5em"
-            display="inline-block"
+            my="auto"
+            position="relative"
             w="12px"
-            h="12px"
-            borderRadius="50%"
-            bg={langColor}
           />
-          <Text fontWeight="600" fontSize="12px">
+          <Text fontSize="12px" fontWeight="600">
             {language}
           </Text>
         </Flex>
         <Flex>
           <Link
-            mr="1em"
+            _focus={{ outline: "none" }}
+            _hover={{ color: "#2e7ad1" }}
             href={source}
             isExternal
-            _hover={{ color: "#2e7ad1" }}
-            _focus={{ outline: "none" }}
+            mr="1em"
           >
             source code
           </Link>
           {isDemo && (
             <Link
+              _focus={{ outline: "none" }}
+              _hover={{ color: "#2e7ad1" }}
               href={demo}
               isExternal
-              _hover={{ color: "#2e7ad1" }}
-              _focus={{ outline: "none" }}
             >
               Demo
             </Link>

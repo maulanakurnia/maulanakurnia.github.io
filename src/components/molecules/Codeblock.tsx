@@ -14,6 +14,12 @@ import { MdContentCopy, MdContentPaste } from "react-icons/md";
 
 const CopyButton = (props: ButtonProps) => (
   <Button
+    _focus={{ outline: "none" }}
+    _hover={{ bg: useColorModeValue("#f4f4f4", "#1d1f1f") }}
+    bg={useColorModeValue("#f6f8fa", "#27292e")}
+    border={useColorModeValue("1px solid #dadce0", "1px solid rgb(39, 41, 46)")}
+    css={{ ":hover": { ".text-copy": { display: "flex" } } }}
+    display="none"
     fontSize="13px"
     padding="5px"
     position="absolute"
@@ -22,12 +28,6 @@ const CopyButton = (props: ButtonProps) => (
     textTransform="uppercase"
     top={5.5}
     zIndex="1"
-    display="none"
-    bg={useColorModeValue("#f6f8fa", "#27292e")}
-    border={useColorModeValue("1px solid #dadce0", "1px solid rgb(39, 41, 46)")}
-    _hover={{ bg: useColorModeValue("#f4f4f4", "#1d1f1f") }}
-    _focus={{ outline: "none" }}
-    css={{ ":hover": { ".text-copy": { display: "flex" } } }}
     {...props}
   />
 );
@@ -55,15 +55,10 @@ const Codeblock = (props: any) => {
           <Box position="relative">
             <Box
               as="pre"
-              m="1em 0"
-              p="0.5em"
-              overflow="auto"
-              borderRadius="6px"
               bg="transparent!important"
               border={Border}
+              borderRadius="6px"
               className={className}
-              style={style}
-              maxH={["320px", "736px"]}
               css={{
                 ":hover": {
                   ".copy": {
@@ -80,6 +75,11 @@ const Codeblock = (props: any) => {
                   borderRadius: "6px",
                 },
               }}
+              m="1em 0"
+              maxH={["320px", "736px"]}
+              overflow="auto"
+              p="0.5em"
+              style={style}
             >
               {tokens.map((line, i) => (
                 <Box
@@ -90,23 +90,23 @@ const Codeblock = (props: any) => {
                 >
                   <Text
                     as="span"
-                    display="table-cell"
-                    paddingRight="1em"
-                    paddingLeft="0.5em"
-                    userSelect="none"
-                    opacity="0.6"
                     borderRight={Border}
+                    display="table-cell"
+                    opacity="0.6"
+                    paddingLeft="0.5em"
+                    paddingRight="1em"
+                    userSelect="none"
                   >
                     {i + 1}
                   </Text>
-                  <Text as="span" pl="0.5em" display="table-cell">
+                  <Text as="span" display="table-cell" pl="0.5em">
                     {line.map((token, key) => (
                       <span key={key} {...getTokenProps({ token, key })} />
                     ))}
                   </Text>
                 </Box>
               ))}
-              <CopyButton onClick={onCopy} className="copy">
+              <CopyButton className="copy" onClick={onCopy}>
                 {hasCopied ? (
                   <Text as="span" display="flex">
                     <MdContentPaste />
@@ -115,7 +115,7 @@ const Codeblock = (props: any) => {
                 ) : (
                   <Text as="span" display="flex">
                     <MdContentCopy />
-                    <Text ml="0.5em" display="none" className="text-copy">
+                    <Text className="text-copy" display="none" ml="0.5em">
                       Copy
                     </Text>
                   </Text>
@@ -133,14 +133,10 @@ const Codeblock = (props: any) => {
         <Box position="relative">
           <Box
             as="pre"
-            m="1em 0"
-            p="0.5em"
-            overflow="auto"
-            borderRadius="6px"
             bg="transparent!important"
             border={Border}
+            borderRadius="6px"
             className={className}
-            style={style}
             css={{
               ":hover": {
                 ".copy": {
@@ -148,22 +144,26 @@ const Codeblock = (props: any) => {
                 },
               },
             }}
+            m="1em 0"
+            overflow="auto"
+            p="0.5em"
+            style={style}
           >
             {tokens.map((line, i) => (
               <Box
                 display="table-row"
-                key={i}
                 fontSize={["14px", "16px"]}
+                key={i}
                 {...getLineProps({ line, key: i })}
               >
-                <Text as="span" pl="0.5em" display="table-cell" ml="0.5em">
+                <Text as="span" display="table-cell" ml="0.5em" pl="0.5em">
                   {line.map((token, key) => (
                     <span key={key} {...getTokenProps({ token, key })} />
                   ))}
                 </Text>
               </Box>
             ))}
-            <CopyButton onClick={onCopy} className="copy">
+            <CopyButton className="copy" onClick={onCopy}>
               {hasCopied ? (
                 <Text as="span" display="flex">
                   <MdContentPaste />
@@ -172,7 +172,7 @@ const Codeblock = (props: any) => {
               ) : (
                 <Text as="span" display="flex">
                   <MdContentCopy />
-                  <Text ml="0.5em" display="none" className="text-copy">
+                  <Text className="text-copy" display="none" ml="0.5em">
                     Copy
                   </Text>
                 </Text>

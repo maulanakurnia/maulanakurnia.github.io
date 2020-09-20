@@ -1,10 +1,5 @@
 import { GameProps } from "types/gameProps";
-import {
-  DiJavascript1,
-  DiPhp,
-  DiReact,
-  DiGit,
-} from "react-icons/di";
+import { DiJavascript1, DiPhp, DiReact, DiGit } from "react-icons/di";
 import { SiArchlinux } from "react-icons/si";
 export const myGame: GameProps[] = [
   {

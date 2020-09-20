@@ -4,8 +4,8 @@ declare module "*.mdx" {
     date: string;
     tags?: string[];
     slug?: string;
-    ogSlug?:string;
-    excerpt?:string;
+    ogSlug?: string;
+    excerpt?: string;
     description: string;
   }
 

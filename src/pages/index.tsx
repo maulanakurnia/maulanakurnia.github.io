@@ -19,7 +19,7 @@ const IndexPage = ({ posts }: { posts: MDXFrontMatter[] }) => {
       <Container maxW="md">
         <SectionWelcome />
         {/* <SectionDevelop /> */}
-        <SectionBlog posts={posts}/>
+        <SectionBlog posts={posts} />
         <SectionProject />
       </Container>
     </Fragment>

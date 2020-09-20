@@ -58,20 +58,20 @@ const LinkedHeading = (props: any) => (
     }}
     {...props}
   >
-    <chakra.div pointerEvents="auto" display="flex">
+    <chakra.div display="flex" pointerEvents="auto">
       {props.children}
       {props.id && (
         <chakra.a
           _focus={{ opacity: 1, outline: "none" }}
+          _hover={{ color: "#2e7ad1" }}
           aria-label="anchor"
           color="#2e7ad170"
-          _hover={{ color: "#2e7ad1" }}
           fontWeight="normal"
           href={`#${props.id}`}
           ml="0.375rem"
+          mt="5px"
           opacity={0}
           outline="none"
-          mt="5px"
         >
           <BsLink45Deg />
         </chakra.a>
@@ -107,17 +107,17 @@ export const components = {
   mark: (props: any) => (
     <Box
       as="mark"
-      px="0.1em"
       bg="rgba(255, 200, 0, 0.15)"
       color="inherit"
+      px="0.1em"
       {...props}
     />
   ),
   a: Link,
   p: (props: any) => (
-    <chakra.p fontSize={["14px", "16px"]} apply="mdx.p" {...props} />
+    <chakra.p apply="mdx.p" fontSize={["14px", "16px"]} {...props} />
   ),
-  ul: (props: any) => <chakra.ul p="0 1.5em" apply="mdx.ul" {...props} />,
+  ul: (props: any) => <chakra.ul apply="mdx.ul" p="0 1.5em" {...props} />,
   ol: (props: any) => <chakra.ol apply="mdx.ul" p="0 1.5em" {...props} />,
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
@@ -132,13 +132,13 @@ export const components = {
   ),
   Note: (props: NoteProps) => (
     <Note
-      mx={[-4, 0]}
-      rounded={["none", "sm"]}
       css={{
         "& p:last-child": {
           marginBottom: 0,
         },
       }}
+      mx={[-4, 0]}
+      rounded={["none", "sm"]}
       {...props}
     />
   ),

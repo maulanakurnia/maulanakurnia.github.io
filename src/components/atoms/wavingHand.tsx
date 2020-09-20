@@ -8,13 +8,16 @@ const animation: MotionProps = {
   animate: { rotate: wavingSequence },
 };
 
-const AnimationWave = styled(motion.div)`
+const AnimationWave = styled(motion.span)`
   display: inline-block;
   transform-origin: 70% 70%;
 `;
 
 export const WavingHand: React.FC = () => (
-  <AnimationWave {...animation}>👋</AnimationWave>
+  // eslint-disable-next-line jsx-a11y/accessible-emoji
+  <AnimationWave {...animation} role="img" aria-labelledby="halo">
+    👋
+  </AnimationWave>
 );
 
 WavingHand.displayName = "WavingHand";

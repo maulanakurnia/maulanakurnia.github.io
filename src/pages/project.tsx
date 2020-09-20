@@ -1,10 +1,6 @@
 import { Fragment } from "react";
 import PageHeader from "atoms/pageHeader";
-import {
-  Box,
-  useColorModeValue,
-  Container,
-} from "@chakra-ui/core";
+import { Box, useColorModeValue, Container } from "@chakra-ui/core";
 import { NextSeo } from "next-seo";
 import { useContent } from "context/contentContext";
 import { CardProject } from "molecules/CardProjects";
@@ -19,11 +15,11 @@ export default function Project() {
   return (
     <Fragment>
       <NextSeo
-        title="Project | mufradmabni"
         description="I write about TypeScript, Node.js, React, security and privacy."
         openGraph={{
           title: "Project by Maulana Kurnia",
         }}
+        title="Project | mufradmabni"
       />
       <Container maxW="xl">
         <PageHeader title="Project" />

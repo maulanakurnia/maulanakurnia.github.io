@@ -26,7 +26,7 @@ const Posts = ({ post }: PostsProps) => {
         <Box w="400%">
           <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
             <Text _hover={{ cursor: "pointer" }} as="span">
-              <Tags tags={post.tags} mt="9px" />
+              <Tags mt="9px" tags={post.tags} />
               <Text
                 _hover={{ color: "#2e7ad1" }}
                 fontSize={{ xs: 16, lg: 20 }}
@@ -38,8 +38,8 @@ const Posts = ({ post }: PostsProps) => {
                 as="span"
                 display={{ xs: "block", lg: "none" }}
                 fontSize={12}
-                my="auto"
                 mr="5px"
+                my="auto"
               >
                 {date}
               </Text>

@@ -43,14 +43,14 @@ const Header = () => {
   return (
     <Box // Header
       as="header"
+      bg={useColorModeValue("rgba(255,255,255,0.95)", "rgba(17, 18, 22,0.95)")}
       p={2}
       position="fixed"
       px={5}
       w="100%"
       zIndex={999}
-      bg={useColorModeValue("rgba(255,255,255,0.95)", "rgba(17, 18, 22,0.95)")}
     >
-      <Container maxW="xl" px={{xs: '0', md: '1em'}}>
+      <Container maxW="xl" px={{ xs: "0", md: "1em" }}>
         <Box // Header Content
           display="flex"
           flexDirection={["column", "row"]}
@@ -65,10 +65,10 @@ const Header = () => {
               {/* Brand */}
               <NextLink href="/">
                 <Text
+                  _hover={{ cursor: "pointer" }}
                   as="span"
                   fontSize={15}
                   fontWeight="600"
-                  _hover={{ cursor: "pointer" }}
                 >
                   mufradmabni
                 </Text>
@@ -111,9 +111,9 @@ const Header = () => {
             <Box
               display="flex"
               flexDirection={["column", "row"]}
+              justifyContent="flex-end"
               py={[3, 0]}
               w="full"
-              justifyContent="flex-end"
             >
               <MenuItems to="/">Home</MenuItems>
               <MenuItems to="/blog">Blog</MenuItems>

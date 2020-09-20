@@ -1,5 +1,5 @@
 import { FiTwitter, FiGithub, FiInstagram, FiMail } from "react-icons/fi";
-import {FooterSocialProps} from "types/footerSocialProps";
+import { FooterSocialProps } from "types/footerSocialProps";
 export const footerSocial: FooterSocialProps[] = [
   {
     icon: <FiGithub />,
