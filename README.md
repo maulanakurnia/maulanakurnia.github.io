@@ -1,30 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the source code for my personal website and blog, hosted at <https://maulanakurnia.now.sh>
 
-## Getting Started
+Built with:
 
-First, run the development server:
+- [Next.js](https://nextjs.org/)
+- [Chakra UI](https://chakra-ui.com)
+- [TypeScript](https://www.typescriptlang.org/)
+- [MDX](https://mdxjs.com)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Instalation 
+If you want to run this site locally:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Make sure you have [Yarn](https://yarnpkg.com/en/) installed
+-   `git clone https://github.com/maulanakurnia/personalwebsite.git`
+-   Run `yarn install` to install dependencies
+-   Run `yarn dev` to run this web
+To build for production, run `yarn build`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Inspiration & Thanks
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Lee Robinson](https://leerob.io)
+- [Daniel Eden](https://daneden.me)
+- [François Best](https://francoisbest.com)
