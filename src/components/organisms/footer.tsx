@@ -13,7 +13,14 @@ export const Footer = () => (
       textAlign="center"
     >
       <Text fontSize="sm">
-        This website is open source,<br></br> build with{" "}
+        <Link
+          color="#2e7ad1"
+          href="https://github.com/maulanakurnia/personalwebsite"
+          isExternal
+        >
+          This website
+        </Link>{" "}
+        is open source,<br></br> build with{" "}
         <Link color="#2e7ad1" href="https://nextjs.org/" isExternal>
           Next.js
         </Link>{" "}
