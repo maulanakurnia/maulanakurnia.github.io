@@ -13,7 +13,7 @@ export const SectionRecentPosts: React.FC<recentPostsProps> = ({
   <Box
     borderTopWidth={["1px", "0"]}
     minW="100%"
-    px={["0", "15px"]}
+    px={{xs: 0, lg: '15px'}}
     py="10px"
     {...props}
   >

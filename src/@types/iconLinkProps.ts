@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-export type IconLinkProps = {
+export interface IconLinkProps {
   icon: ReactElement;
   href: string;
-};
+}

@@ -7,9 +7,9 @@ import renderToString from "next-mdx-remote/render-to-string";
 import slug from "rehype-slug";
 import readingTime from "reading-time";
 import titleCode from "remark-code-titles";
-import MDXLayout from "templates/PostsLayout";
+import PostLayout from "templates/PostsLayout";
 import { components as defaultComponents } from "templates/MDXComponent";
-import { Box, Container, Text, useColorModeValue } from "@chakra-ui/core";
+import { Box, Container, useColorModeValue } from "@chakra-ui/core";
 
 import buildComponentMap from "utils/buildComponentMap";
 import { PostPageProps } from "types/postPageProps";
@@ -42,9 +42,9 @@ export default function PostPage({
         maxW="xl"
         pb="1em"
       >
-        <MDXLayout frontMatter={frontMatter} readingTime={readingTime}>
+        <PostLayout frontMatter={frontMatter} readingTime={readingTime}>
           {content}
-        </MDXLayout>
+        </PostLayout>
         <Box
           height="25%"
           minW={["100%", "30%"]}

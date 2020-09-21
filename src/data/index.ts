@@ -1,3 +1,2 @@
-export { myGame } from "./myGame";
-export { projects } from "./myProject";
+export { projects } from "./projects";
 export { footerSocial } from "./footerSocial";

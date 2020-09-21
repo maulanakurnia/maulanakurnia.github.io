@@ -1,5 +1,4 @@
 import { MDXFrontMatter } from "*.mdx";
-import widont from "utils/widont";
 import { createCanvas } from "canvas";
 import { existsSync, promises as fs } from "fs";
 import path from "path";
@@ -58,7 +57,7 @@ export default function ogImage(
   ctx.font = `bold ${displaySize}px Soehne`;
   ctx.textAlign = "left";
 
-  const lines = getLines(ctx, widont(title), textWidth);
+  const lines = getLines(ctx, title, textWidth);
   const textHeight = lines.length * lineHeight;
 
   // Mapping over the lines rather than .join("\n")-ing them allows us

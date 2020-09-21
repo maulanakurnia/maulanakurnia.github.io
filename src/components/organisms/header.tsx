@@ -13,6 +13,7 @@ import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { ActiveLink } from "atoms/index";
 import NextLink from "next/link";
+import header from "data/header";
 
 const MenuItems = ({ children, to }: any) => {
   return (
@@ -50,98 +51,100 @@ const Header = () => {
       w="100%"
       zIndex={999}
     >
-      <Container maxW="xl" px={{ xs: "0", md: "1em" }}>
-        <Box // Header Content
-          display="flex"
-          flexDirection={["column", "row"]}
-          justifyContent="space-between"
-        >
-          <Box // Brand & Button
+      {header.routes.map((data, index) => (
+        <Container maxW="xl" px={{ xs: "0", md: "1em" }} key={index}>
+          <Box // Header Content
             display="flex"
+            flexDirection={["column", "row"]}
             justifyContent="space-between"
-            w={["full", "auto"]}
           >
-            <Box>
-              {/* Brand */}
-              <NextLink href="/">
-                <Text
-                  _hover={{ cursor: "pointer" }}
-                  as="span"
-                  fontSize={15}
-                  fontWeight="600"
-                >
-                  mufradmabni
-                </Text>
-              </NextLink>
-            </Box>
-            <Box display={["flex", "none"]}>
-              {/* Humberger */}
-              <IconButton
-                _focus={{ outline: "none" }}
-                aria-label="toggle mode"
-                className="customIcon"
-                icon={
-                  colorMode === "light" ? (
-                    <FiSun fill="#000" />
-                  ) : (
-                    <FiMoon fill="#fff" />
-                  )
-                }
-                onClick={toggleColorMode}
-                size="xs"
-                variant="ghost"
-              />
-              <Button
-                _focus={{ outline: 0 }}
-                className="customIcon"
-                fontSize={14}
-                onClick={() => setOpen(!open)}
-                size="xs"
-                variant="ghost"
-              >
-                {open ? <RiCloseLine /> : <RiMenuLine />}
-              </Button>
-            </Box>
-          </Box>
-          <Box // Content
-            display={[open ? "flex" : "none", "flex"]}
-            justifyContent="space-between"
-            w="full"
-          >
-            <Box
+            <Box // Brand & Button
               display="flex"
-              flexDirection={["column", "row"]}
-              justifyContent="flex-end"
-              py={[3, 0]}
+              justifyContent="space-between"
+              w={["full", "auto"]}
+            >
+              <Box>
+                {/* Brand */}
+                <NextLink href="/">
+                  <Text
+                    _hover={{ cursor: "pointer" }}
+                    as="span"
+                    fontSize={15}
+                    fontWeight="600"
+                  >
+                    {data.title}
+                  </Text>
+                </NextLink>
+              </Box>
+              <Box display={["flex", "none"]}>
+                {/* Humberger */}
+                <IconButton
+                  _focus={{ outline: "none" }}
+                  aria-label="toggle mode"
+                  className="customIcon"
+                  icon={
+                    colorMode === "light" ? (
+                      <FiSun fill="#000" />
+                    ) : (
+                      <FiMoon fill="#fff" />
+                    )
+                  }
+                  onClick={toggleColorMode}
+                  size="xs"
+                  variant="ghost"
+                />
+                <Button
+                  _focus={{ outline: 0 }}
+                  className="customIcon"
+                  fontSize={14}
+                  onClick={() => setOpen(!open)}
+                  size="xs"
+                  variant="ghost"
+                >
+                  {open ? <RiCloseLine /> : <RiMenuLine />}
+                </Button>
+              </Box>
+            </Box>
+            <Box // Content
+              display={[open ? "flex" : "none", "flex"]}
+              justifyContent="space-between"
               w="full"
             >
-              <MenuItems to="/">Home</MenuItems>
-              <MenuItems to="/blog">Blog</MenuItems>
-              <MenuItems to="/project">Project</MenuItems>
-            </Box>
+              <Box
+                display="flex"
+                flexDirection={["column", "row"]}
+                justifyContent="flex-end"
+                py={[3, 0]}
+                w="full"
+              >
+                {data.routes.map((item, index) => (
+                  <MenuItems to={item.path} key={index}>{item.title}</MenuItems>
+                ))}
+              </Box>
 
-            <Box>
-              {/* Toggle Theme */}
-              <IconButton
-                _focus={{ outline: "none" }}
-                aria-label="toggle mode"
-                className="customIcon"
-                display={["none", "flex"]}
-                icon={
-                  colorMode === "light" ? (
-                    <FiSun fill="#000" />
-                  ) : (
-                    <FiMoon fill="#fff" />
-                  )
-                }
-                onClick={toggleColorMode}
-                size="xs"
-                variant="ghost"
-              />
+              <Box>
+                {/* Toggle Theme */}
+                <IconButton
+                  _focus={{ outline: "none" }}
+                  aria-label="toggle mode"
+                  className="customIcon"
+                  display={["none", "flex"]}
+                  icon={
+                    colorMode === "light" ? (
+                      <FiSun fill="#000" />
+                    ) : (
+                      <FiMoon fill="#fff" />
+                    )
+                  }
+                  onClick={toggleColorMode}
+                  size="xs"
+                  variant="ghost"
+                />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      ))}
     </Box>
   );
 };

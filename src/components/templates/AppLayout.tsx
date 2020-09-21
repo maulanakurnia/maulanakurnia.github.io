@@ -1,9 +1,8 @@
 import Head from "next/head";
-import { myGame, projects } from "data/index";
 import { Header, Footer } from "organisms/index";
 import { ChakraProvider, Box } from "@chakra-ui/core";
 import { GlobalStyle, theme } from "templates/index";
-import { ContentProvider } from "context/contentContext";
+import { BackToTop } from "molecules/BackToTop";
 export function AppLayout({ children }) {
   return (
     <ChakraProvider resetCSS theme={theme}>
@@ -13,14 +12,13 @@ export function AppLayout({ children }) {
           rel="stylesheet"
         ></link>
       </Head>
-      <ContentProvider myGame={myGame} myProject={projects}>
-        <GlobalStyle />
-        <Header />
-        <Box as="main" className="main" minHeight="84vh">
-          {children}
-        </Box>
-        <Footer />
-      </ContentProvider>
+      <GlobalStyle />
+      <Header/>
+      <Box as="main" className="main" minHeight="84vh">
+        {children}
+      </Box>
+      <Footer />
+      <BackToTop/>
     </ChakraProvider>
   );
 }

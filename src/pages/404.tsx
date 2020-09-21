@@ -8,17 +8,26 @@ import {
 } from "@chakra-ui/core";
 import { NextSeo } from "next-seo";
 export default function NotFoundPage() {
+    const color = useColorModeValue("#c40707", "#802b2b");
   return (
     <>
       <NextSeo description="page not found" title="404 | mufradmabni" />
-      <Container color={useColorModeValue("#c40707", "#802b2b")}>
-        <Box my="auto" pt={"70px"} textAlign="center">
-          <Heading fontSize={[25, 30]} mb={[2, 5]}>
-            404 NOT FOUND
-          </Heading>
-          <Text>You just hit a route that doesn`t exist... the sadness.</Text>
-        </Box>
-      </Container>
+      <Box
+        textAlign="center"
+        position="absolute"
+        top="35%"
+        left="10%"
+        right="10%"
+      >
+        <Text fontSize={[60, 90]} fontWeight="600" mb="-20px" color={color}>
+          404
+        </Text>
+        <Text fontWeight="700" fontSize={[25, 20]} mb="20px" color={color}>
+          Page Not Found
+        </Text>
+        <Text>You just hit a route that doesn`t exist... the sadness.</Text>
+      </Box>
+
     </>
   );
 }

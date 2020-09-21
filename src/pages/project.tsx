@@ -1,17 +1,38 @@
-import { Fragment } from "react";
+import { Fragment, useMemo, useState } from "react";
 import PageHeader from "atoms/pageHeader";
-import { Box, useColorModeValue, Container } from "@chakra-ui/core";
+import {
+  Box,
+  useColorModeValue,
+  Container,
+  InputGroup,
+  InputLeftElement,
+  Input,
+  InputRightElement,
+  CloseButton,
+  Text,
+} from "@chakra-ui/core";
 import { NextSeo } from "next-seo";
-import { useContent } from "context/contentContext";
-import { CardProject } from "molecules/CardProjects";
+import { Project as CardProject } from "molecules/CardProject";
+import { projects } from "data/index";
+import { FiSearch } from "react-icons/fi";
 
 export default function Project() {
-  const { myProject } = useContent();
-  const bg = useColorModeValue(
-    "1px solid #dadce0",
-    "1px solid rgb(39, 41, 46)"
-  );
-
+  const bg = useColorModeValue("#dadce0", "rgb(39, 41, 46)");
+  const [search, setSearch] = useState("");
+  const filteredPosts = useMemo(() => {
+    let p = projects;
+    if (search.length > 0) {
+      p = p.filter(
+        (post) =>
+          post.title.toLowerCase().includes(search.toLowerCase()) ||
+          post.description.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    return p;
+  }, [search]);
+  const Border = useColorModeValue("#dadce0", "rgb(39, 41, 46)");
+  const active = useColorModeValue("gray.600", "gray.400");
+  const notActive = useColorModeValue("gray.400", "gray.600");
   return (
     <Fragment>
       <NextSeo
@@ -21,18 +42,66 @@ export default function Project() {
         }}
         title="Project | mufradmabni"
       />
-      <Container maxW="xl">
+      <Container maxW="lg">
         <PageHeader title="Project" />
-        <Box border={bg} borderRadius={6} p={10} w="full">
-          {myProject.map(({ title, cover, source, ...rest }, index) => (
-            <CardProject
-              cover={cover}
-              key={index}
-              title={title}
-              url={source}
-              {...rest}
+        <InputGroup mb={2}>
+          <InputLeftElement
+            children={<FiSearch />}
+            color={search.length > 0 ? active : notActive}
+            w="3rem"
+            zIndex={99}
+          />
+          <Input
+            bg="transparent"
+            borderColor={Border}
+            onChange={(e: any) => setSearch(e.target.value)}
+            placeholder="Cari Projek"
+            value={search}
+          />
+          {search.length >= 1 && (
+            <InputRightElement
+              children={
+                <CloseButton
+                  onClick={() => setSearch("")}
+                  rounded="full"
+                  size="sm"
+                />
+              }
             />
-          ))}
+          )}
+        </InputGroup>
+        <Box borderColor={bg} borderWidth="1px" borderRadius={6} p={5} w="full">
+          {filteredPosts.map(
+            (
+              {
+                title,
+                source,
+                description,
+                langColor,
+                isDemo,
+                language,
+                ...rest
+              },
+              index
+            ) => (
+              <CardProject
+                description={description}
+                isDemo={isDemo}
+                key={index}
+                langColor={langColor}
+                language={language}
+                source={source}
+                title={title}
+                minW="full"
+                {...rest}
+              />
+            )
+          )}
+          {filteredPosts.length === 0 && (
+            <Text fontSize="sm" my={12} textAlign="center">
+              Projek tidak ditemukan
+            </Text>
+          )}
         </Box>
       </Container>
     </Fragment>

@@ -1,4 +1,11 @@
-import { Box, Flex, Heading, Link, Text } from "@chakra-ui/core";
+import {
+  Box,
+  Flex,
+  Heading,
+  Link,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/core";
 import { ProjectProps } from "types/projecPropst";
 
 export const Project: React.FC<ProjectProps> = ({
@@ -9,17 +16,21 @@ export const Project: React.FC<ProjectProps> = ({
   source,
   isDemo,
   demo,
+  ...rest
 }) => {
+  const bg = useColorModeValue("#dadce0", "rgb(39, 41, 46)");
   return (
     <Box
       borderRadius="6px"
-      borderWidth="1px"
       display="inline-block"
       maxW={["100%", "305px"]}
       mb="1em"
       minW={["100%", "351px"]}
       mr={["0", "1em"]}
       p={5}
+      borderColor={bg}
+      borderWidth="1px"
+      {...rest}
     >
       <Heading
         fontSize={{ xs: 16, lg: 20 }}

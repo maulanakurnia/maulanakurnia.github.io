@@ -1,5 +1,4 @@
 import { MDXFrontMatter } from "*.mdx";
-
 export interface PostPageProps {
   source: string;
   frontMatter: MDXFrontMatter;

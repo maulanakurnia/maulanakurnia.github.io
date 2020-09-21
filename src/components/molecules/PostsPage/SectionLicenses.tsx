@@ -1,4 +1,5 @@
-import { Text, Box, Link, Image } from "@chakra-ui/core";
+import { Text, Box, Link } from "@chakra-ui/core";
+import Image from "molecules/Image";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 
 export const SectionLicenses = ({ editUrl }: any) => (
@@ -18,12 +19,13 @@ export const SectionLicenses = ({ editUrl }: any) => (
       >
         <Image
           alt="Lisensi Creative Commons"
-          mb={["1em", "0"]}
           mx="auto"
-          src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+          src="licenses.png"
+          width="88px"
+          my="0px"
         />
       </Link>
-      <Box fontSize="13px" mb={["1em", "0"]} ml={["0", "1em"]}>
+      <Box fontSize="13px" ml={["0", "1em"]}>
         <Text as="span">This article is licensed under:</Text>
         <br></br>
         <Link

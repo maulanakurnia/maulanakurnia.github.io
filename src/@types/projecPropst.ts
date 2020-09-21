@@ -1,4 +1,6 @@
-export interface ProjectProps {
+import { BoxProps } from "@chakra-ui/core";
+
+export interface ProjectProps extends BoxProps {
   title: string;
   source: string;
   cover?: string;

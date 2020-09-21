@@ -1,18 +1,9 @@
 import { MDXFrontMatter } from "*.mdx";
-import widont from "utils/widont";
 import formatDate from "utils/formatDate";
 import { ReactNode } from "react";
 import siteConfig from "config/siteconfig.json";
 import MDXComponent from "./MDXComponent";
-import {
-  Text,
-  Container,
-  Flex,
-  Link,
-  Box,
-  Image,
-  useColorModeValue,
-} from "@chakra-ui/core";
+import { Text, Flex, Box } from "@chakra-ui/core";
 import { PageHeader } from "atoms/index";
 import { FiClock, FiCalendar } from "react-icons/fi";
 import { NextSeo } from "next-seo";
@@ -38,10 +29,6 @@ export default function Layout({
   const description = frontMatter?.description;
   const ogSlug = frontMatter?.ogSlug;
   const editUrl = `https://github.com/maulanakurnia/personalwebsite/edit/master/blog/${frontMatter.slug}.mdx`;
-  const Border = useColorModeValue(
-    "1px solid #dadce0",
-    "1px solid rgb(39, 41, 46)"
-  );
   return (
     <MDXComponent>
       <NextSeo
@@ -63,7 +50,7 @@ export default function Layout({
         twitter={site.twitter}
       />
       <Box>
-        <PageHeader title={widont(title)} />
+        <PageHeader title={title} />
         {!isRoot && (
           <Flex
             fontSize={["14px", "16px"]}

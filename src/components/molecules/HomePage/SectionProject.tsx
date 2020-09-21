@@ -1,16 +1,15 @@
 import React from "react";
 import { Button, Flex, Text, useColorModeValue } from "@chakra-ui/core";
 import Link from "next/link";
-import { Project } from "molecules/CardProjectLite";
-import { useContent } from "context/contentContext";
+import { Project } from "molecules/CardProject";
+import { projects } from "data/index";
 export const SectionProject = () => {
-  const { myProject } = useContent();
   return (
     <>
       <Text fontSize="20px" fontWeight="700" mb="1.2em" mt={10}>
         Projek
       </Text>
-      {myProject
+      {projects
         .map(
           (
             {

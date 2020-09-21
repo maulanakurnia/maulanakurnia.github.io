@@ -7,14 +7,15 @@ Built with:
 - [TypeScript](https://www.typescriptlang.org/)
 - [MDX](https://mdxjs.com)
 
-## Instalation 
+## Instalation
+
 If you want to run this site locally:
 
--   Make sure you have [Yarn](https://yarnpkg.com/en/) installed
--   `git clone https://github.com/maulanakurnia/personalwebsite.git`
--   Run `yarn install` to install dependencies
--   Run `yarn dev` to run this web
-To build for production, run `yarn build`.
+- Make sure you have [Yarn](https://yarnpkg.com/en/) installed
+- `git clone https://github.com/maulanakurnia/personalwebsite.git`
+- Run `yarn install` to install dependencies
+- Run `yarn dev` to run this web
+  To build for production, run `yarn build`.
 
 ## Inspiration & Thanks
 
