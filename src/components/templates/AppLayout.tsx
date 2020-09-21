@@ -13,12 +13,12 @@ export function AppLayout({ children }) {
         ></link>
       </Head>
       <GlobalStyle />
-      <Header/>
+      <Header />
       <Box as="main" className="main" minHeight="84vh">
         {children}
       </Box>
       <Footer />
-      <BackToTop/>
+      <BackToTop />
     </ChakraProvider>
   );
 }

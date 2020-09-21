@@ -118,7 +118,9 @@ const Header = () => {
                 w="full"
               >
                 {data.routes.map((item, index) => (
-                  <MenuItems to={item.path} key={index}>{item.title}</MenuItems>
+                  <MenuItems to={item.path} key={index}>
+                    {item.title}
+                  </MenuItems>
                 ))}
               </Box>
 

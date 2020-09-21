@@ -13,21 +13,21 @@ export const skill: skillProps[] = [
     title: "Front-End",
     icon: <FiMonitor />,
     item: ["ReactJS", "Javascript", "Typescript", "CSS/SCSS", "HTML"],
-    color: '#fff',
-    background: '#20639B'
+    color: "#fff",
+    background: "#20639B",
   },
   {
     title: "Back-End",
     icon: <FiDatabase />,
     item: ["PHP", "Node.js", "MySQL"],
-    color: '#fff',
-    background: '#AC3B61'
+    color: "#fff",
+    background: "#AC3B61",
   },
   {
     title: "Lainnya",
     icon: <FiShield />,
     item: ["Linux", "Git", "React Native (Basic)"],
-    color: '#fff',
-    background: '#03256C'
+    color: "#fff",
+    background: "#03256C",
   },
 ];

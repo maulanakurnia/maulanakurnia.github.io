@@ -19,7 +19,7 @@ export const BackToTop = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", checkScrollTop);
-  },[]);
+  });
 
   return (
     <IconButton
