@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 import { GetStaticProps } from "next";
-import Posts from "organisms/blog/posts";
 import { PageHeader } from "atoms/index";
 import {
   Box,
@@ -21,6 +20,9 @@ import { useQueryState } from "next-usequerystate";
 import { FiTag, FiSearch } from "react-icons/fi";
 import Layout from "templates/PostsLayout";
 import { Notification } from "atoms/Notification";
+import formatDate from "utils/formatDate";
+import NextLink from "next/link";
+import { Tags } from "molecules/Tags";
 export default function Blog({
   posts,
 }: {
@@ -42,6 +44,7 @@ export default function Blog({
     }
     return p;
   }, [posts, tag, search]);
+
 
   const Border = useColorModeValue("#dadce0", "rgb(39, 41, 46)");
   const active = useColorModeValue("gray.600", "gray.400");
@@ -101,7 +104,47 @@ export default function Blog({
           w="full"
         >
           {filteredPosts.map((post, index) => (
-            <Posts key={index} post={post} />
+            <Box px={{ md: 3 }} py={3} key={index}>
+              <Box
+                borderRadius={6}
+                display="flex"
+                justifyContent="space-between"
+                my="auto"
+                px={5}
+              >
+                <Box display={{ xs: "none", lg: "block" }} mt="5px" w="full">
+                  <Text as="span" fontSize={14}>
+                    {formatDate(post.date)}
+                  </Text>
+                </Box>
+                <Box w="400%">
+                  <NextLink as={`blog/${post.slug}`} href={`/blog/[...slug]`}>
+                    <Text _hover={{ cursor: "pointer" }} as="span">
+                      <Tags mt="9px" tags={post.tags} />
+                      <Text
+                        _hover={{ color: "#2e7ad1" }}
+                        fontSize={{ xs: 16, lg: 20 }}
+                        fontWeight="700"
+                      >
+                        {post.title}
+                      </Text>
+                      <Text
+                        as="span"
+                        display={{ xs: "block", lg: "none" }}
+                        fontSize={12}
+                        mr="5px"
+                        my="auto"
+                      >
+                        {formatDate(post.date)}
+                      </Text>
+                      <Text fontSize={{ xs: 13, lg: 16 }}>
+                        {post.description}
+                      </Text>
+                    </Text>
+                  </NextLink>
+                </Box>
+              </Box>
+            </Box>
           ))}
           {filteredPosts.length === 0 && (
             <Text fontSize="sm" my={12} textAlign="center">
