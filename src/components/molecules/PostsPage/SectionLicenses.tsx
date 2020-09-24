@@ -8,9 +8,9 @@ export const SectionLicenses = ({ editUrl }: any) => (
       Lisensi
     </Text>
     <Box
-      display={{ xs: "block", lg: "flex" }}
+      display={{ xs: "block", md: "flex" }}
       mt="1em"
-      textAlign={{ xs: "center", lg: "start" }}
+      textAlign={{ xs: "center", md: "start" }}
     >
       <Link
         href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -33,8 +33,7 @@ export const SectionLicenses = ({ editUrl }: any) => (
           isExternal
           rel="license"
         >
-          Attribution-NonCommercial-ShareAlike International 4.0 (CC BY-NC-SA
-          4.0)
+          Attribution-NonCommercial-ShareAlike International 4.0
         </Link>
       </Box>
       <Box
@@ -44,7 +43,7 @@ export const SectionLicenses = ({ editUrl }: any) => (
         mt="1em"
         my="auto"
       >
-        <Link display="flex" href={editUrl} isExternal justifyContent="center">
+        <Link display="flex" href={editUrl} isExternal justifyContent="center" mt={{xs: '1em', md:'0'}}>
           <Text as="span" mr="0.5em" mt="0.2em">
             <HiOutlinePencilAlt />
           </Text>
