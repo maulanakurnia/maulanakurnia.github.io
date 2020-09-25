@@ -45,7 +45,6 @@ export default function Blog({
     return p;
   }, [posts, tag, search]);
 
-
   const Border = useColorModeValue("#dadce0", "rgb(39, 41, 46)");
   const active = useColorModeValue("gray.600", "gray.400");
   const notActive = useColorModeValue("gray.400", "gray.600");

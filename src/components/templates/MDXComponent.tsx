@@ -117,8 +117,22 @@ export const components = {
   p: (props: any) => (
     <chakra.p apply="mdx.p" fontSize={["14px", "16px"]} {...props} />
   ),
-  ul: (props: any) => <chakra.ul apply="mdx.ul" p="0 1.5em" fontSize={['14px','16px']} {...props} />,
-  ol: (props: any) => <chakra.ol apply="mdx.ul" p="0 1.5em" fontSize={['14px','16px']} {...props} />,
+  ul: (props: any) => (
+    <chakra.ul
+      apply="mdx.ul"
+      p="0 1.5em"
+      fontSize={["14px", "16px"]}
+      {...props}
+    />
+  ),
+  ol: (props: any) => (
+    <chakra.ol
+      apply="mdx.ul"
+      p="0 1.5em"
+      fontSize={["14px", "16px"]}
+      {...props}
+    />
+  ),
   li: (props: any) => <chakra.li pb="4px" {...props} />,
   blockquote: (props: any) => (
     <chakra.div

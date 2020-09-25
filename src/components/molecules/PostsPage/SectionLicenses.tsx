@@ -43,7 +43,13 @@ export const SectionLicenses = ({ editUrl }: any) => (
         mt="1em"
         my="auto"
       >
-        <Link display="flex" href={editUrl} isExternal justifyContent="center" mt={{xs: '1em', md:'0'}}>
+        <Link
+          display="flex"
+          href={editUrl}
+          isExternal
+          justifyContent="center"
+          mt={{ xs: "1em", md: "0" }}
+        >
           <Text as="span" mr="0.5em" mt="0.2em">
             <HiOutlinePencilAlt />
           </Text>
