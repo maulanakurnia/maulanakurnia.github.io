@@ -76,7 +76,7 @@ export default function Layout({
         <SectionDaftarIsi
           borderBottomWidth="1px"
           borderTopWidth="1px"
-          display={["block!important", "none"]}
+          display={{xs: 'block', lg: 'none'}}
           fontSize="16px"
           my="1em"
           pb="1em"
