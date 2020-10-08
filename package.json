@@ -24,7 +24,7 @@
     "front-matter": "^4.0.2",
     "fs-readdir-recursive": "^1.1.0",
     "gray-matter": "^4.0.2",
-    "next": "9.5.2",
+    "next": "9.5.4",
     "next-mdx-remote": "^1.0.0",
     "next-seo": "^4.7.3",
     "next-sitemap": "^1.2.2",
