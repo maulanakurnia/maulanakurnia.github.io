@@ -1,4 +1,4 @@
-import { NowRequest, NowResponse } from "@now/node";
+import { NowRequest, NowResponse } from "@vercel/node";
 import sharp from "sharp";
 export default async (request: NowRequest, response: NowResponse) => {
   const {
