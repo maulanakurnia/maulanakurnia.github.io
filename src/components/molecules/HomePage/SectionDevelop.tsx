@@ -1,4 +1,4 @@
-import { Text, Box, Flex, useColorModeValue } from "@chakra-ui/core";
+import { Text, Box, Flex, useColorModeValue } from "@chakra-ui/react";
 import { skill } from "data/skills";
 
 export const SectionDevelop = () => {

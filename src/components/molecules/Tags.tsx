@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, FlexProps, ButtonProps, Text } from "@chakra-ui/core";
+import { Flex, FlexProps, ButtonProps, Text } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { Badge } from "atoms/Badge";
 export interface TagProps extends ButtonProps {

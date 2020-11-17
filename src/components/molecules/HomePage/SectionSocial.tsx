@@ -1,4 +1,4 @@
-import { Stack, Button, useColorModeValue } from "@chakra-ui/core";
+import { Stack, Button, useColorModeValue } from "@chakra-ui/react";
 import { FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 
 export const SectionSocial = () => {

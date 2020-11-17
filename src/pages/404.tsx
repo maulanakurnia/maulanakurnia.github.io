@@ -5,7 +5,7 @@ import {
   Container,
   useColorModeValue,
   Box,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 export default function NotFoundPage() {
   const color = useColorModeValue("#c40707", "#802b2b");

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Image as ChakraImage, ImageProps } from "@chakra-ui/core";
+import { Box, Image as ChakraImage, ImageProps } from "@chakra-ui/react";
 import Link from "atoms/Link";
 import ReactMarkdown from "react-markdown";
 interface Props extends ImageProps {

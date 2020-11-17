@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Header, Footer } from "organisms/index";
-import { ChakraProvider, Box } from "@chakra-ui/core";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { GlobalStyle, theme } from "templates/index";
 import { BackToTop } from "molecules/BackToTop";
 export function AppLayout({ children }) {
@@ -12,7 +12,7 @@ export function AppLayout({ children }) {
           rel="stylesheet"
         ></link>
       </Head>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Header />
       <Box as="main" className="main" minHeight="84vh">
         {children}

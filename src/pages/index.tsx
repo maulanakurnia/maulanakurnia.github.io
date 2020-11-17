@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Container } from "@chakra-ui/core";
+import { Container } from "@chakra-ui/react";
 import {
   SectionBlog,
   SectionHeader,

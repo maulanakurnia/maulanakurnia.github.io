@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, Link } from "@chakra-ui/core";
+import { IconButton, Link } from "@chakra-ui/react";
 import { IconLinkProps } from "types/iconLinkProps";
 
 export const IconLink: React.FC<IconLinkProps> = ({ icon, href }) => (

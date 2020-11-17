@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Flex, Text, useColorModeValue } from "@chakra-ui/core";
+import { Button, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import { Project } from "molecules/CardProject";
 import { projects } from "data/index";

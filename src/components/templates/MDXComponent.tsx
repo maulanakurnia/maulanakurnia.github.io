@@ -1,4 +1,4 @@
-import { Box, chakra, Kbd, useColorModeValue, Code } from "@chakra-ui/core";
+import { Box, chakra, Kbd, useColorModeValue, Code } from "@chakra-ui/react";
 import Image from "molecules/Image";
 import CodeBlock from "molecules/Codeblock";
 import { MDXProvider } from "@mdx-js/react";

@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/core";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { SectionSocial } from "./SectionSocial";
 import { css } from "@emotion/core";
 export const SectionHeader = () => (
@@ -9,9 +9,7 @@ export const SectionHeader = () => (
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
       borderBottomWidth="1px"
-      css={css`
-        background-image: url(/images/bg-min.jpg);
-      `}
+      backgroundImage="url(/images/bg-min.jpg)"
       display="block"
       h={"calc(30vh)"}
       minHeight={300}
@@ -23,9 +21,7 @@ export const SectionHeader = () => (
         backgroundSize="200px"
         borderRadius="50%"
         borderWidth="1px"
-        css={css`
-          background-image: url(/images/profile-min.jpg);
-        `}
+        backgroundImage="url(/images/profile-min.jpg)"
         display="flex"
         h={200}
         mt="-100px"

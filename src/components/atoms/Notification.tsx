@@ -4,7 +4,7 @@ import {
   useColorModeValue,
   Flex,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { useQueryState } from "next-usequerystate";
 
 interface NotificationProps {

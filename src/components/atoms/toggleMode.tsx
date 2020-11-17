@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useColorMode, IconButton } from "@chakra-ui/core";
+import { useColorMode, IconButton } from "@chakra-ui/react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export interface State {

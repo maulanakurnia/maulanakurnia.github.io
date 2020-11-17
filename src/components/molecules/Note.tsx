@@ -8,7 +8,7 @@ import {
   useColorMode,
   Box,
   BoxProps,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import {
   FiInfo,
   FiAlertCircle,

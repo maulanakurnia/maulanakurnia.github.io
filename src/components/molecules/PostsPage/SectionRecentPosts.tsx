@@ -1,4 +1,4 @@
-import { Text, Box, BoxProps } from "@chakra-ui/core";
+import { Text, Box, BoxProps } from "@chakra-ui/react";
 import Link from "next/link";
 import { MdKeyboardArrowRight } from "react-icons/md";
 

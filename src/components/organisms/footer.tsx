@@ -1,4 +1,4 @@
-import { Box, Link, Container, Flex, Text } from "@chakra-ui/core";
+import { Box, Link, Container, Flex, Text } from "@chakra-ui/react";
 import { footerSocial } from "data/footerSocial";
 import { IconLink } from "molecules/IconLink";
 

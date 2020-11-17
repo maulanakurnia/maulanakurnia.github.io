@@ -7,36 +7,13 @@ import {
   useColorModeValue,
   Container,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { ActiveLink } from "atoms/index";
 import NextLink from "next/link";
 import header from "data/header";
-
-const MenuItems = ({ children, to }: any) => {
-  return (
-    <ActiveLink href={to}>
-      <Link
-        _hover={{ bg: useColorModeValue("gray.100", "whiteAlpha.100") }}
-        borderRadius={{ xs: "0px", md: "6px" }}
-        borderTopWidth={["1px", "0"]}
-        className="css-xhsysdk"
-        display={["block", "flex"]}
-        fontSize={15}
-        fontWeight="500"
-        my="auto"
-        px={[0, 2]}
-        py={[1, 0]}
-        transition="all 0.2s"
-        userSelect="none"
-      >
-        {children}
-      </Link>
-    </ActiveLink>
-  );
-};
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -118,9 +95,9 @@ const Header = () => {
                 w="full"
               >
                 {data.routes.map((item, index) => (
-                  <MenuItems to={item.path} key={index}>
+                  <ActiveLink href={item.path} key={index}>
                     {item.title}
-                  </MenuItems>
+                  </ActiveLink>
                 ))}
               </Box>
 

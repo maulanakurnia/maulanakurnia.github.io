@@ -1,4 +1,4 @@
-import { Text, Box, Link } from "@chakra-ui/core";
+import { Text, Box, Link } from "@chakra-ui/react";
 import Image from "molecules/Image";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 

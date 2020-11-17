@@ -10,7 +10,7 @@ import {
   InputRightElement,
   CloseButton,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { NextSeo } from "next-seo";
 import { Project as CardProject } from "molecules/CardProject";
 import { projects } from "data/index";

@@ -3,7 +3,7 @@ import formatDate from "utils/formatDate";
 import { ReactNode } from "react";
 import siteConfig from "config/siteconfig.json";
 import MDXComponent from "./MDXComponent";
-import { Text, Flex, Box } from "@chakra-ui/core";
+import { Text, Flex, Box } from "@chakra-ui/react";
 import { PageHeader } from "atoms/index";
 import { FiClock, FiCalendar } from "react-icons/fi";
 import { NextSeo } from "next-seo";

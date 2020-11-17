@@ -5,7 +5,7 @@ import {
   Button,
   Flex,
   useColorModeValue,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import formatDate from "utils/formatDate";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -36,8 +36,8 @@ export const SectionBlog = ({ posts }) => {
             }}
             mb="15px"
             padding={5}
-            whileHover={{ y: -4 }}
-            whileTap={{ y: 0 }}
+            // whileHover={{ y: -4 }}
+            // whileTap={{ y: 0 }}
           >
             <Heading className="title" fontSize={{ xs: 16, lg: 20 }}>
               {post.title}

@@ -9,7 +9,7 @@ import readingTime from "reading-time";
 import titleCode from "remark-code-titles";
 import PostLayout from "templates/PostsLayout";
 import { components as defaultComponents } from "templates/MDXComponent";
-import { Box, Container, useColorModeValue } from "@chakra-ui/core";
+import { Box, Container, useColorModeValue } from "@chakra-ui/react";
 
 import buildComponentMap from "utils/buildComponentMap";
 import { PostPageProps } from "types/postPageProps";

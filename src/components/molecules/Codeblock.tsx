@@ -9,7 +9,7 @@ import {
   useClipboard,
   useColorModeValue,
   Text,
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 import { MdContentCopy, MdContentPaste } from "react-icons/md";
 
 const CopyButton = (props: ButtonProps) => (

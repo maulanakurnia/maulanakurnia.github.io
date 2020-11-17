@@ -1,6 +1,6 @@
 import NextLink from "next/link";
 import { ReactNode } from "react";
-import { Link as ChakraLink } from "@chakra-ui/core";
+import { Link as ChakraLink } from "@chakra-ui/react";
 export interface LinkProps {
   children: ReactNode;
   underline?: boolean;
